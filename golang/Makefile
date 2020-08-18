@@ -1,6 +1,11 @@
-.PHONY: auth
+.PHONY: auth-admin
 auth-admin:
 	protoc --proto_path=../proto --go_out=./auth --micro_out=./auth auth-admin.proto
+
+.PHONY: auth-student
+auth-student:
+	protoc --proto_path=../proto --go_out=./auth --micro_out=./auth auth-student.proto
+
 
 .PHONY: outing
 outing:
