@@ -1,6 +1,6 @@
 .PHONY: auth
-auth:
-	protoc --proto_path=../proto --go_out=./auth --micro_out=./auth auth.proto
+auth-admin:
+	protoc --proto_path=../proto --go_out=./auth --micro_out=./auth auth-admin.proto
 
 .PHONY: outing
 outing:
