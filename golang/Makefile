@@ -6,6 +6,10 @@ auth-admin:
 auth-student:
 	protoc --proto_path=../proto/auth --go_out=./auth --micro_out=./auth auth-student.proto
 
+.PHONY: auth-teacher
+auth-teacher:
+	protoc --proto_path=../proto/auth --go_out=./auth --micro_out=./auth auth-teacher.proto
+
 
 .PHONY: outing
 outing:
