@@ -31,28 +31,28 @@ var _ context.Context
 var _ client.Option
 var _ server.Option
 
-// Client API for Auth service
+// Client API for AuthStudent service
 
-type AuthService interface {
+type AuthStudentService interface {
 	LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, opts ...client.CallOption) (*LoginStudentAuthResponse, error)
 	ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, opts ...client.CallOption) (*ChangeStudentAuthPwResponse, error)
 	GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, opts ...client.CallOption) (*GetStudentUserInformResponse, error)
 }
 
-type authService struct {
+type authStudentService struct {
 	c    client.Client
 	name string
 }
 
-func NewAuthService(name string, c client.Client) AuthService {
-	return &authService{
+func NewAuthStudentService(name string, c client.Client) AuthStudentService {
+	return &authStudentService{
 		c:    c,
 		name: name,
 	}
 }
 
-func (c *authService) LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, opts ...client.CallOption) (*LoginStudentAuthResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.LoginStudentAuth", in)
+func (c *authStudentService) LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, opts ...client.CallOption) (*LoginStudentAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthStudent.LoginStudentAuth", in)
 	out := new(LoginStudentAuthResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -61,8 +61,8 @@ func (c *authService) LoginStudentAuth(ctx context.Context, in *LoginStudentAuth
 	return out, nil
 }
 
-func (c *authService) ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, opts ...client.CallOption) (*ChangeStudentAuthPwResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.ChangeStudentAuthPw", in)
+func (c *authStudentService) ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, opts ...client.CallOption) (*ChangeStudentAuthPwResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthStudent.ChangeStudentAuthPw", in)
 	out := new(ChangeStudentAuthPwResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -71,8 +71,8 @@ func (c *authService) ChangeStudentAuthPw(ctx context.Context, in *ChangeStudent
 	return out, nil
 }
 
-func (c *authService) GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, opts ...client.CallOption) (*GetStudentUserInformResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.GetStudentUserInform", in)
+func (c *authStudentService) GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, opts ...client.CallOption) (*GetStudentUserInformResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthStudent.GetStudentUserInform", in)
 	out := new(GetStudentUserInformResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -81,39 +81,39 @@ func (c *authService) GetStudentUserInform(ctx context.Context, in *GetStudentUs
 	return out, nil
 }
 
-// Server API for Auth service
+// Server API for AuthStudent service
 
-type AuthHandler interface {
+type AuthStudentHandler interface {
 	LoginStudentAuth(context.Context, *LoginStudentAuthRequest, *LoginStudentAuthResponse) error
 	ChangeStudentAuthPw(context.Context, *ChangeStudentAuthPwRequest, *ChangeStudentAuthPwResponse) error
 	GetStudentUserInform(context.Context, *GetStudentUserInformRequest, *GetStudentUserInformResponse) error
 }
 
-func RegisterAuthHandler(s server.Server, hdlr AuthHandler, opts ...server.HandlerOption) error {
-	type auth interface {
+func RegisterAuthStudentHandler(s server.Server, hdlr AuthStudentHandler, opts ...server.HandlerOption) error {
+	type authStudent interface {
 		LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, out *LoginStudentAuthResponse) error
 		ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, out *ChangeStudentAuthPwResponse) error
 		GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, out *GetStudentUserInformResponse) error
 	}
-	type Auth struct {
-		auth
+	type AuthStudent struct {
+		authStudent
 	}
-	h := &authHandler{hdlr}
-	return s.Handle(s.NewHandler(&Auth{h}, opts...))
+	h := &authStudentHandler{hdlr}
+	return s.Handle(s.NewHandler(&AuthStudent{h}, opts...))
 }
 
-type authHandler struct {
-	AuthHandler
+type authStudentHandler struct {
+	AuthStudentHandler
 }
 
-func (h *authHandler) LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, out *LoginStudentAuthResponse) error {
-	return h.AuthHandler.LoginStudentAuth(ctx, in, out)
+func (h *authStudentHandler) LoginStudentAuth(ctx context.Context, in *LoginStudentAuthRequest, out *LoginStudentAuthResponse) error {
+	return h.AuthStudentHandler.LoginStudentAuth(ctx, in, out)
 }
 
-func (h *authHandler) ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, out *ChangeStudentAuthPwResponse) error {
-	return h.AuthHandler.ChangeStudentAuthPw(ctx, in, out)
+func (h *authStudentHandler) ChangeStudentAuthPw(ctx context.Context, in *ChangeStudentAuthPwRequest, out *ChangeStudentAuthPwResponse) error {
+	return h.AuthStudentHandler.ChangeStudentAuthPw(ctx, in, out)
 }
 
-func (h *authHandler) GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, out *GetStudentUserInformResponse) error {
-	return h.AuthHandler.GetStudentUserInform(ctx, in, out)
+func (h *authStudentHandler) GetStudentUserInform(ctx context.Context, in *GetStudentUserInformRequest, out *GetStudentUserInformResponse) error {
+	return h.AuthStudentHandler.GetStudentUserInform(ctx, in, out)
 }

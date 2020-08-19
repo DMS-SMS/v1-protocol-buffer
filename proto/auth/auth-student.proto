@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option go_package = ".;authproto";
 
-service Auth {
+service AuthStudent {
     rpc LoginStudentAuth(LoginStudentAuthRequest) returns (LoginStudentAuthResponse) {}
     rpc ChangeStudentAuthPw(ChangeStudentAuthPwRequest) returns (ChangeStudentAuthPwResponse) {}
     rpc GetStudentUserInform(GetStudentUserInformRequest) returns (GetStudentUserInformResponse) {}
