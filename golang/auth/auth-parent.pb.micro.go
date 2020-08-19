@@ -31,28 +31,28 @@ var _ context.Context
 var _ client.Option
 var _ server.Option
 
-// Client API for Auth service
+// Client API for AuthParent service
 
-type AuthService interface {
+type AuthParentService interface {
 	LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, opts ...client.CallOption) (*LoginParentAuthResponse, error)
 	ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, opts ...client.CallOption) (*ChangeParentAuthPwResponse, error)
 	GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, opts ...client.CallOption) (*GetParentUserInformResponse, error)
 }
 
-type authService struct {
+type authParentService struct {
 	c    client.Client
 	name string
 }
 
-func NewAuthService(name string, c client.Client) AuthService {
-	return &authService{
+func NewAuthParentService(name string, c client.Client) AuthParentService {
+	return &authParentService{
 		c:    c,
 		name: name,
 	}
 }
 
-func (c *authService) LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, opts ...client.CallOption) (*LoginParentAuthResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.LoginParentAuth", in)
+func (c *authParentService) LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, opts ...client.CallOption) (*LoginParentAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthParent.LoginParentAuth", in)
 	out := new(LoginParentAuthResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -61,8 +61,8 @@ func (c *authService) LoginParentAuth(ctx context.Context, in *LoginParentAuthRe
 	return out, nil
 }
 
-func (c *authService) ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, opts ...client.CallOption) (*ChangeParentAuthPwResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.ChangeParentAuthPw", in)
+func (c *authParentService) ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, opts ...client.CallOption) (*ChangeParentAuthPwResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthParent.ChangeParentAuthPw", in)
 	out := new(ChangeParentAuthPwResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -71,8 +71,8 @@ func (c *authService) ChangeParentAuthPw(ctx context.Context, in *ChangeParentAu
 	return out, nil
 }
 
-func (c *authService) GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, opts ...client.CallOption) (*GetParentUserInformResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.GetParentUserInform", in)
+func (c *authParentService) GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, opts ...client.CallOption) (*GetParentUserInformResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthParent.GetParentUserInform", in)
 	out := new(GetParentUserInformResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -81,39 +81,39 @@ func (c *authService) GetParentUserInform(ctx context.Context, in *GetParentUser
 	return out, nil
 }
 
-// Server API for Auth service
+// Server API for AuthParent service
 
-type AuthHandler interface {
+type AuthParentHandler interface {
 	LoginParentAuth(context.Context, *LoginParentAuthRequest, *LoginParentAuthResponse) error
 	ChangeParentAuthPw(context.Context, *ChangeParentAuthPwRequest, *ChangeParentAuthPwResponse) error
 	GetParentUserInform(context.Context, *GetParentUserInformRequest, *GetParentUserInformResponse) error
 }
 
-func RegisterAuthHandler(s server.Server, hdlr AuthHandler, opts ...server.HandlerOption) error {
-	type auth interface {
+func RegisterAuthParentHandler(s server.Server, hdlr AuthParentHandler, opts ...server.HandlerOption) error {
+	type authParent interface {
 		LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, out *LoginParentAuthResponse) error
 		ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, out *ChangeParentAuthPwResponse) error
 		GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, out *GetParentUserInformResponse) error
 	}
-	type Auth struct {
-		auth
+	type AuthParent struct {
+		authParent
 	}
-	h := &authHandler{hdlr}
-	return s.Handle(s.NewHandler(&Auth{h}, opts...))
+	h := &authParentHandler{hdlr}
+	return s.Handle(s.NewHandler(&AuthParent{h}, opts...))
 }
 
-type authHandler struct {
-	AuthHandler
+type authParentHandler struct {
+	AuthParentHandler
 }
 
-func (h *authHandler) LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, out *LoginParentAuthResponse) error {
-	return h.AuthHandler.LoginParentAuth(ctx, in, out)
+func (h *authParentHandler) LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, out *LoginParentAuthResponse) error {
+	return h.AuthParentHandler.LoginParentAuth(ctx, in, out)
 }
 
-func (h *authHandler) ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, out *ChangeParentAuthPwResponse) error {
-	return h.AuthHandler.ChangeParentAuthPw(ctx, in, out)
+func (h *authParentHandler) ChangeParentAuthPw(ctx context.Context, in *ChangeParentAuthPwRequest, out *ChangeParentAuthPwResponse) error {
+	return h.AuthParentHandler.ChangeParentAuthPw(ctx, in, out)
 }
 
-func (h *authHandler) GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, out *GetParentUserInformResponse) error {
-	return h.AuthHandler.GetParentUserInform(ctx, in, out)
+func (h *authParentHandler) GetParentUserInform(ctx context.Context, in *GetParentUserInformRequest, out *GetParentUserInformResponse) error {
+	return h.AuthParentHandler.GetParentUserInform(ctx, in, out)
 }

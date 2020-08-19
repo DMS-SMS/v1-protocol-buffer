@@ -31,28 +31,28 @@ var _ context.Context
 var _ client.Option
 var _ server.Option
 
-// Client API for Auth service
+// Client API for AuthAdmin service
 
-type AuthService interface {
+type AuthAdminService interface {
 	CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, opts ...client.CallOption) (*CreateStudentAuthResponse, error)
 	CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, opts ...client.CallOption) (*CreateTeacherAuthResponse, error)
 	CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, opts ...client.CallOption) (*CreateParentAuthResponse, error)
 }
 
-type authService struct {
+type authAdminService struct {
 	c    client.Client
 	name string
 }
 
-func NewAuthService(name string, c client.Client) AuthService {
-	return &authService{
+func NewAuthAdminService(name string, c client.Client) AuthAdminService {
+	return &authAdminService{
 		c:    c,
 		name: name,
 	}
 }
 
-func (c *authService) CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, opts ...client.CallOption) (*CreateStudentAuthResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.CreateStudentAuth", in)
+func (c *authAdminService) CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, opts ...client.CallOption) (*CreateStudentAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthAdmin.CreateStudentAuth", in)
 	out := new(CreateStudentAuthResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -61,8 +61,8 @@ func (c *authService) CreateStudentAuth(ctx context.Context, in *CreateStudentAu
 	return out, nil
 }
 
-func (c *authService) CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, opts ...client.CallOption) (*CreateTeacherAuthResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.CreateTeacherAuth", in)
+func (c *authAdminService) CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, opts ...client.CallOption) (*CreateTeacherAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthAdmin.CreateTeacherAuth", in)
 	out := new(CreateTeacherAuthResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -71,8 +71,8 @@ func (c *authService) CreateTeacherAuth(ctx context.Context, in *CreateTeacherAu
 	return out, nil
 }
 
-func (c *authService) CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, opts ...client.CallOption) (*CreateParentAuthResponse, error) {
-	req := c.c.NewRequest(c.name, "Auth.CreateParentAuth", in)
+func (c *authAdminService) CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, opts ...client.CallOption) (*CreateParentAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthAdmin.CreateParentAuth", in)
 	out := new(CreateParentAuthResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -81,39 +81,39 @@ func (c *authService) CreateParentAuth(ctx context.Context, in *CreateParentAuth
 	return out, nil
 }
 
-// Server API for Auth service
+// Server API for AuthAdmin service
 
-type AuthHandler interface {
+type AuthAdminHandler interface {
 	CreateStudentAuth(context.Context, *CreateStudentAuthRequest, *CreateStudentAuthResponse) error
 	CreateTeacherAuth(context.Context, *CreateTeacherAuthRequest, *CreateTeacherAuthResponse) error
 	CreateParentAuth(context.Context, *CreateParentAuthRequest, *CreateParentAuthResponse) error
 }
 
-func RegisterAuthHandler(s server.Server, hdlr AuthHandler, opts ...server.HandlerOption) error {
-	type auth interface {
+func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...server.HandlerOption) error {
+	type authAdmin interface {
 		CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, out *CreateStudentAuthResponse) error
 		CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, out *CreateTeacherAuthResponse) error
 		CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, out *CreateParentAuthResponse) error
 	}
-	type Auth struct {
-		auth
+	type AuthAdmin struct {
+		authAdmin
 	}
-	h := &authHandler{hdlr}
-	return s.Handle(s.NewHandler(&Auth{h}, opts...))
+	h := &authAdminHandler{hdlr}
+	return s.Handle(s.NewHandler(&AuthAdmin{h}, opts...))
 }
 
-type authHandler struct {
-	AuthHandler
+type authAdminHandler struct {
+	AuthAdminHandler
 }
 
-func (h *authHandler) CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, out *CreateStudentAuthResponse) error {
-	return h.AuthHandler.CreateStudentAuth(ctx, in, out)
+func (h *authAdminHandler) CreateStudentAuth(ctx context.Context, in *CreateStudentAuthRequest, out *CreateStudentAuthResponse) error {
+	return h.AuthAdminHandler.CreateStudentAuth(ctx, in, out)
 }
 
-func (h *authHandler) CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, out *CreateTeacherAuthResponse) error {
-	return h.AuthHandler.CreateTeacherAuth(ctx, in, out)
+func (h *authAdminHandler) CreateTeacherAuth(ctx context.Context, in *CreateTeacherAuthRequest, out *CreateTeacherAuthResponse) error {
+	return h.AuthAdminHandler.CreateTeacherAuth(ctx, in, out)
 }
 
-func (h *authHandler) CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, out *CreateParentAuthResponse) error {
-	return h.AuthHandler.CreateParentAuth(ctx, in, out)
+func (h *authAdminHandler) CreateParentAuth(ctx context.Context, in *CreateParentAuthRequest, out *CreateParentAuthResponse) error {
+	return h.AuthAdminHandler.CreateParentAuth(ctx, in, out)
 }
