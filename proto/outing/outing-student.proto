@@ -3,6 +3,7 @@ syntax = "proto3";
 service OutingStudent {
     rpc CreateOuting(OutingStudentRequest) returns (OutingStudentResponse) {}
     rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse) {}
+    rpc GetOutingInform(GetOutingInformRequest) returns (GetOutingInformResponse) {}
 }
 
 message OutingStudentRequest {
@@ -46,3 +47,22 @@ message Outing {
     string situation = 6;
     string status = 7;
 }
+
+message GetOutingInformRequest {
+    string uuid = 1;
+    string oid = 2;
+}
+
+message GetOutingInformResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+    string place = 4;
+    string reason = 5;
+    string date = 6;
+    int64 start_time = 7;
+    int64 end_time = 8;
+    string o_situation = 9;
+    string o_status = 10;
+}
+
