@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+
+service OutingTeacher {
+    rpc GetOutingWithFilter(GetOutingWithFilterRequest) returns (GetOutingWithFilterResponse) {}
+    rpc GetOutingStudentWithSN(GetOutingStudentWithSNRequest) returns (GetOutingStudentWithSNResponse) {}
+    rpc GetOutingStudentWithFloor(GetOutingStudentWithFloorRequest) returns (GetOutingStudentWithFloorReponse) {}
+    rpc ApproveOuting(ApproveOutingRequest) returns (ApproveOutingResponse) {}
+    rpc RejectOuting(RejectOutingRequest) returns (RejectOutingResponse) {}
+    rpc CertifyOuting(CertifyOutingRequest) returns (CertifyOutingResponse) {}
+}
+
+message GetOutingWithFilterRequest {
+
+}
+
+message GetOutingWithFilterResponse {
+
+}
+
+message GetOutingStudentWithSNRequest {
+
+}
+
+message GetOutingStudentWithSNResponse {
+
+}
+
+message GetOutingStudentWithFloorRequest {
+
+}
+
+message GetOutingStudentWithFloorReponse {
+
+}
+
+message ApproveOutingRequest {
+
+}
+
+message ApproveOutingResponse {
+
+}
+
+message RejectOutingRequest {
+
+}
+
+message RejectOutingResponse {
+
+}
+
+message CertifyOutingRequest {
+
+}
+
+message CertifyOutingResponse {
+    
+}
