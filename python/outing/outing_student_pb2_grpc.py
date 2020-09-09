@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import outing_student_pb2 as outing__student__pb2
+import proto.python.outing.outing_student_pb2 as outing__student__pb2
 
 
 class OutingStudentStub(object):
