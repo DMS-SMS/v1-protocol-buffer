@@ -1,13 +1,13 @@
 syntax = "proto3";
 
 service OutingStudent {
-    rpc CreateOuting(OutingStudentRequest) returns (OutingStudentResponse) {}
+    rpc CreateOuting(CreateOutingRequest) returns (CreateOutingResponse) {}
     rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse) {}
     rpc GetOutingInform(GetOutingInformRequest) returns (GetOutingInformResponse) {}
     rpc GetCardAboutOuting(GetCardAboutOutingRequest) returns (GetCardAboutOutingResponse) {}
 }
 
-message OutingStudentRequest {
+message CreateOutingRequest {
     string uuid = 1;
     string date = 2;
     int64 start_time = 3;
@@ -17,7 +17,7 @@ message OutingStudentRequest {
     string situation = 7;
 }
 
-message OutingStudentResponse {
+message CreateOutingResponse {
     int32 status = 1;
     int32 code = 2;
     string msg = 3;
