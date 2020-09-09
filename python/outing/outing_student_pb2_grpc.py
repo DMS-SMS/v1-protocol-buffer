@@ -16,8 +16,8 @@ class OutingStudentStub(object):
         """
         self.CreateOuting = channel.unary_unary(
                 '/OutingStudent/CreateOuting',
-                request_serializer=outing__student__pb2.OutingStudentRequest.SerializeToString,
-                response_deserializer=outing__student__pb2.OutingStudentResponse.FromString,
+                request_serializer=outing__student__pb2.CreateOutingRequest.SerializeToString,
+                response_deserializer=outing__student__pb2.CreateOutingResponse.FromString,
                 )
         self.GetStudentOutings = channel.unary_unary(
                 '/OutingStudent/GetStudentOutings',
@@ -68,8 +68,8 @@ def add_OutingStudentServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateOuting': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateOuting,
-                    request_deserializer=outing__student__pb2.OutingStudentRequest.FromString,
-                    response_serializer=outing__student__pb2.OutingStudentResponse.SerializeToString,
+                    request_deserializer=outing__student__pb2.CreateOutingRequest.FromString,
+                    response_serializer=outing__student__pb2.CreateOutingResponse.SerializeToString,
             ),
             'GetStudentOutings': grpc.unary_unary_rpc_method_handler(
                     servicer.GetStudentOutings,
@@ -108,8 +108,8 @@ class OutingStudent(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/OutingStudent/CreateOuting',
-            outing__student__pb2.OutingStudentRequest.SerializeToString,
-            outing__student__pb2.OutingStudentResponse.FromString,
+            outing__student__pb2.CreateOutingRequest.SerializeToString,
+            outing__student__pb2.CreateOutingResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
