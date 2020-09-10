@@ -10,8 +10,8 @@ service OutingStudent {
 message CreateOutingRequest {
     string uuid = 1;
     string date = 2;
-    int64 start_time = 3;
-    int64 end_time = 4;
+    string start_time = 3;
+    string end_time = 4;
     string place = 5;
     string reason = 6;
     string situation = 7;
@@ -43,8 +43,8 @@ message Outing {
     string place = 1;
     string reason = 2;
     string date = 3;
-    int64 start_time = 4;
-    int64 end_time = 5;
+    string start_time = 4;
+    string end_time = 5;
     string situation = 6;
     string status = 7;
 }
@@ -62,8 +62,8 @@ message GetOutingInformResponse {
     string place = 4;
     string reason = 5;
     string date = 6;
-    int64 start_time = 7;
-    int64 end_time = 8;
+    string start_time = 7;
+    string end_time = 8;
     string o_situation = 9;
     string o_status = 10;
 }
@@ -80,8 +80,8 @@ message GetCardAboutOutingResponse {
     
     string place = 4;
     string date = 5;
-    int64 start_time = 6;
-    int64 end_time = 7;
+    string start_time = 6;
+    string end_time = 7;
     string o_status = 8;
     
     string name = 9;
