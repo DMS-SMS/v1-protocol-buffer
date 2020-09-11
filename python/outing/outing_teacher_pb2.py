@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-teacher.proto\"v\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05\x63lass\x18\x04 \x01(\x05\x12\r\n\x05start\x18\x05 \x01(\x05\x12\r\n\x05\x63ount\x18\x06 \x01(\x05\"i\n\x1dGetOutingStudentWithSNRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\r\n\x05\x63lass\x18\x03 \x01(\x05\x12\r\n\x05start\x18\x04 \x01(\x05\x12\r\n\x05\x63ount\x18\x05 \x01(\x05\"s\n GetOutingStudentWithFloorRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x14\n\x0c\x61\x66ter_school\x18\x02 \x01(\x05\x12\r\n\x05\x66loor\x18\x03 \x01(\x05\x12\r\n\x05start\x18\x04 \x01(\x05\x12\r\n\x05\x63ount\x18\x05 \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xcb\x01\n\x06Outing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\r\n\x05\x63lass\x18\x03 \x01(\x05\x12\x0e\n\x06number\x18\x04 \x01(\x05\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x0e\n\x06status\x18\n \x01(\t\x12\x11\n\tsituation\x18\x0b \x01(\t\x12\x0f\n\x07is_late\x18\x0c \x01(\x08\"1\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x03\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12K\n\x16GetOutingStudentWithSN\x12\x1e.GetOutingStudentWithSNRequest\x1a\x0f.OutingResponse\"\x00\x12Q\n\x19GetOutingStudentWithFloor\x12!.GetOutingStudentWithFloorRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14outing-teacher.proto\"w\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\x0e\n\x06\x63lass_\x18\x04 \x01(\x05\x12\r\n\x05start\x18\x05 \x01(\x05\x12\r\n\x05\x63ount\x18\x06 \x01(\x05\"j\n\x1dGetOutingStudentWithSNRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lass_\x18\x03 \x01(\x05\x12\r\n\x05start\x18\x04 \x01(\x05\x12\r\n\x05\x63ount\x18\x05 \x01(\x05\"s\n GetOutingStudentWithFloorRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x14\n\x0c\x61\x66ter_school\x18\x02 \x01(\x05\x12\r\n\x05\x66loor\x18\x03 \x01(\x05\x12\r\n\x05start\x18\x04 \x01(\x05\x12\r\n\x05\x63ount\x18\x05 \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xcc\x01\n\x06Outing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\x0e\n\x06\x63lass_\x18\x03 \x01(\x05\x12\x0e\n\x06number\x18\x04 \x01(\x05\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x0e\n\x06status\x18\n \x01(\t\x12\x11\n\tsituation\x18\x0b \x01(\t\x12\x0f\n\x07is_late\x18\x0c \x01(\x08\"1\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x03\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12K\n\x16GetOutingStudentWithSN\x12\x1e.GetOutingStudentWithSNRequest\x1a\x0f.OutingResponse\"\x00\x12Q\n\x19GetOutingStudentWithFloor\x12!.GetOutingStudentWithFloorRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -55,7 +55,7 @@ _GETOUTINGWITHFILTERREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='class', full_name='GetOutingWithFilterRequest.class', index=3,
+      name='class_', full_name='GetOutingWithFilterRequest.class_', index=3,
       number=4, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -88,7 +88,7 @@ _GETOUTINGWITHFILTERREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=142,
+  serialized_end=143,
 )
 
 
@@ -115,7 +115,7 @@ _GETOUTINGSTUDENTWITHSNREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='class', full_name='GetOutingStudentWithSNRequest.class', index=2,
+      name='class_', full_name='GetOutingStudentWithSNRequest.class_', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -147,8 +147,8 @@ _GETOUTINGSTUDENTWITHSNREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=144,
-  serialized_end=249,
+  serialized_start=145,
+  serialized_end=251,
 )
 
 
@@ -207,8 +207,8 @@ _GETOUTINGSTUDENTWITHFLOORREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=251,
-  serialized_end=366,
+  serialized_start=253,
+  serialized_end=368,
 )
 
 
@@ -260,8 +260,8 @@ _OUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=368,
-  serialized_end=452,
+  serialized_start=370,
+  serialized_end=454,
 )
 
 
@@ -288,7 +288,7 @@ _OUTING = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='class', full_name='Outing.class', index=2,
+      name='class_', full_name='Outing.class_', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -369,8 +369,8 @@ _OUTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=455,
-  serialized_end=658,
+  serialized_start=457,
+  serialized_end=661,
 )
 
 
@@ -408,8 +408,8 @@ _CONFIRMOUTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=660,
-  serialized_end=709,
+  serialized_start=663,
+  serialized_end=712,
 )
 
 
@@ -454,8 +454,8 @@ _CONFIRMOUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=711,
-  serialized_end=777,
+  serialized_start=714,
+  serialized_end=780,
 )
 
 _OUTINGRESPONSE.fields_by_name['outing'].message_type = _OUTING
@@ -526,8 +526,8 @@ _OUTINGTEACHER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=780,
-  serialized_end=1223,
+  serialized_start=783,
+  serialized_end=1226,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOutingWithFilter',
