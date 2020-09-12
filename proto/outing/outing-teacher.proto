@@ -39,10 +39,10 @@ message OutingResponse {
     int32 status = 1;
     int32 code = 2;
     string msg = 3;
-    repeated Outing outing = 4;
+    repeated TeacherOuting outing = 4;
 }
 
-message Outing {
+message TeacherOuting {
     string name = 1;
     int32 grade = 2;
     int32 class_ = 3;
