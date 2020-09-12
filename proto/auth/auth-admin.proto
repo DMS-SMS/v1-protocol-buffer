@@ -3,12 +3,12 @@ syntax = "proto3";
 option go_package = ".;authproto";
 
 service AuthAdmin {
-    rpc CreateStudentAuth(CreateStudentAuthRequest) returns (CreateStudentAuthResponse) {}
-    rpc CreateTeacherAuth(CreateTeacherAuthRequest) returns (CreateTeacherAuthResponse) {}
-    rpc CreateParentAuth(CreateParentAuthRequest) returns (CreateParentAuthResponse) {}
+    rpc CreateNewStudent(CreateNewStudentRequest) returns (CreateNewStudentResponse) {}
+    rpc CreateNewTeacher(CreateNewTeacherRequest) returns (CreateNewTeacherResponse) {}
+    rpc CreateNewParent(CreateNewParentRequest) returns (CreateNewParentResponse) {}
 }
 
-message CreateStudentAuthRequest {
+message CreateNewStudentRequest {
     string UUID = 1; // API를 호출한 관리자 uuid (18자)
     string StudentID = 2; // 학생 계정 아이디 (4~16자 사이)
     string StudentPW = 3; // 학생 계정 비밀번호 (4~16자 사이)
@@ -21,14 +21,14 @@ message CreateStudentAuthRequest {
     bytes Image = 10; // 학생증 사진 바이트 배열 (?)
 }
 
-message CreateStudentAuthResponse {
+message CreateNewStudentResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string CreatedStudentUUID = 4; // 생성된 학생 계정의 uuid
 }
 
-message CreateTeacherAuthRequest {
+message CreateNewTeacherRequest {
     string UUID = 1; // API를 호출한 관리자 uuid (18자)
     string TeacherID = 2; // 선생님 계정 아이디 (4~16자 사이)
     string TeacherPW = 3; // 선생님 계정 비밀번호 (4~16자 사이)
@@ -38,14 +38,14 @@ message CreateTeacherAuthRequest {
     string PhoneNumber = 8; // 전화번호 정보 (11자)
 }
 
-message CreateTeacherAuthResponse {
+message CreateNewTeacherResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string CreatedTeacherUUID = 4; // 생성된 선생님 계정의 uuid
 }
 
-message CreateParentAuthRequest {
+message CreateNewParentRequest {
     string UUID = 1; // API를 호출한 관리자 uuid (18자)
     string ParentID = 2; // 선생님 계정 아이디 (4~16자 사이)
     string ParentPW = 3; // 선생님 계정 비밀번호 (4~16자 사이)
@@ -53,7 +53,7 @@ message CreateParentAuthRequest {
     string PhoneNumber = 6; // 전화번호 정보 (11자)
 }
 
-message CreateParentAuthResponse {
+message CreateNewParentResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
