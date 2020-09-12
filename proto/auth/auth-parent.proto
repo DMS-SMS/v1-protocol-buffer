@@ -44,4 +44,5 @@ message GetParentInformWithUUIDResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string Name = 4; // 학부모 이름
+    string PhoneNumber = 5; // 전화번호 정보
 }

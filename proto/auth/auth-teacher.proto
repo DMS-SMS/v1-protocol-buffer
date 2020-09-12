@@ -46,4 +46,5 @@ message GetTeacherInformWithUUIDResponse {
     uint32 Grade = 4; // 학년 정보
     uint32 Class = 5; // 반 정보
     string Name = 6; // 이름 정보
+    string PhoneNumber = 7; // 전화번호 정보
 }

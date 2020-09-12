@@ -47,5 +47,6 @@ message GetStudentInformWithUUIDResponse {
     uint32 Class = 5; // 반 정보
     uint32 StudentNumber = 6; // 번호 정보
     string Name = 7; // 이름 정보
-    string ImageURI = 8; // 학생 프로필 이미지 첨부 링크
+    string PhoneNumber = 8; // 전화번호 정보
+    string ImageURI = 9; // 학생 프로필 이미지 첨부 링크
 }
