@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 
-service OutingParent {
+service OutingParents {
     rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
     rpc RejectOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
 }
