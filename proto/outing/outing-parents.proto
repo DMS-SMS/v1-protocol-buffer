@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+service OutingParent {
+    rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
+    rpc RejectOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
+}
+
+message ConfirmOutingByOCodeRequest {
+    string o_code = 1;
+}
+
+message ConfirmOutingByOCodeResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+}
