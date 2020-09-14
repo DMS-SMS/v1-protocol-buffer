@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-student.proto\"\x89\x01\n\x13\x43reateOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\t\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x11\n\tsituation\x18\x07 \x01(\t\"N\n\x14\x43reateOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x0b\n\x03oid\x18\x04 \x01(\t\"S\n\x18GetStudentOutingsRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03sid\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\r\n\x05\x63ount\x18\x04 \x01(\x05\"f\n\x19GetStudentOutingsResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x1e\n\x06outing\x18\x04 \x03(\x0b\x32\x0e.StudentOuting\"\x85\x01\n\rStudentOuting\x12\r\n\x05place\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\t\x12\x11\n\tsituation\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\"3\n\x16GetOutingInformRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"\xbe\x01\n\x17GetOutingInformResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x06 \x01(\t\x12\x12\n\nstart_time\x18\x07 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x08 \x01(\t\x12\x13\n\x0bo_situation\x18\t \x01(\t\x12\x10\n\x08o_status\x18\n \x01(\t\"6\n\x19GetCardAboutOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"\xec\x01\n\x1aGetCardAboutOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x05 \x01(\t\x12\x12\n\nstart_time\x18\x06 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x07 \x01(\t\x12\x10\n\x08o_status\x18\x08 \x01(\t\x12\x0c\n\x04name\x18\t \x01(\t\x12\r\n\x05grade\x18\n \x01(\x05\x12\x0e\n\x06\x63lass_\x18\x0b \x01(\x05\x12\x0e\n\x06number\x18\x0c \x01(\x05\x12\x11\n\timage_url\x18\r \x01(\t2\xb5\x02\n\rOutingStudent\x12=\n\x0c\x43reateOuting\x12\x14.CreateOutingRequest\x1a\x15.CreateOutingResponse\"\x00\x12L\n\x11GetStudentOutings\x12\x19.GetStudentOutingsRequest\x1a\x1a.GetStudentOutingsResponse\"\x00\x12\x46\n\x0fGetOutingInform\x12\x17.GetOutingInformRequest\x1a\x18.GetOutingInformResponse\"\x00\x12O\n\x12GetCardAboutOuting\x12\x1a.GetCardAboutOutingRequest\x1a\x1b.GetCardAboutOutingResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14outing-student.proto\"\x89\x01\n\x13\x43reateOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x02 \x01(\t\x12\x12\n\nstart_time\x18\x03 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x04 \x01(\t\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x11\n\tsituation\x18\x07 \x01(\t\"N\n\x14\x43reateOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x0b\n\x03oid\x18\x04 \x01(\t\"S\n\x18GetStudentOutingsRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03sid\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\r\n\x05\x63ount\x18\x04 \x01(\x05\"f\n\x19GetStudentOutingsResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x1e\n\x06outing\x18\x04 \x03(\x0b\x32\x0e.StudentOuting\"\x85\x01\n\rStudentOuting\x12\r\n\x05place\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\t\x12\x11\n\tsituation\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\"3\n\x16GetOutingInformRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"\xbe\x01\n\x17GetOutingInformResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x06 \x01(\t\x12\x12\n\nstart_time\x18\x07 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x08 \x01(\t\x12\x13\n\x0bo_situation\x18\t \x01(\t\x12\x10\n\x08o_status\x18\n \x01(\t\"6\n\x19GetCardAboutOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"\xec\x01\n\x1aGetCardAboutOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x05 \x01(\t\x12\x12\n\nstart_time\x18\x06 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x07 \x01(\t\x12\x10\n\x08o_status\x18\x08 \x01(\t\x12\x0c\n\x04name\x18\t \x01(\t\x12\r\n\x05grade\x18\n \x01(\x05\x12\x0e\n\x06\x63lass_\x18\x0b \x01(\x05\x12\x0e\n\x06number\x18\x0c \x01(\x05\x12\x11\n\timage_url\x18\r \x01(\t\")\n\x0cGoOutRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\":\n\rGoOutResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x8f\x03\n\rOutingStudent\x12=\n\x0c\x43reateOuting\x12\x14.CreateOutingRequest\x1a\x15.CreateOutingResponse\"\x00\x12L\n\x11GetStudentOutings\x12\x19.GetStudentOutingsRequest\x1a\x1a.GetStudentOutingsResponse\"\x00\x12\x46\n\x0fGetOutingInform\x12\x17.GetOutingInformRequest\x1a\x18.GetOutingInformResponse\"\x00\x12O\n\x12GetCardAboutOuting\x12\x1a.GetCardAboutOutingRequest\x1a\x1b.GetCardAboutOutingResponse\"\x00\x12(\n\x05GoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponse\"\x00\x12.\n\x0b\x46inishGoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -620,6 +620,91 @@ _GETCARDABOUTOUTINGRESPONSE = _descriptor.Descriptor(
   serialized_end=1108,
 )
 
+
+_GOOUTREQUEST = _descriptor.Descriptor(
+  name='GoOutRequest',
+  full_name='GoOutRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='GoOutRequest.uuid', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='oid', full_name='GoOutRequest.oid', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1110,
+  serialized_end=1151,
+)
+
+
+_GOOUTRESPONSE = _descriptor.Descriptor(
+  name='GoOutResponse',
+  full_name='GoOutResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='status', full_name='GoOutResponse.status', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='code', full_name='GoOutResponse.code', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='msg', full_name='GoOutResponse.msg', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1153,
+  serialized_end=1211,
+)
+
 _GETSTUDENTOUTINGSRESPONSE.fields_by_name['outing'].message_type = _STUDENTOUTING
 DESCRIPTOR.message_types_by_name['CreateOutingRequest'] = _CREATEOUTINGREQUEST
 DESCRIPTOR.message_types_by_name['CreateOutingResponse'] = _CREATEOUTINGRESPONSE
@@ -630,6 +715,8 @@ DESCRIPTOR.message_types_by_name['GetOutingInformRequest'] = _GETOUTINGINFORMREQ
 DESCRIPTOR.message_types_by_name['GetOutingInformResponse'] = _GETOUTINGINFORMRESPONSE
 DESCRIPTOR.message_types_by_name['GetCardAboutOutingRequest'] = _GETCARDABOUTOUTINGREQUEST
 DESCRIPTOR.message_types_by_name['GetCardAboutOutingResponse'] = _GETCARDABOUTOUTINGRESPONSE
+DESCRIPTOR.message_types_by_name['GoOutRequest'] = _GOOUTREQUEST
+DESCRIPTOR.message_types_by_name['GoOutResponse'] = _GOOUTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateOutingRequest = _reflection.GeneratedProtocolMessageType('CreateOutingRequest', (_message.Message,), {
@@ -695,6 +782,20 @@ GetCardAboutOutingResponse = _reflection.GeneratedProtocolMessageType('GetCardAb
   })
 _sym_db.RegisterMessage(GetCardAboutOutingResponse)
 
+GoOutRequest = _reflection.GeneratedProtocolMessageType('GoOutRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GOOUTREQUEST,
+  '__module__' : 'outing_student_pb2'
+  # @@protoc_insertion_point(class_scope:GoOutRequest)
+  })
+_sym_db.RegisterMessage(GoOutRequest)
+
+GoOutResponse = _reflection.GeneratedProtocolMessageType('GoOutResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GOOUTRESPONSE,
+  '__module__' : 'outing_student_pb2'
+  # @@protoc_insertion_point(class_scope:GoOutResponse)
+  })
+_sym_db.RegisterMessage(GoOutResponse)
+
 
 
 _OUTINGSTUDENT = _descriptor.ServiceDescriptor(
@@ -704,8 +805,8 @@ _OUTINGSTUDENT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1111,
-  serialized_end=1420,
+  serialized_start=1214,
+  serialized_end=1613,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateOuting',
@@ -744,6 +845,26 @@ _OUTINGSTUDENT = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETCARDABOUTOUTINGREQUEST,
     output_type=_GETCARDABOUTOUTINGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GoOut',
+    full_name='OutingStudent.GoOut',
+    index=4,
+    containing_service=None,
+    input_type=_GOOUTREQUEST,
+    output_type=_GOOUTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='FinishGoOut',
+    full_name='OutingStudent.FinishGoOut',
+    index=5,
+    containing_service=None,
+    input_type=_GOOUTREQUEST,
+    output_type=_GOOUTRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
