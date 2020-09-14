@@ -5,6 +5,8 @@ service OutingStudent {
     rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse) {}
     rpc GetOutingInform(GetOutingInformRequest) returns (GetOutingInformResponse) {}
     rpc GetCardAboutOuting(GetCardAboutOutingRequest) returns (GetCardAboutOutingResponse) {}
+    rpc GoOut(GoOutRequest) returns (GoOutResponse) {}
+    rpc FinishGoOut(GoOutRequest) returns (GoOutResponse) {}
 }
 
 message CreateOutingRequest {
@@ -89,4 +91,15 @@ message GetCardAboutOutingResponse {
     int32 class_ = 11;
     int32 number = 12;
     string image_url = 13;
+}
+
+message GoOutRequest {
+    string uuid = 1;
+    string oid = 2;
+}
+
+message GoOutResponse {
+    string status = 1;
+    int32 code = 2;
+    string msg = 3;
 }
