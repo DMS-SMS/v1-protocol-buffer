@@ -32,8 +32,8 @@ message Outing {
     string place = 5;
     string reason = 6;
     string date = 7;
-    int64 start_time = 8;
-    int64 end_time = 9;
+    string start_time = 8;
+    string end_time = 9;
     string status = 10;
     string situation = 11;
     bool is_late = 12;
