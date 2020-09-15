@@ -90,7 +90,7 @@ message GetCardAboutOutingResponse {
     int32 grade = 10;
     int32 class_ = 11;
     int32 number = 12;
-    string image_url = 13;
+    string profile_image_uri = 13;
 }
 
 message GoOutRequest {
