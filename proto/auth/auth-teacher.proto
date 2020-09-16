@@ -23,7 +23,7 @@ message LoginTeacherAuthResponse {
 
 message ChangeTeacherPWRequest {
     string UUID = 1; // API를 호출한 선생님 계정의 uuid (20자)
-    string TeacherID = 2; // 변경할 선생님 계정의 uuid (20자)
+    string TeacherUUID = 2; // 변경할 선생님 계정의 uuid (20자)
     string CurrentPW = 3; // 해당 사용자의 현재 PW (4~16 사이)
     string RevisionPW = 4; // 변경할 PW (4~16 사이)
 }
