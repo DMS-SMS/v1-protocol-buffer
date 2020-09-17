@@ -18,7 +18,7 @@ message LoginTeacherAuthResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string AccessToken = 4; // 선생님 계정 인증을 위한 JWT
-    string LoggedInParentUUID = 5; // 로그인한 선생님 계정의 uuid
+    string LoggedInTeacherUUID = 5; // 로그인한 선생님 계정의 uuid
 }
 
 message ChangeTeacherPWRequest {
