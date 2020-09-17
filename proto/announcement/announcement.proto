@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+
+service AnnouncementService {
+    rpc GetAnnouncement(GetAnnouncementRequest) returns (GetAnnouncementResponse) {}
+    rpc GetAnnouncementDetail(GetAnnouncementDetailRequest) returns (GetAnnouncementDetailResponse) {}
+    rpc CreateAnnouncement(CreateAnnouncementRequest) returns (CreateAnnouncementResponse) {}
+    rpc UpdateAnnouncement(UpdateAnnouncement) returns (UpdateAnnouncementResponse) {}
+    rpc DeleteAnnouncement(DeleteAnnouncement) returns (DeleteAnnouncement) {}
+}
+
