@@ -6,6 +6,7 @@ service AuthAdmin {
     rpc CreateNewStudent(CreateNewStudentRequest) returns (CreateNewStudentResponse) {}
     rpc CreateNewTeacher(CreateNewTeacherRequest) returns (CreateNewTeacherResponse) {}
     rpc CreateNewParent(CreateNewParentRequest) returns (CreateNewParentResponse) {}
+    rpc LoginAdminAuth(LoginAdminAuthRequest) returns (LoginAdminAuthResponse) {}
 }
 
 message CreateNewStudentRequest {
@@ -58,4 +59,17 @@ message CreateNewParentResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string CreatedParentUUID = 4; // 생성된 학부모 계정의 uuid
+}
+
+message LoginAdminAuthRequest {
+    string AdminID = 1; // 관리자 계정 아이디 (4~16자 사이)
+    string AdminPW = 2; // 관리자 계정 비밀번호 (4~16자 사이)
+}
+
+message LoginAdminAuthResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string AccessToken = 4; // 학생 계정 인증을 위한 JWT
+    string LoggedInAdminUUID = 5; // 로그인한 관리자 계정의 uuid
 }
