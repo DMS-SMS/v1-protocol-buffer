@@ -37,6 +37,7 @@ type AuthAdminService interface {
 	CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, opts ...client.CallOption) (*CreateNewStudentResponse, error)
 	CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error)
 	CreateNewParent(ctx context.Context, in *CreateNewParentRequest, opts ...client.CallOption) (*CreateNewParentResponse, error)
+	LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, opts ...client.CallOption) (*LoginAdminAuthResponse, error)
 }
 
 type authAdminService struct {
@@ -81,12 +82,23 @@ func (c *authAdminService) CreateNewParent(ctx context.Context, in *CreateNewPar
 	return out, nil
 }
 
+func (c *authAdminService) LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, opts ...client.CallOption) (*LoginAdminAuthResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthAdmin.LoginAdminAuth", in)
+	out := new(LoginAdminAuthResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AuthAdmin service
 
 type AuthAdminHandler interface {
 	CreateNewStudent(context.Context, *CreateNewStudentRequest, *CreateNewStudentResponse) error
 	CreateNewTeacher(context.Context, *CreateNewTeacherRequest, *CreateNewTeacherResponse) error
 	CreateNewParent(context.Context, *CreateNewParentRequest, *CreateNewParentResponse) error
+	LoginAdminAuth(context.Context, *LoginAdminAuthRequest, *LoginAdminAuthResponse) error
 }
 
 func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...server.HandlerOption) error {
@@ -94,6 +106,7 @@ func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...se
 		CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, out *CreateNewStudentResponse) error
 		CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error
 		CreateNewParent(ctx context.Context, in *CreateNewParentRequest, out *CreateNewParentResponse) error
+		LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, out *LoginAdminAuthResponse) error
 	}
 	type AuthAdmin struct {
 		authAdmin
@@ -116,4 +129,8 @@ func (h *authAdminHandler) CreateNewTeacher(ctx context.Context, in *CreateNewTe
 
 func (h *authAdminHandler) CreateNewParent(ctx context.Context, in *CreateNewParentRequest, out *CreateNewParentResponse) error {
 	return h.AuthAdminHandler.CreateNewParent(ctx, in, out)
+}
+
+func (h *authAdminHandler) LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, out *LoginAdminAuthResponse) error {
+	return h.AuthAdminHandler.LoginAdminAuth(ctx, in, out)
 }
