@@ -24,7 +24,26 @@ message GetAnnouncementResponse {
 message AnnouncementPreview {
     int32 number = 1;
     string title = 2;
-    int64 date = 3;
-    int32 views = 4;
-    string club = 5;
+    string type = 3;
+    int64 date = 4;
+    int32 views = 5;
+    string club = 6;
+}
+
+message GetAnnouncementDetailRequest {
+    string uuid = 1;
+    string aid = 2;
+}
+
+message GetAnnouncementDetailResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+    string title = 4;
+    int64 date = 5;
+    string content = 6;
+    string next_title = 7;
+    string next_aid = 8;
+    string previous_title = 9;
+    string previous_aid = 10;
 }
