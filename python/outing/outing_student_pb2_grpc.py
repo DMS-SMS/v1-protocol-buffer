@@ -34,6 +34,16 @@ class OutingStudentStub(object):
                 request_serializer=outing__student__pb2.GetCardAboutOutingRequest.SerializeToString,
                 response_deserializer=outing__student__pb2.GetCardAboutOutingResponse.FromString,
                 )
+        self.GoOut = channel.unary_unary(
+                '/OutingStudent/GoOut',
+                request_serializer=outing__student__pb2.GoOutRequest.SerializeToString,
+                response_deserializer=outing__student__pb2.GoOutResponse.FromString,
+                )
+        self.FinishGoOut = channel.unary_unary(
+                '/OutingStudent/FinishGoOut',
+                request_serializer=outing__student__pb2.GoOutRequest.SerializeToString,
+                response_deserializer=outing__student__pb2.GoOutResponse.FromString,
+                )
 
 
 class OutingStudentServicer(object):
@@ -63,6 +73,18 @@ class OutingStudentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GoOut(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FinishGoOut(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OutingStudentServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +107,16 @@ def add_OutingStudentServicer_to_server(servicer, server):
                     servicer.GetCardAboutOuting,
                     request_deserializer=outing__student__pb2.GetCardAboutOutingRequest.FromString,
                     response_serializer=outing__student__pb2.GetCardAboutOutingResponse.SerializeToString,
+            ),
+            'GoOut': grpc.unary_unary_rpc_method_handler(
+                    servicer.GoOut,
+                    request_deserializer=outing__student__pb2.GoOutRequest.FromString,
+                    response_serializer=outing__student__pb2.GoOutResponse.SerializeToString,
+            ),
+            'FinishGoOut': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishGoOut,
+                    request_deserializer=outing__student__pb2.GoOutRequest.FromString,
+                    response_serializer=outing__student__pb2.GoOutResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -161,5 +193,39 @@ class OutingStudent(object):
         return grpc.experimental.unary_unary(request, target, '/OutingStudent/GetCardAboutOuting',
             outing__student__pb2.GetCardAboutOutingRequest.SerializeToString,
             outing__student__pb2.GetCardAboutOutingResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GoOut(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OutingStudent/GoOut',
+            outing__student__pb2.GoOutRequest.SerializeToString,
+            outing__student__pb2.GoOutResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FinishGoOut(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OutingStudent/FinishGoOut',
+            outing__student__pb2.GoOutRequest.SerializeToString,
+            outing__student__pb2.GoOutResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

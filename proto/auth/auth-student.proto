@@ -53,12 +53,13 @@ message GetStudentInformWithUUIDResponse {
 }
 
 message GetStudentUUIDsWithInformRequest {
-    uint32 Grade = 1; // 학년 정보
-    uint32 Class = 2; // 반 정보
-    uint32 StudentNumber = 3; // 번호 정보
-    string Name = 4; // 이름 정보
-    string PhoneNumber = 5; // 전화번호 정보
-    string ImageURI = 6; // 학생 프로필 이미지 첨부 링크
+    string UUID = 1; // API를 호출한 학생 계정의 uuid (20자)
+    uint32 Grade = 2; // 학년 정보
+    uint32 Class = 3; // 반 정보
+    uint32 StudentNumber = 4; // 번호 정보
+    string Name = 5; // 이름 정보
+    string PhoneNumber = 6; // 전화번호 정보
+    string ImageURI = 7; // 학생 프로필 이미지 첨부 링크
 }
 
 message GetStudentUUIDsWithInformResponse {

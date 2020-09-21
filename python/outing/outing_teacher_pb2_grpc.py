@@ -19,16 +19,6 @@ class OutingTeacherStub(object):
                 request_serializer=outing__teacher__pb2.GetOutingWithFilterRequest.SerializeToString,
                 response_deserializer=outing__teacher__pb2.OutingResponse.FromString,
                 )
-        self.GetOutingStudentWithSN = channel.unary_unary(
-                '/OutingTeacher/GetOutingStudentWithSN',
-                request_serializer=outing__teacher__pb2.GetOutingStudentWithSNRequest.SerializeToString,
-                response_deserializer=outing__teacher__pb2.OutingResponse.FromString,
-                )
-        self.GetOutingStudentWithFloor = channel.unary_unary(
-                '/OutingTeacher/GetOutingStudentWithFloor',
-                request_serializer=outing__teacher__pb2.GetOutingStudentWithFloorRequest.SerializeToString,
-                response_deserializer=outing__teacher__pb2.OutingResponse.FromString,
-                )
         self.ApproveOuting = channel.unary_unary(
                 '/OutingTeacher/ApproveOuting',
                 request_serializer=outing__teacher__pb2.ConfirmOutingRequest.SerializeToString,
@@ -50,18 +40,6 @@ class OutingTeacherServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def GetOutingWithFilter(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetOutingStudentWithSN(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetOutingStudentWithFloor(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -91,16 +69,6 @@ def add_OutingTeacherServicer_to_server(servicer, server):
             'GetOutingWithFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOutingWithFilter,
                     request_deserializer=outing__teacher__pb2.GetOutingWithFilterRequest.FromString,
-                    response_serializer=outing__teacher__pb2.OutingResponse.SerializeToString,
-            ),
-            'GetOutingStudentWithSN': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOutingStudentWithSN,
-                    request_deserializer=outing__teacher__pb2.GetOutingStudentWithSNRequest.FromString,
-                    response_serializer=outing__teacher__pb2.OutingResponse.SerializeToString,
-            ),
-            'GetOutingStudentWithFloor': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOutingStudentWithFloor,
-                    request_deserializer=outing__teacher__pb2.GetOutingStudentWithFloorRequest.FromString,
                     response_serializer=outing__teacher__pb2.OutingResponse.SerializeToString,
             ),
             'ApproveOuting': grpc.unary_unary_rpc_method_handler(
@@ -141,40 +109,6 @@ class OutingTeacher(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/OutingTeacher/GetOutingWithFilter',
             outing__teacher__pb2.GetOutingWithFilterRequest.SerializeToString,
-            outing__teacher__pb2.OutingResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetOutingStudentWithSN(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OutingTeacher/GetOutingStudentWithSN',
-            outing__teacher__pb2.GetOutingStudentWithSNRequest.SerializeToString,
-            outing__teacher__pb2.OutingResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetOutingStudentWithFloor(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/OutingTeacher/GetOutingStudentWithFloor',
-            outing__teacher__pb2.GetOutingStudentWithFloorRequest.SerializeToString,
             outing__teacher__pb2.OutingResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -51,10 +51,11 @@ message GetTeacherInformWithUUIDResponse {
 }
 
 message GetTeacherUUIDsWithInformRequest {
-    uint32 Grade = 1; // 학년 정보
-    uint32 Class = 2; // 반 정보
-    string Name = 3; // 이름 정보
-    string PhoneNumber = 4; // 전화번호 정보
+    string UUID = 1; // API를 호출한 선생님 계정의 uuid (20자)
+    uint32 Grade = 2; // 학년 정보
+    uint32 Class = 3; // 반 정보
+    string Name = 4; // 이름 정보
+    string PhoneNumber = 5; // 전화번호 정보
 }
 
 message GetTeacherUUIDsWithInformResponse {

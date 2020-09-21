@@ -3,8 +3,6 @@ syntax = "proto3";
 
 service OutingTeacher {
     rpc GetOutingWithFilter(GetOutingWithFilterRequest) returns (OutingResponse) {}
-    rpc GetOutingStudentWithSN(GetOutingStudentWithSNRequest) returns (OutingResponse) {}
-    rpc GetOutingStudentWithFloor(GetOutingStudentWithFloorRequest) returns (OutingResponse) {}
     rpc ApproveOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
     rpc RejectOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
     rpc CertifyOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
@@ -17,22 +15,6 @@ message GetOutingWithFilterRequest {
     int32 class_ = 4;
     int32 start = 5;
     int32 count = 6;
-}
-
-message GetOutingStudentWithSNRequest {
-    string uuid = 1;
-    int32 grade = 2;
-    int32 class_ = 3;
-    int32 start = 4;
-    int32 count = 5;
-}
-
-message GetOutingStudentWithFloorRequest {
-    string uuid = 1;
-    int32 after_school = 2;
-    int32 floor = 3;
-    int32 start = 4;
-    int32 count = 5;
 }
 
 message OutingResponse {
@@ -50,8 +32,8 @@ message Outing {
     string place = 5;
     string reason = 6;
     string date = 7;
-    int64 start_time = 8;
-    int64 end_time = 9;
+    string start_time = 8;
+    string end_time = 9;
     string status = 10;
     string situation = 11;
     bool is_late = 12;
