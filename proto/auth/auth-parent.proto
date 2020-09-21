@@ -49,8 +49,9 @@ message GetParentInformWithUUIDResponse {
 }
 
 message GetParentUUIDsWithInformRequest {
-    string Name = 3; // 학부모 이름
-    string PhoneNumber = 4; // 전화번호 정보
+    string UUID = 1; // API를 호출한 학부모 계정의 uuid (19자)
+    string Name = 2; // 학부모 이름
+    string PhoneNumber = 3; // 전화번호 정보
 }
 
 message GetParentUUIDsWithInformResponse {
