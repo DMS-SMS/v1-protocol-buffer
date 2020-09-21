@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = ".;authproto";
+option go_package = ".;clubproto";
 
 service ClubAdmin {
     rpc CreateNewClub(CreateNewClubRequest) returns (CreateNewClubResponse) {}
