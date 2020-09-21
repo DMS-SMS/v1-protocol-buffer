@@ -6,6 +6,7 @@ service AuthTeacher {
     rpc LoginTeacherAuth(LoginTeacherAuthRequest) returns (LoginTeacherAuthResponse) {}
     rpc ChangeTeacherPW(ChangeTeacherPWRequest) returns (ChangeTeacherPWResponse) {}
     rpc GetTeacherInformWithUUID(GetTeacherInformWithUUIDRequest) returns (GetTeacherInformWithUUIDResponse) {}
+    rpc GetTeacherUUIDsWithInform(GetTeacherUUIDsWithInformRequest) returns (GetTeacherUUIDsWithInformResponse) {}
 }
 
 message LoginTeacherAuthRequest {
@@ -47,4 +48,18 @@ message GetTeacherInformWithUUIDResponse {
     uint32 Class = 5; // 반 정보
     string Name = 6; // 이름 정보
     string PhoneNumber = 7; // 전화번호 정보
+}
+
+message GetTeacherUUIDsWithInformRequest {
+    uint32 Grade = 1; // 학년 정보
+    uint32 Class = 2; // 반 정보
+    string Name = 3; // 이름 정보
+    string PhoneNumber = 4; // 전화번호 정보
+}
+
+message GetTeacherUUIDsWithInformResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    repeated string TeacherUUIDs = 4;
 }

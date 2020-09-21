@@ -65,5 +65,5 @@ message GetStudentUUIDsWithInformResponse {
     uint32 Status = 1;
     sint32 Code = 2;
     string Message = 3;
-    repeated string uuids = 4;
+    repeated string StudentUUIDs = 4;
 }

@@ -6,6 +6,7 @@ service AuthParent {
     rpc LoginParentAuth(LoginParentAuthRequest) returns (LoginParentAuthResponse) {}
     rpc ChangeParentPW(ChangeParentPWRequest) returns (ChangeParentPWResponse) {}
     rpc GetParentInformWithUUID(GetParentInformWithUUIDRequest) returns (GetParentInformWithUUIDResponse) {}
+    rpc GetParentUUIDsWithInform(GetParentUUIDsWithInformRequest) returns (GetParentUUIDsWithInformResponse) {}
 }
 
 message LoginParentAuthRequest {
@@ -45,4 +46,16 @@ message GetParentInformWithUUIDResponse {
     string Message = 3; // 세부 설명
     string Name = 4; // 학부모 이름
     string PhoneNumber = 5; // 전화번호 정보
+}
+
+message GetParentUUIDsWithInformRequest {
+    string Name = 3; // 학부모 이름
+    string PhoneNumber = 4; // 전화번호 정보
+}
+
+message GetParentUUIDsWithInformResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    repeated string ParentUUIDs = 4;
 }
