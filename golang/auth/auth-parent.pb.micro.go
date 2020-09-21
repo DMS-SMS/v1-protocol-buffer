@@ -37,6 +37,7 @@ type AuthParentService interface {
 	LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, opts ...client.CallOption) (*LoginParentAuthResponse, error)
 	ChangeParentPW(ctx context.Context, in *ChangeParentPWRequest, opts ...client.CallOption) (*ChangeParentPWResponse, error)
 	GetParentInformWithUUID(ctx context.Context, in *GetParentInformWithUUIDRequest, opts ...client.CallOption) (*GetParentInformWithUUIDResponse, error)
+	GetParentUUIDsWithInform(ctx context.Context, in *GetParentUUIDsWithInformRequest, opts ...client.CallOption) (*GetParentUUIDsWithInformResponse, error)
 }
 
 type authParentService struct {
@@ -81,12 +82,23 @@ func (c *authParentService) GetParentInformWithUUID(ctx context.Context, in *Get
 	return out, nil
 }
 
+func (c *authParentService) GetParentUUIDsWithInform(ctx context.Context, in *GetParentUUIDsWithInformRequest, opts ...client.CallOption) (*GetParentUUIDsWithInformResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthParent.GetParentUUIDsWithInform", in)
+	out := new(GetParentUUIDsWithInformResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AuthParent service
 
 type AuthParentHandler interface {
 	LoginParentAuth(context.Context, *LoginParentAuthRequest, *LoginParentAuthResponse) error
 	ChangeParentPW(context.Context, *ChangeParentPWRequest, *ChangeParentPWResponse) error
 	GetParentInformWithUUID(context.Context, *GetParentInformWithUUIDRequest, *GetParentInformWithUUIDResponse) error
+	GetParentUUIDsWithInform(context.Context, *GetParentUUIDsWithInformRequest, *GetParentUUIDsWithInformResponse) error
 }
 
 func RegisterAuthParentHandler(s server.Server, hdlr AuthParentHandler, opts ...server.HandlerOption) error {
@@ -94,6 +106,7 @@ func RegisterAuthParentHandler(s server.Server, hdlr AuthParentHandler, opts ...
 		LoginParentAuth(ctx context.Context, in *LoginParentAuthRequest, out *LoginParentAuthResponse) error
 		ChangeParentPW(ctx context.Context, in *ChangeParentPWRequest, out *ChangeParentPWResponse) error
 		GetParentInformWithUUID(ctx context.Context, in *GetParentInformWithUUIDRequest, out *GetParentInformWithUUIDResponse) error
+		GetParentUUIDsWithInform(ctx context.Context, in *GetParentUUIDsWithInformRequest, out *GetParentUUIDsWithInformResponse) error
 	}
 	type AuthParent struct {
 		authParent
@@ -116,4 +129,8 @@ func (h *authParentHandler) ChangeParentPW(ctx context.Context, in *ChangeParent
 
 func (h *authParentHandler) GetParentInformWithUUID(ctx context.Context, in *GetParentInformWithUUIDRequest, out *GetParentInformWithUUIDResponse) error {
 	return h.AuthParentHandler.GetParentInformWithUUID(ctx, in, out)
+}
+
+func (h *authParentHandler) GetParentUUIDsWithInform(ctx context.Context, in *GetParentUUIDsWithInformRequest, out *GetParentUUIDsWithInformResponse) error {
+	return h.AuthParentHandler.GetParentUUIDsWithInform(ctx, in, out)
 }
