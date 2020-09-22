@@ -3,17 +3,17 @@ syntax = "proto3";
 option go_package = ".;clubproto";
 
 service ClubStudent {
-    rpc GetClubsSortByName(GetClubsSortByNameRequest) returns (GetClubsSortByNameResponse) {}
+    rpc GetClubsSortByUpdateTime(GetClubsSortByUpdateTimeRequest) returns (GetClubsSortByUpdateTimeResponse) {}
 }
 
-message GetClubsSortByNameRequest {
+message GetClubsSortByUpdateTimeRequest {
     string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
     uint32 Start = 2; // 페이징 기법의 offset 값
     uint32 Count = 3; // 페이징 기법의 limit 값
     string Field = 4; // 필터링 기법의 Field 값
 }
 
-message GetClubsSortByNameResponse {
+message GetClubsSortByUpdateTimeResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
