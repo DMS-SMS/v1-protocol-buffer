@@ -10,6 +10,7 @@ service ClubStudent {
     rpc GetAllClubFields(GetAllClubFieldsRequest) returns (GetAllClubFieldsResponse) {}
     rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
     rpc GetTotalCountOfRecruitments(GetTotalCountOfRecruitmentsRequest) returns (GetTotalCountOfRecruitmentsResponse) {}
+    rpc CheckIfClubLeader(CheckIfClubLeaderRequest) returns (CheckIfClubLeaderResponse) {}
 }
 
 message GetClubsSortByUpdateTimeRequest {
@@ -84,7 +85,7 @@ message GetClubInformWithUUIDResponse {
     string Name = 4; // 동아리 이름
     string ClubConcept = 5; // 동아리 한줄 소개
     string Introduction = 6; // 동아리 설명
-    string LeaderName = 7; // 동아리장 이름
+    ClubMember Leader = 7; // 동아리장 정보
     repeated ClubMember ClubMembers = 8; // 동아리 부원 리스트
     string Location = 9; // 동아리 위치
     string Field = 10; // 동아리 분야
@@ -94,7 +95,9 @@ message GetClubInformWithUUIDResponse {
 
 message ClubMember {
     uint32 Grade = 1;
-    string name = 2;
+    uint32 Class = 2;
+    uint32 StudentNumber = 3;
+    string Name = 4;
 }
 
 message GetRecruitmentInformWithUUIDRequest {
@@ -159,4 +162,15 @@ message GetTotalCountOfRecruitmentsResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     uint32 Count = 4; // 모집 공고 총 개수
+}
+
+message CheckIfClubLeaderRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+}
+
+message CheckIfClubLeaderResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string ClubUUID = 4; // 본인이 동아리 장인 동아리의 UUID
 }
