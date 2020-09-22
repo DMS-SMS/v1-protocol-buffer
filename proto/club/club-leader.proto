@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = ".;clubproto";
+
+service ClubLeader {
+    rpc AddClubMember(AddClubMemberRequest) returns (AddClubMemberResponse) {}
+}
+
+message AddClubMemberRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 인원을 추가할 동아리의 UUID (17자)
+    string StudentUUID = 3; // 추가할 부원의 학생 UUID (20자)
+}
+
+message AddClubMemberRequestResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
