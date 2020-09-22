@@ -10,6 +10,7 @@ service ClubLeader {
     rpc DeleteClubWithUUID(DeleteClubWithUUIDRequest) returns (DeleteClubWithUUIDResponse) {}
     rpc RegisterRecruitment(RegisterRecruitmentRequest) returns (RegisterRecruitmentResponse) {}
     rpc ModifyRecruitment(ModifyRecruitmentRequest) returns (ModifyRecruitmentResponse) {}
+    rpc DeleteRecruitmentWithUUID(DeleteRecruitmentWithUUIDRequest) returns (DeleteRecruitmentWithUUIDResponse) {}
 }
 
 message AddClubMemberRequest {
@@ -109,6 +110,17 @@ message RecruitmentField {
 }
 
 message ModifyRecruitmentResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message DeleteRecruitmentWithUUIDRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string RecruitmentUUID = 2; // 삭제할 모집 공고의 UUID (17자)
+}
+
+message DeleteRecruitmentWithUUIDResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
