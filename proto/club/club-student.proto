@@ -26,7 +26,7 @@ message ClubInform {
     string ClubUUID = 1; // 동아리 UUID
     string Name = 2; // 동아리 이름
     string Location = 3; // 동아리실 위치
-    string Concept = 4; // 동아리 한줄 소개
+    string ClubConcept = 4; // 동아리 한줄 소개
     string LeaderName = 5; // 동아리장 이름
     string Field = 6; // 동아리 분야
     string LogoURI = 7; // 동아리 로고 URI
@@ -50,7 +50,7 @@ message RecruitmentInform {
     string RecruitmentUUID = 1; // 모집 공고 UUID
     string ClubUUID = 2; // 동아리 공고 UUID
     string Name = 3; // 동아리 이름
-    string Concept = 4; // 모집 공고 한줄 소개
+    string RecruitConcept = 4; // 모집 공고 한줄 소개
     string Location = 5; // 동아리 위치
     repeated RecruitmentField RecruitmentFields = 6; // 동아리 모집 분야 리스트
     string Field = 7; // 동아리 분야
@@ -75,7 +75,7 @@ message GetClubInformWithUUIDResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string Name = 4; // 동아리 이름
-    string Concept = 5; // 동아리 한줄 소개
+    string ClubConcept = 5; // 동아리 한줄 소개
     string Introduction = 6; // 동아리 설명
     string LeaderName = 7; // 동아리장 이름
     repeated ClubMember ClubMembers = 8; // 동아리 부원 리스트
