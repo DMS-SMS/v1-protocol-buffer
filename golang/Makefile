@@ -19,11 +19,11 @@ club-admin:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-admin.proto
 
 .PHONY: club-student
-club-admin:
+club-student:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-student.proto
 
 .PHONY: club-leader
-club-admin:
+club-leader:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-leader.proto
 
 .PHONY: outing
