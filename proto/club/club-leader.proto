@@ -7,6 +7,9 @@ service ClubLeader {
     rpc DeleteClubMember(DeleteClubMemberRequest) returns (DeleteClubMemberResponse) {}
     rpc ChangeClubLeader(ChangeClubLeaderRequest) returns (ChangeClubLeaderResponse) {}
     rpc ModifyClubInform(ModifyClubInformRequest) returns (ModifyClubInformResponse) {}
+    rpc DeleteClubWithUUID(DeleteClubWithUUIDRequest) returns (DeleteClubWithUUIDResponse) {}
+    rpc RegisterRecruitment(RegisterRecruitmentRequest) returns (RegisterRecruitmentResponse) {}
+    rpc ModifyRecruitment(ModifyRecruitmentRequest) returns (ModifyRecruitmentResponse) {}
 }
 
 message AddClubMemberRequest {
@@ -58,6 +61,54 @@ message ModifyClubInformRequest {
 }
 
 message ModifyClubInformResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message DeleteClubWithUUIDRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 삭제할 동아리의 UUID (17자)
+}
+
+message DeleteClubWithUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message RegisterRecruitmentRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 모집 공고를 등록할 동아리의 UUID (17자)
+    string RecruitConcept = 3; // 모집 공고 한줄 소개 (1~40자)
+    string StartPeriod = 4; // 시작 기간 (XXXX-XX-XX)
+    string EndPeriod = 5; // 종료 기간 (XXXX-XX-XX)
+    repeated RecruitmentField RecruitmentFields = 6; // 모집 분야 정보 리스트
+}
+
+message RegisterRecruitmentResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string RecruitmentUUID = 4; // 생성된 모집 공고의 UUID
+}
+
+message ModifyRecruitmentRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string RecruitmentUUID = 2; // 수정할 모집 공고의 UUID (24자)
+    string RecruitConcept = 3; // 변경할 모집 공고 한줄 소개 (1~40자)
+    string StartPeriod = 4; // 변경할 시작 기간 (XXXX-XX-XX)
+    string EndPeriod = 5; // 변경할 종료 기간 (XXXX-XX-XX)
+    repeated RecruitmentField RecruitmentFields = 6; // 모집 분야 정보 리스트
+}
+
+message RecruitmentField {
+    uint32 Grade = 1;
+    string Field = 2;
+    uint32 Number = 3;
+}
+
+message ModifyRecruitmentResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
