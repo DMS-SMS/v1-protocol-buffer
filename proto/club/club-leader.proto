@@ -4,6 +4,8 @@ option go_package = ".;clubproto";
 
 service ClubLeader {
     rpc AddClubMember(AddClubMemberRequest) returns (AddClubMemberResponse) {}
+    rpc DeleteClubMember(DeleteClubMemberRequest) returns (DeleteClubMemberResponse) {}
+    rpc ChangeClubLeader(ChangeClubLeaderRequest) returns (ChangeClubLeaderResponse) {}
 }
 
 message AddClubMemberRequest {
@@ -12,7 +14,31 @@ message AddClubMemberRequest {
     string StudentUUID = 3; // 추가할 부원의 학생 UUID (20자)
 }
 
-message AddClubMemberRequestResponse {
+message AddClubMemberResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message DeleteClubMemberRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 인원을 추가할 동아리의 UUID (17자)
+    string StudentUUID = 3; // 삭제할 부원의 학생 UUID (20자)
+}
+
+message DeleteClubMemberResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message ChangeClubLeaderRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 동아리 장을 변경할 동아리의 UUID (17자)
+    string NewLeaderUUID = 3; // 동아리 장으로 임명할 학생 UUID (20자)
+}
+
+message ChangeClubLeaderResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
