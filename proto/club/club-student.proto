@@ -6,6 +6,7 @@ service ClubStudent {
     rpc GetClubsSortByUpdateTime(GetClubsSortByUpdateTimeRequest) returns (GetClubsSortByUpdateTimeResponse) {}
     rpc GetRecruitmentsSortByCreateTime(GetRecruitmentsSortByCreateTimeRequest) returns (GetRecruitmentsSortByCreateTimeResponse) {}
     rpc GetClubInformWithUUID(GetClubInformWithUUIDRequest) returns (GetClubInformWithUUIDResponse) {}
+    rpc GetRecruitmentInformWithUUID(GetRecruitmentInformWithUUIDRequest) returns (GetRecruitmentInformWithUUIDResponse) {}
 }
 
 message GetClubsSortByUpdateTimeRequest {
@@ -44,6 +45,7 @@ message GetRecruitmentsSortByCreateTimeResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     repeated RecruitmentInform Recruitments = 4; // 동아리 정보 리스트
+    uint32 Count = 5; // 총 조회 동아리의 수
 }
 
 message RecruitmentInform {
@@ -88,4 +90,31 @@ message GetClubInformWithUUIDResponse {
 message ClubMember {
     uint32 Grade = 1;
     string name = 2;
+}
+
+message GetRecruitmentInformWithUUIDRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string RecruitmentUUID = 2; // 조회할 모집 공고의 UUID (24자)
+}
+
+message GetRecruitmentInformWithUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string Name = 4; // 동아리 이름
+    string RecruitConcept = 5; // 모집 컨셉
+    repeated RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
+    string Location = 7; // 동아리 위치
+    string Type = 8; // 모집 종류 (기간 or 상시)
+    string StartPeriod = 9; // 모집 시작 기간
+    string EndPeriod = 10; // 모집 종료 기간
+    string Link = 11; // 동아리 페이스북 그룹 링크
+    string LogoURI = 12; // 동아리 로고 이미지 URI
+    string Field = 13; // 동아리 분야
+}
+
+message RecruitMember {
+    uint32 Grade = 1;
+    string Field = 2;
+    uint32 Number = 3;
 }
