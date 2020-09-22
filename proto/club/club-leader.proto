@@ -6,6 +6,7 @@ service ClubLeader {
     rpc AddClubMember(AddClubMemberRequest) returns (AddClubMemberResponse) {}
     rpc DeleteClubMember(DeleteClubMemberRequest) returns (DeleteClubMemberResponse) {}
     rpc ChangeClubLeader(ChangeClubLeaderRequest) returns (ChangeClubLeaderResponse) {}
+    rpc ModifyClubInform(ModifyClubInformRequest) returns (ModifyClubInformResponse) {}
 }
 
 message AddClubMemberRequest {
@@ -39,6 +40,24 @@ message ChangeClubLeaderRequest {
 }
 
 message ChangeClubLeaderResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+}
+
+message ModifyClubInformRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 정보를 수정할 동아리의 UUID (17자)
+    string Name = 3; // 변경할 동아리의 이름
+    string Field = 4; // 변경할 동아리의 분야
+    string ClubConcept = 5; // 변경할 동아리의 한줄 소개
+    string Introduction = 6; // 변경할 동아리의 설명
+    string Location = 7; // 변경할 동아리의 위치
+    string Link = 8; // 변경할 동아리의 링크
+    bytes Logo = 9; // 변경할 동아리의 로고 사진
+}
+
+message ModifyClubInformResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
