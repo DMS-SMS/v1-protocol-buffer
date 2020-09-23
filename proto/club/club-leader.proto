@@ -80,9 +80,8 @@ message RegisterRecruitmentRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string ClubUUID = 2; // 모집 공고를 등록할 동아리의 UUID (17자)
     string RecruitConcept = 3; // 모집 공고 한줄 소개 (1~40자)
-    string StartPeriod = 4; // 시작 기간 (XXXX-XX-XX)
-    string EndPeriod = 5; // 종료 기간 (XXXX-XX-XX)
-    repeated RecruitMember RecruitMembers = 6; // 모집 분야 정보 리스트
+    string EndPeriod = 4; // 종료 기간 (XXXX-XX-XX)
+    repeated RecruitMember RecruitMembers = 5; // 모집 분야 정보 리스트
 }
 
 message RegisterRecruitmentResponse {
@@ -96,9 +95,8 @@ message ModifyRecruitmentRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string RecruitmentUUID = 2; // 수정할 모집 공고의 UUID (24자)
     string RecruitConcept = 3; // 변경할 모집 공고 한줄 소개 (1~40자)
-    string StartPeriod = 4; // 변경할 시작 기간 (XXXX-XX-XX)
-    string EndPeriod = 5; // 변경할 종료 기간 (XXXX-XX-XX)
-    repeated RecruitMember RecruitMembers = 6; // 모집 멤버 정보 리스트
+    string EndPeriod = 4; // 변경할 종료 기간 (XXXX-XX-XX)
+    repeated RecruitMember RecruitMembers = 5; // 모집 멤버 정보 리스트
 }
 
 message RecruitMember {
