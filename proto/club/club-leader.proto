@@ -8,7 +8,7 @@ service ClubLeader {
     rpc ChangeClubLeader(ChangeClubLeaderRequest) returns (ChangeClubLeaderResponse) {}
     rpc ModifyClubInform(ModifyClubInformRequest) returns (ModifyClubInformResponse) {}
     rpc DeleteClubWithUUID(DeleteClubWithUUIDRequest) returns (DeleteClubWithUUIDResponse) {}
-    rpc GetRecruitmentWithClubUUID(GetRecruitmentWithClubUUIDRequest) returns (GetRecruitmentWithClubUUIDResponse) {}
+    rpc GetRecruitmentUUIDWithClubUUID(GetRecruitmentUUIDWithClubUUIDRequest) returns (GetRecruitmentUUIDWithClubUUIDResponse) {}
     rpc RegisterRecruitment(RegisterRecruitmentRequest) returns (RegisterRecruitmentResponse) {}
     rpc ModifyRecruitment(ModifyRecruitmentRequest) returns (ModifyRecruitmentResponse) {}
     rpc DeleteRecruitmentWithUUID(DeleteRecruitmentWithUUIDRequest) returns (DeleteRecruitmentWithUUIDResponse) {}
@@ -80,9 +80,8 @@ message RegisterRecruitmentRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string ClubUUID = 2; // 모집 공고를 등록할 동아리의 UUID (17자)
     string RecruitConcept = 3; // 모집 공고 한줄 소개 (1~40자)
-    string StartPeriod = 4; // 시작 기간 (XXXX-XX-XX)
-    string EndPeriod = 5; // 종료 기간 (XXXX-XX-XX)
-    repeated RecruitMember RecruitMembers = 6; // 모집 분야 정보 리스트
+    string EndPeriod = 4; // 종료 기간 (XXXX-XX-XX)
+    repeated RecruitMember RecruitMembers = 5; // 모집 분야 정보 리스트
 }
 
 message RegisterRecruitmentResponse {
@@ -96,9 +95,8 @@ message ModifyRecruitmentRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string RecruitmentUUID = 2; // 수정할 모집 공고의 UUID (24자)
     string RecruitConcept = 3; // 변경할 모집 공고 한줄 소개 (1~40자)
-    string StartPeriod = 4; // 변경할 시작 기간 (XXXX-XX-XX)
-    string EndPeriod = 5; // 변경할 종료 기간 (XXXX-XX-XX)
-    repeated RecruitMember RecruitMembers = 6; // 모집 멤버 정보 리스트
+    string EndPeriod = 4; // 변경할 종료 기간 (XXXX-XX-XX)
+    repeated RecruitMember RecruitMembers = 5; // 모집 멤버 정보 리스트
 }
 
 message RecruitMember {
@@ -124,23 +122,14 @@ message DeleteRecruitmentWithUUIDResponse {
     string Message = 3; // 세부 설명
 }
 
-message GetRecruitmentWithClubUUIDRequest {
+message GetRecruitmentUUIDWithClubUUIDRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string ClubUUID = 2; // 모집 공고를 조회할 동아리의 UUID (17자)
 }
 
-message GetRecruitmentWithClubUUIDResponse {
+message GetRecruitmentUUIDWithClubUUIDResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string RecruitmentUUID = 4; // 해당 동아리의 모집 공고의 uuid
-    string Name = 5; // 동아리 이름
-    string RecruitConcept = 6; // 모집 컨셉
-    repeated RecruitMember RecruitMembers = 7; // 모집 멤버 정보 리스트
-    string Location = 8; // 동아리 위치
-    string StartPeriod = 9; // 모집 시작 기간
-    string EndPeriod = 10; // 모집 종료 기간
-    string Link = 11; // 동아리 페이스북 그룹 링크
-    string LogoURI = 12; // 동아리 로고 이미지 URI
-    string Field = 13; // 동아리 분야
 }
