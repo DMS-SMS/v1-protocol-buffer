@@ -53,13 +53,10 @@ message ChangeClubLeaderResponse {
 message ModifyClubInformRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string ClubUUID = 2; // 정보를 수정할 동아리의 UUID (17자)
-    string Name = 3; // 변경할 동아리의 이름
-    string Field = 4; // 변경할 동아리의 분야
-    string ClubConcept = 5; // 변경할 동아리의 한줄 소개
-    string Introduction = 6; // 변경할 동아리의 설명
-    string Location = 7; // 변경할 동아리의 위치
-    string Link = 8; // 변경할 동아리의 링크
-    bytes Logo = 9; // 변경할 동아리의 로고 사진
+    string ClubConcept = 3; // 변경할 동아리의 한줄 소개 (0~40)
+    string Introduction = 4; // 변경할 동아리의 설명 (0~150)
+    string Link = 5; // 변경할 동아리의 링크
+    bytes Logo = 6; // 변경할 동아리의 로고 사진
 }
 
 message ModifyClubInformResponse {
