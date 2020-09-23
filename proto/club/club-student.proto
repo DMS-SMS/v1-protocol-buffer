@@ -1,0 +1,167 @@
+syntax = "proto3";
+
+option go_package = ".;clubproto";
+
+service ClubStudent {
+    rpc GetClubsSortByUpdateTime(GetClubsSortByUpdateTimeRequest) returns (GetClubsSortByUpdateTimeResponse) {}
+    rpc GetRecruitmentsSortByCreateTime(GetRecruitmentsSortByCreateTimeRequest) returns (GetRecruitmentsSortByCreateTimeResponse) {}
+    rpc GetClubInformWithUUID(GetClubInformWithUUIDRequest) returns (GetClubInformWithUUIDResponse) {}
+    rpc GetRecruitmentInformWithUUID(GetRecruitmentInformWithUUIDRequest) returns (GetRecruitmentInformWithUUIDResponse) {}
+    rpc GetAllClubFields(GetAllClubFieldsRequest) returns (GetAllClubFieldsResponse) {}
+    rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
+    rpc GetTotalCountOfRecruitments(GetTotalCountOfRecruitmentsRequest) returns (GetTotalCountOfRecruitmentsResponse) {}
+    rpc CheckIfClubLeader(CheckIfClubLeaderRequest) returns (CheckIfClubLeaderResponse) {}
+}
+
+message GetClubsSortByUpdateTimeRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    uint32 Start = 2; // 페이징의 offset 값
+    uint32 Count = 3; // 페이징의 limit 값
+    string Field = 4; // 필터링의 Field 값
+    string Name = 5; // 필터링의 Name 값
+}
+
+message GetClubsSortByUpdateTimeResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated ClubInform Clubs = 4; // 동아리 정보 리스트
+}
+
+message ClubInform {
+    string ClubUUID = 1; // 동아리 UUID
+    string Name = 2; // 동아리 이름
+    string Location = 3; // 동아리실 위치
+    uint32 Floor = 4; // 동아리실 층
+    string ClubConcept = 5; // 동아리 한줄 소개
+    string LeaderName = 6; // 동아리장 이름
+    string Field = 7; // 동아리 분야
+    string LogoURI = 8; // 동아리 로고 URI
+    string RecruitmentUUID = 9; // 해당 동아리가 올린 모집 UUID
+}
+
+message GetRecruitmentsSortByCreateTimeRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    uint32 Start = 2; // 페이징의 offset 값
+    uint32 Count = 3; // 페이징의 limit 값
+    string Field = 4; // 필터링의 Field 값
+    string Name = 5; // 필터링의 Name 값
+}
+
+message GetRecruitmentsSortByCreateTimeResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated RecruitmentInform Recruitments = 4; // 동아리 정보 리스트
+}
+
+message RecruitmentInform {
+    string RecruitmentUUID = 1; // 모집 공고 UUID
+    string Name = 2; // 동아리 이름
+    string RecruitConcept = 3; // 모집 공고 한줄 소개
+    string Location = 4; // 동아리 위치
+    uint32 Floor = 5; // 동아리실 층
+    repeated RecruitMember RecruitMembers = 6; // 동아리 모집 분야 리스트
+    string Field = 7; // 동아리 분야
+    string StartPeriod = 8; // 시작 기간
+    string EndPeriod = 9; // 종료 기간
+    string ClubUUID = 10; // 해당 모집을 올린 동아리 UUID
+}
+
+message GetClubInformWithUUIDRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string ClubUUID = 2; // 조회할 동아리의 UUID (17자)
+}
+
+message GetClubInformWithUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string Name = 4; // 동아리 이름
+    string ClubConcept = 5; // 동아리 한줄 소개
+    string Introduction = 6; // 동아리 설명
+    ClubMember Leader = 7; // 동아리장 정보
+    repeated ClubMember ClubMembers = 8; // 동아리 부원 리스트
+    string Location = 9; // 동아리 위치
+    uint32 Floor = 10; // 동아리실 층
+    string Field = 11; // 동아리 분야
+    string LogoURI = 12; // 동아리 로고 URI
+    string Link = 13; // 동아리 페이스북 그룹 링크
+}
+
+message ClubMember {
+    uint32 Grade = 1;
+    uint32 Class = 2;
+    uint32 StudentNumber = 3;
+    string Name = 4;
+}
+
+message GetRecruitmentInformWithUUIDRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string RecruitmentUUID = 2; // 조회할 모집 공고의 UUID (24자)
+}
+
+message GetRecruitmentInformWithUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string ClubUUID = 4; // 해당 모집을 올린 동아리의 UUID
+    string RecruitConcept = 5; // 모집 컨셉
+    repeated RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
+    string StartPeriod = 7; // 모집 시작 기간
+    string EndPeriod = 8; // 모집 종료 기간
+}
+
+message RecruitMember {
+    uint32 Grade = 1;
+    string Field = 2;
+    uint32 Number = 3;
+}
+
+message GetAllClubFieldsRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+}
+
+message GetAllClubFieldsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated Field Fields = 4; // 동아리의 모든 분야 리스트
+}
+
+message Field {
+    string field = 1;
+}
+
+message GetTotalCountOfClubsRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+}
+
+message GetTotalCountOfClubsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    uint32 Count = 4; // 동아리 총 개수
+}
+
+message GetTotalCountOfRecruitmentsRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+}
+
+message GetTotalCountOfRecruitmentsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    uint32 Count = 4; // 모집 공고 총 개수
+}
+
+message CheckIfClubLeaderRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+}
+
+message CheckIfClubLeaderResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string ClubUUID = 4; // 본인이 동아리 장인 동아리의 UUID
+}

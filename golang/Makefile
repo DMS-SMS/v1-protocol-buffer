@@ -14,6 +14,17 @@ auth-teacher:
 auth-parent:
 	protoc --proto_path=../proto/auth --go_out=./auth --micro_out=./auth auth-parent.proto
 
+.PHONY: club-admin
+club-admin:
+	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-admin.proto
+
+.PHONY: club-student
+club-student:
+	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-student.proto
+
+.PHONY: club-leader
+club-leader:
+	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-leader.proto
 
 .PHONY: outing
 outing:
