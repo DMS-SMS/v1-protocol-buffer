@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "dsm.service.announcement";
+option java_package = "dsm.service.announcement.proto";
 option java_outer_classname = "AnnouncementProto";
 
 package announcement;
@@ -59,6 +59,8 @@ message CreateAnnouncementRequest {
     string type = 2;
     string title = 3;
     string content = 4;
+    string target_grade = 5;
+    string target_class = 6;
 }
 
 message CreateAnnouncementResponse {
