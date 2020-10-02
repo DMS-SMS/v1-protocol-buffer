@@ -15,7 +15,7 @@ message CreateNewStudentRequest {
     string StudentPW = 3; // 학생 계정 비밀번호 (4~16자 사이)
     string ParentUUID = 4; // 부모님 설정을 위한 부모님 계정의 uuid (19자)
     uint32 Grade = 5; // 학년 정보 (1~3 사이)
-    uint32 Class = 6; // 반 정보 (1~4 사이)
+    uint32 Group = 6; // 반 정보 (1~4 사이)
     uint32 StudentNumber = 7; // 번호 정보 (1~21 사이)
     string Name = 8; // 이름 정보 (2~4자 사이, 한글)
     string PhoneNumber = 9; // 전화번호 정보 (11자)
@@ -34,7 +34,7 @@ message CreateNewTeacherRequest {
     string TeacherID = 2; // 선생님 계정 아이디 (4~16자 사이)
     string TeacherPW = 3; // 선생님 계정 비밀번호 (4~16자 사이)
     uint32 Grade = 4; // 담임 선생님 학년 정보 (1~3 사이)
-    uint32 Class = 5; // 담임 선생님 반 정보 (1~4 사이)
+    uint32 Group = 5; // 담임 선생님 반 정보 (1~4 사이)
     string Name = 7; // 이름 정보 (2~4자 사이, 한글)
     string PhoneNumber = 8; // 전화번호 정보 (11자)
 }
