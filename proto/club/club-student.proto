@@ -91,7 +91,7 @@ message GetClubInformWithUUIDResponse {
 
 message ClubMember {
     uint32 Grade = 1;
-    uint32 Class = 2;
+    uint32 Group = 2;
     uint32 StudentNumber = 3;
     string Name = 4;
 }
