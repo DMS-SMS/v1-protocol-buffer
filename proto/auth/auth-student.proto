@@ -45,7 +45,7 @@ message GetStudentInformWithUUIDResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     uint32 Grade = 4; // 학년 정보
-    uint32 Class = 5; // 반 정보
+    uint32 Group = 5; // 반 정보
     uint32 StudentNumber = 6; // 번호 정보
     string Name = 7; // 이름 정보
     string PhoneNumber = 8; // 전화번호 정보
@@ -55,7 +55,7 @@ message GetStudentInformWithUUIDResponse {
 message GetStudentUUIDsWithInformRequest {
     string UUID = 1; // API를 호출한 학생 계정의 uuid (20자)
     uint32 Grade = 2; // 학년 정보
-    uint32 Class = 3; // 반 정보
+    uint32 Group = 3; // 반 정보
     uint32 StudentNumber = 4; // 번호 정보
     string Name = 5; // 이름 정보
     string PhoneNumber = 6; // 전화번호 정보
