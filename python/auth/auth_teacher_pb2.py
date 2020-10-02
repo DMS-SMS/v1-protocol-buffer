@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\013.;authproto',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x12\x61uth-teacher.proto\"?\n\x17LoginTeacherAuthRequest\x12\x11\n\tTeacherID\x18\x01 \x01(\t\x12\x11\n\tTeacherPW\x18\x02 \x01(\t\"{\n\x18LoginTeacherAuthResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\x12\x13\n\x0b\x41\x63\x63\x65ssToken\x18\x04 \x01(\t\x12\x1b\n\x13LoggedInTeacherUUID\x18\x05 \x01(\t\"b\n\x16\x43hangeTeacherPWRequest\x12\x0c\n\x04UUID\x18\x01 \x01(\t\x12\x13\n\x0bTeacherUUID\x18\x02 \x01(\t\x12\x11\n\tCurrentPW\x18\x03 \x01(\t\x12\x12\n\nRevisionPW\x18\x04 \x01(\t\"H\n\x17\x43hangeTeacherPWResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\"D\n\x1fGetTeacherInformWithUUIDRequest\x12\x0c\n\x04UUID\x18\x01 \x01(\t\x12\x13\n\x0bTeacherUUID\x18\x02 \x01(\t\"\x92\x01\n GetTeacherInformWithUUIDResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\x12\r\n\x05Grade\x18\x04 \x01(\r\x12\r\n\x05\x43lass\x18\x05 \x01(\r\x12\x0c\n\x04Name\x18\x06 \x01(\t\x12\x13\n\x0bPhoneNumber\x18\x07 \x01(\t2\x83\x02\n\x0b\x41uthTeacher\x12I\n\x10LoginTeacherAuth\x12\x18.LoginTeacherAuthRequest\x1a\x19.LoginTeacherAuthResponse\"\x00\x12\x46\n\x0f\x43hangeTeacherPW\x12\x17.ChangeTeacherPWRequest\x1a\x18.ChangeTeacherPWResponse\"\x00\x12\x61\n\x18GetTeacherInformWithUUID\x12 .GetTeacherInformWithUUIDRequest\x1a!.GetTeacherInformWithUUIDResponse\"\x00\x42\rZ\x0b.;authprotob\x06proto3'
+  serialized_pb=b'\n\x12\x61uth-teacher.proto\"?\n\x17LoginTeacherAuthRequest\x12\x11\n\tTeacherID\x18\x01 \x01(\t\x12\x11\n\tTeacherPW\x18\x02 \x01(\t\"{\n\x18LoginTeacherAuthResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\x12\x13\n\x0b\x41\x63\x63\x65ssToken\x18\x04 \x01(\t\x12\x1b\n\x13LoggedInTeacherUUID\x18\x05 \x01(\t\"b\n\x16\x43hangeTeacherPWRequest\x12\x0c\n\x04UUID\x18\x01 \x01(\t\x12\x13\n\x0bTeacherUUID\x18\x02 \x01(\t\x12\x11\n\tCurrentPW\x18\x03 \x01(\t\x12\x12\n\nRevisionPW\x18\x04 \x01(\t\"H\n\x17\x43hangeTeacherPWResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\"D\n\x1fGetTeacherInformWithUUIDRequest\x12\x0c\n\x04UUID\x18\x01 \x01(\t\x12\x13\n\x0bTeacherUUID\x18\x02 \x01(\t\"\x92\x01\n GetTeacherInformWithUUIDResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\x12\r\n\x05Grade\x18\x04 \x01(\r\x12\r\n\x05Group\x18\x05 \x01(\r\x12\x0c\n\x04Name\x18\x06 \x01(\t\x12\x13\n\x0bPhoneNumber\x18\x07 \x01(\t\"q\n GetTeacherUUIDsWithInformRequest\x12\x0c\n\x04UUID\x18\x01 \x01(\t\x12\r\n\x05Grade\x18\x02 \x01(\r\x12\r\n\x05Group\x18\x03 \x01(\r\x12\x0c\n\x04Name\x18\x04 \x01(\t\x12\x13\n\x0bPhoneNumber\x18\x05 \x01(\t\"h\n!GetTeacherUUIDsWithInformResponse\x12\x0e\n\x06Status\x18\x01 \x01(\r\x12\x0c\n\x04\x43ode\x18\x02 \x01(\x11\x12\x0f\n\x07Message\x18\x03 \x01(\t\x12\x14\n\x0cTeacherUUIDs\x18\x04 \x03(\t2\xe9\x02\n\x0b\x41uthTeacher\x12I\n\x10LoginTeacherAuth\x12\x18.LoginTeacherAuthRequest\x1a\x19.LoginTeacherAuthResponse\"\x00\x12\x46\n\x0f\x43hangeTeacherPW\x12\x17.ChangeTeacherPWRequest\x1a\x18.ChangeTeacherPWResponse\"\x00\x12\x61\n\x18GetTeacherInformWithUUID\x12 .GetTeacherInformWithUUIDRequest\x1a!.GetTeacherInformWithUUIDResponse\"\x00\x12\x64\n\x19GetTeacherUUIDsWithInform\x12!.GetTeacherUUIDsWithInformRequest\x1a\".GetTeacherUUIDsWithInformResponse\"\x00\x42\rZ\x0b.;authprotob\x06proto3'
 )
 
 
@@ -299,7 +299,7 @@ _GETTEACHERINFORMWITHUUIDRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='Class', full_name='GetTeacherInformWithUUIDResponse.Class', index=4,
+      name='Group', full_name='GetTeacherInformWithUUIDResponse.Group', index=4,
       number=5, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -335,12 +335,127 @@ _GETTEACHERINFORMWITHUUIDRESPONSE = _descriptor.Descriptor(
   serialized_end=603,
 )
 
+
+_GETTEACHERUUIDSWITHINFORMREQUEST = _descriptor.Descriptor(
+  name='GetTeacherUUIDsWithInformRequest',
+  full_name='GetTeacherUUIDsWithInformRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='UUID', full_name='GetTeacherUUIDsWithInformRequest.UUID', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Grade', full_name='GetTeacherUUIDsWithInformRequest.Grade', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Group', full_name='GetTeacherUUIDsWithInformRequest.Group', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Name', full_name='GetTeacherUUIDsWithInformRequest.Name', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='PhoneNumber', full_name='GetTeacherUUIDsWithInformRequest.PhoneNumber', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=605,
+  serialized_end=718,
+)
+
+
+_GETTEACHERUUIDSWITHINFORMRESPONSE = _descriptor.Descriptor(
+  name='GetTeacherUUIDsWithInformResponse',
+  full_name='GetTeacherUUIDsWithInformResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='Status', full_name='GetTeacherUUIDsWithInformResponse.Status', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Code', full_name='GetTeacherUUIDsWithInformResponse.Code', index=1,
+      number=2, type=17, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='Message', full_name='GetTeacherUUIDsWithInformResponse.Message', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='TeacherUUIDs', full_name='GetTeacherUUIDsWithInformResponse.TeacherUUIDs', index=3,
+      number=4, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=720,
+  serialized_end=824,
+)
+
 DESCRIPTOR.message_types_by_name['LoginTeacherAuthRequest'] = _LOGINTEACHERAUTHREQUEST
 DESCRIPTOR.message_types_by_name['LoginTeacherAuthResponse'] = _LOGINTEACHERAUTHRESPONSE
 DESCRIPTOR.message_types_by_name['ChangeTeacherPWRequest'] = _CHANGETEACHERPWREQUEST
 DESCRIPTOR.message_types_by_name['ChangeTeacherPWResponse'] = _CHANGETEACHERPWRESPONSE
 DESCRIPTOR.message_types_by_name['GetTeacherInformWithUUIDRequest'] = _GETTEACHERINFORMWITHUUIDREQUEST
 DESCRIPTOR.message_types_by_name['GetTeacherInformWithUUIDResponse'] = _GETTEACHERINFORMWITHUUIDRESPONSE
+DESCRIPTOR.message_types_by_name['GetTeacherUUIDsWithInformRequest'] = _GETTEACHERUUIDSWITHINFORMREQUEST
+DESCRIPTOR.message_types_by_name['GetTeacherUUIDsWithInformResponse'] = _GETTEACHERUUIDSWITHINFORMRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 LoginTeacherAuthRequest = _reflection.GeneratedProtocolMessageType('LoginTeacherAuthRequest', (_message.Message,), {
@@ -385,6 +500,20 @@ GetTeacherInformWithUUIDResponse = _reflection.GeneratedProtocolMessageType('Get
   })
 _sym_db.RegisterMessage(GetTeacherInformWithUUIDResponse)
 
+GetTeacherUUIDsWithInformRequest = _reflection.GeneratedProtocolMessageType('GetTeacherUUIDsWithInformRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETTEACHERUUIDSWITHINFORMREQUEST,
+  '__module__' : 'auth_teacher_pb2'
+  # @@protoc_insertion_point(class_scope:GetTeacherUUIDsWithInformRequest)
+  })
+_sym_db.RegisterMessage(GetTeacherUUIDsWithInformRequest)
+
+GetTeacherUUIDsWithInformResponse = _reflection.GeneratedProtocolMessageType('GetTeacherUUIDsWithInformResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETTEACHERUUIDSWITHINFORMRESPONSE,
+  '__module__' : 'auth_teacher_pb2'
+  # @@protoc_insertion_point(class_scope:GetTeacherUUIDsWithInformResponse)
+  })
+_sym_db.RegisterMessage(GetTeacherUUIDsWithInformResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -395,8 +524,8 @@ _AUTHTEACHER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=606,
-  serialized_end=865,
+  serialized_start=827,
+  serialized_end=1188,
   methods=[
   _descriptor.MethodDescriptor(
     name='LoginTeacherAuth',
@@ -425,6 +554,16 @@ _AUTHTEACHER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETTEACHERINFORMWITHUUIDREQUEST,
     output_type=_GETTEACHERINFORMWITHUUIDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetTeacherUUIDsWithInform',
+    full_name='AuthTeacher.GetTeacherUUIDsWithInform',
+    index=3,
+    containing_service=None,
+    input_type=_GETTEACHERUUIDSWITHINFORMREQUEST,
+    output_type=_GETTEACHERUUIDSWITHINFORMRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
