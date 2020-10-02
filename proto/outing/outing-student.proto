@@ -88,7 +88,7 @@ message GetCardAboutOutingResponse {
     
     string name = 9;
     int32 grade = 10;
-    int32 class_ = 11;
+    int32 group = 11;
     int32 number = 12;
     string profile_image_uri = 13;
 }

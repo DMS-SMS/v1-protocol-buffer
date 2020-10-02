@@ -12,7 +12,7 @@ message GetOutingWithFilterRequest {
     string uuid = 1;
     string status = 2;
     int32 grade = 3;
-    int32 class_ = 4;
+    int32 group = 4;
     int32 start = 5;
     int32 count = 6;
 }
@@ -27,7 +27,7 @@ message OutingResponse {
 message Outing {
     string name = 1;
     int32 grade = 2;
-    int32 class_ = 3;
+    int32 group = 3;
     int32 number = 4;
     string place = 5;
     string reason = 6;
