@@ -4,44 +4,59 @@ option go_package = ".;authproto";
 
 service AuthParent {
     rpc LoginParentAuth(LoginParentAuthRequest) returns (LoginParentAuthResponse) {}
-    rpc ChangeParentAuthPw(ChangeParentAuthPwRequest) returns (ChangeParentAuthPwResponse) {}
-    rpc GetParentUserInform(GetParentUserInformRequest) returns (GetParentUserInformResponse) {}
+    rpc ChangeParentPW(ChangeParentPWRequest) returns (ChangeParentPWResponse) {}
+    rpc GetParentInformWithUUID(GetParentInformWithUUIDRequest) returns (GetParentInformWithUUIDResponse) {}
+    rpc GetParentUUIDsWithInform(GetParentUUIDsWithInformRequest) returns (GetParentUUIDsWithInformResponse) {}
 }
 
 message LoginParentAuthRequest {
-    string id = 1; // 학부모용 계정 아이디 (4~16자 사이)
-    string pw = 2; // 학부모용 계정 비밀번호 (4~16자 사이)
+    string ParentID = 1; // 학부모용 계정 아이디 (4~16자 사이)
+    string ParentPW = 2; // 학부모용 계정 비밀번호 (4~16자 사이)
 }
 
 message LoginParentAuthResponse {
-    uint32 status = 1; // 상태 코드
-    sint32 code = 2; // 세부 코드
-    string message = 3; // 세부 설명
-    string access_token = 4; // 학부모 계정 인증을 위한 JWT
-    string pid = 5; // 로그인한 학부모 계정의 uuid
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string AccessToken = 4; // 학부모 계정 인증을 위한 JWT
+    string LoggedInParentUUID = 5; // 로그인한 학부모 계정의 uuid
 }
 
-message ChangeParentAuthPwRequest {
-    string uuid = 1; // API를 호출한 학부모 계정의 uuid (20자)
-    string pid = 2; // 변경할 선생님 계정의 uuid (20자)
-    string current_pw = 3; // 해당 사용자의 현재 Pw (4~16 사이)
-    string new_pw = 4; // 변경할 Pw (4~16 사이)
+message ChangeParentPWRequest {
+    string UUID = 1; // API를 호출한 학부모 계정의 uuid (20자)
+    string ParentUUID = 2; // 변경할 선생님 계정의 uuid (20자)
+    string CurrentPW = 3; // 해당 사용자의 현재 PW (4~16 사이)
+    string RevisionPW = 4; // 변경할 PW (4~16 사이)
 }
 
-message ChangeParentAuthPwResponse {
-    uint32 status = 1; // 상태 코드
-    sint32 code = 2; // 세부 코드
-    string message = 3; // 세부 설명
+message ChangeParentPWResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
 }
 
-message GetParentUserInformRequest {
-    string uuid = 1; // API를 호출한 학부모 계정의 uuid (20자)
-    string pid = 2; // 조회할 학부모 계정의 uuid (20자)
+message GetParentInformWithUUIDRequest {
+    string UUID = 1; // API를 호출한 학부모 계정의 uuid (19자)
+    string ParentUUID = 2; // 조회할 학부모 계정의 uuid (19자)
 }
 
-message GetParentUserInformResponse {
-    uint32 status = 1; // 상태 코드
-    sint32 code = 2; // 세부 코드
-    string message = 3; // 세부 설명
-    string name = 4; // 학부모 이름
+message GetParentInformWithUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string Name = 4; // 학부모 이름
+    string PhoneNumber = 5; // 전화번호 정보
+}
+
+message GetParentUUIDsWithInformRequest {
+    string UUID = 1; // API를 호출한 학부모 계정의 uuid (19자)
+    string Name = 2; // 학부모 이름
+    string PhoneNumber = 3; // 전화번호 정보
+}
+
+message GetParentUUIDsWithInformResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    repeated string ParentUUIDs = 4;
 }

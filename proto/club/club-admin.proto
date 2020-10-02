@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = ".;clubproto";
+
+service ClubAdmin {
+    rpc CreateNewClub(CreateNewClubRequest) returns (CreateNewClubResponse) {}
+}
+
+message CreateNewClubRequest {
+    string UUID = 1; // API를 호출한 관리자 계정의 UUID (18자)
+    string Name = 2; // 동아리 이름 (1~20자 사이)
+    string LeaderUUID = 3; // 동아리 장의 계정 UUID (20자)
+    repeated string MemberUUIDs = 4; // 동아리 부원의 계정 UUID List (20자)
+    string Field = 5; // 동아리 분야 (1~20자 이내)
+    string Location = 6; // 동아리 위치 (1~20자 이내)
+    uint32 Floor = 7; // 동아리실 층 (1~5 사이 값)
+    bytes Logo = 8; // 동아리 로고 바이트 배열
+}
+
+message CreateNewClubResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string ClubUUID = 4; // 생성된 동아리의 UUID
+}
