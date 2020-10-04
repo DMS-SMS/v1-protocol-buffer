@@ -100,9 +100,9 @@ message ModifyRecruitmentRequest {
 }
 
 message RecruitMember {
-    uint32 Grade = 1;
+    string Grade = 1;
     string Field = 2;
-    uint32 Number = 3;
+    string Number = 3;
 }
 
 message ModifyRecruitmentResponse {
