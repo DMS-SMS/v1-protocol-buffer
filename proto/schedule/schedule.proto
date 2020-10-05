@@ -11,6 +11,7 @@ service ScheduleService {
     rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}
     rpc GetSchedule(GetScheduleRequest) returns (GetScheduleResponse) {}
     rpc CreateSchedule(CreateScheduleRequest) returns (DefaultScheduleResponse) {}
+    rpc UpdateSchedule(UpdateScheduleRequest) returns (DefaultScheduleResponse) {}
 }
 
 message GetTimeTableRequest {
@@ -63,4 +64,14 @@ message CreateScheduleRequest {
     string endMonth = 4;
     string endDay = 5;
     string detail = 6;
+}
+
+message UpdateScheduleRequest {
+    string uuid = 1;
+    string scheduleUUID = 2;
+    string startMonth = 3;
+    string startDay = 4;
+    string endMonth = 5;
+    string endDay = 6;
+    string detail = 7;
 }
