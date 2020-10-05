@@ -10,6 +10,7 @@ package schedule;
 service ScheduleService {
     rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}
     rpc GetSchedule(GetScheduleRequest) returns (GetScheduleResponse) {}
+    rpc CreateSchedule(CreateScheduleRequest) returns (DefaultScheduleResponse) {}
 }
 
 message GetTimeTableRequest {
@@ -42,6 +43,21 @@ message GetScheduleResponse {
 
 message Schedule {
     string scheduleUUID = 1;
+    string startMonth = 2;
+    string startDay = 3;
+    string endMonth = 4;
+    string endDay = 5;
+    string detail = 6;
+}
+
+message DefaultScheduleResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+}
+
+message CreateScheduleRequest {
+    string uuid = 1;
     string startMonth = 2;
     string startDay = 3;
     string endMonth = 4;
