@@ -6,6 +6,7 @@ service AuthStudent {
     rpc LoginStudentAuth(LoginStudentAuthRequest) returns (LoginStudentAuthResponse) {}
     rpc ChangeStudentPW(ChangeStudentPWRequest) returns (ChangeStudentPWResponse) {}
     rpc GetStudentInformWithUUID(GetStudentInformWithUUIDRequest) returns (GetStudentInformWithUUIDResponse) {}
+    rpc GetStudentInformsWithUUIDs(GetStudentInformsWithUUIDsRequest) returns (GetStudentInformsWithUUIDsResponse) {}
     rpc GetStudentUUIDsWithInform(GetStudentUUIDsWithInformRequest) returns (GetStudentUUIDsWithInformResponse) {}
 }
 
@@ -50,6 +51,28 @@ message GetStudentInformWithUUIDResponse {
     string Name = 7; // 이름 정보
     string PhoneNumber = 8; // 전화번호 정보
     string ImageURI = 9; // 학생 프로필 이미지 첨부 링크
+}
+
+message GetStudentInformsWithUUIDsRequest {
+    string UUID = 1; // API를 호출한 학생 또는 관리자 계정의 uuid (18자 or 20자)
+    repeated string StudentUUIDs = 2; // 조회할 학생 계정들의 uuid 배열 (20자)
+}
+
+message GetStudentInformsWithUUIDsResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    repeated StudentInform StudentInforms = 4;
+}
+
+message StudentInform {
+    string StudentUUID = 1; // 정보를 조회한 계정의 UUID
+    uint32 Grade = 2; // 학년 정보
+    uint32 Group = 3; // 반 정보
+    uint32 StudentNumber = 4; // 번호 정보
+    string Name = 5; // 이름 정보
+    string PhoneNumber = 6; // 전화번호 정보
+    string ImageURI = 7; // 학생 프로필 이미지 첨부 링크
 }
 
 message GetStudentUUIDsWithInformRequest {
