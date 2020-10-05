@@ -9,12 +9,11 @@ package schedule;
 
 service ScheduleService {
     rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}
+    rpc GetSchedule(GetScheduleRequest) returns (GetScheduleResponse) {}
 }
 
 message GetTimeTableRequest {
     string uuid = 1;
-    string grade = 2; // required
-    string group = 3; // required
 }
 
 message GetTimeTableResponse {
@@ -28,4 +27,24 @@ message GetTimeTableResponse {
     string time5 = 8;
     string time6 = 9;
     string time7 = 10;
+}
+
+message GetScheduleRequest {
+    string uuid = 1;
+}
+
+message GetScheduleResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+    repeated Schedule schedule = 4;
+}
+
+message Schedule {
+    string scheduleUUID = 1;
+    string startMonth = 2;
+    string startDay = 3;
+    string endMonth = 4;
+    string endDay = 5;
+    string detail = 6;
 }
