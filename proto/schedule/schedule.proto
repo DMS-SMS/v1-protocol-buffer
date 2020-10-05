@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dsm.service.schedule.proto";
+option java_outer_classname = "ScheduleProto";
+
+package schedule;
+
+
+service ScheduleService {
+    rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}
+}
+
+message GetTimeTableRequest {
+    string uuid = 1;
+    string grade = 2; // required
+    string group = 3; // required
+}
+
+message GetTimeTableResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+    string time1 = 4;
+    string time2 = 5;
+    string time3 = 6;
+    string time4 = 7;
+    string time5 = 8;
+    string time6 = 9;
+    string time7 = 10;
+}
