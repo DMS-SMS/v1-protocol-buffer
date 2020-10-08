@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+package club.admin;
+
+import "club-leader.proto";
+
 option go_package = ".;clubproto";
 
 service ClubStudent {
@@ -61,7 +65,7 @@ message RecruitmentInform {
     string RecruitConcept = 3; // 모집 공고 한줄 소개
     string Location = 4; // 동아리 위치
     uint32 Floor = 5; // 동아리실 층
-    repeated RecruitMember RecruitMembers = 6; // 동아리 모집 분야 리스트
+    repeated club.leader.RecruitMember RecruitMembers = 6; // 동아리 모집 분야 리스트
     string Field = 7; // 동아리 분야
     string StartPeriod = 8; // 시작 기간
     string EndPeriod = 9; // 종료 기간
@@ -107,15 +111,9 @@ message GetRecruitmentInformWithUUIDResponse {
     string Message = 3; // 세부 설명
     string ClubUUID = 4; // 해당 모집을 올린 동아리의 UUID
     string RecruitConcept = 5; // 모집 컨셉
-    repeated RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
+    repeated club.leader.RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
     string StartPeriod = 7; // 모집 시작 기간
     string EndPeriod = 8; // 모집 종료 기간
-}
-
-message RecruitMember {
-    string Grade = 1;
-    string Field = 2;
-    string Number = 3;
 }
 
 message GetAllClubFieldsRequest {
@@ -126,11 +124,7 @@ message GetAllClubFieldsResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
-    repeated Field Fields = 4; // 동아리의 모든 분야 리스트
-}
-
-message Field {
-    string field = 1;
+    repeated string Fields = 4; // 동아리의 모든 분야 리스트
 }
 
 message GetTotalCountOfClubsRequest {
