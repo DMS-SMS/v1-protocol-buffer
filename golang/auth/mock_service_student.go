@@ -2,7 +2,7 @@ package authproto
 
 import (
 	"context"
-	"github.com/micro/go-micro/client"
+	"github.com/micro/go-micro/v2/client"
 	"github.com/stretchr/testify/mock"
 )
 
