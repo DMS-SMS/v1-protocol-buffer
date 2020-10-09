@@ -39,7 +39,6 @@ type ClubLeaderService interface {
 	ChangeClubLeader(ctx context.Context, in *ChangeClubLeaderRequest, opts ...client.CallOption) (*ChangeClubLeaderResponse, error)
 	ModifyClubInform(ctx context.Context, in *ModifyClubInformRequest, opts ...client.CallOption) (*ModifyClubInformResponse, error)
 	DeleteClubWithUUID(ctx context.Context, in *DeleteClubWithUUIDRequest, opts ...client.CallOption) (*DeleteClubWithUUIDResponse, error)
-	GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, opts ...client.CallOption) (*GetRecruitmentUUIDWithClubUUIDResponse, error)
 	RegisterRecruitment(ctx context.Context, in *RegisterRecruitmentRequest, opts ...client.CallOption) (*RegisterRecruitmentResponse, error)
 	ModifyRecruitment(ctx context.Context, in *ModifyRecruitmentRequest, opts ...client.CallOption) (*ModifyRecruitmentResponse, error)
 	DeleteRecruitmentWithUUID(ctx context.Context, in *DeleteRecruitmentWithUUIDRequest, opts ...client.CallOption) (*DeleteRecruitmentWithUUIDResponse, error)
@@ -107,16 +106,6 @@ func (c *clubLeaderService) DeleteClubWithUUID(ctx context.Context, in *DeleteCl
 	return out, nil
 }
 
-func (c *clubLeaderService) GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, opts ...client.CallOption) (*GetRecruitmentUUIDWithClubUUIDResponse, error) {
-	req := c.c.NewRequest(c.name, "ClubLeader.GetRecruitmentUUIDWithClubUUID", in)
-	out := new(GetRecruitmentUUIDWithClubUUIDResponse)
-	err := c.c.Call(ctx, req, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *clubLeaderService) RegisterRecruitment(ctx context.Context, in *RegisterRecruitmentRequest, opts ...client.CallOption) (*RegisterRecruitmentResponse, error) {
 	req := c.c.NewRequest(c.name, "ClubLeader.RegisterRecruitment", in)
 	out := new(RegisterRecruitmentResponse)
@@ -155,7 +144,6 @@ type ClubLeaderHandler interface {
 	ChangeClubLeader(context.Context, *ChangeClubLeaderRequest, *ChangeClubLeaderResponse) error
 	ModifyClubInform(context.Context, *ModifyClubInformRequest, *ModifyClubInformResponse) error
 	DeleteClubWithUUID(context.Context, *DeleteClubWithUUIDRequest, *DeleteClubWithUUIDResponse) error
-	GetRecruitmentUUIDWithClubUUID(context.Context, *GetRecruitmentUUIDWithClubUUIDRequest, *GetRecruitmentUUIDWithClubUUIDResponse) error
 	RegisterRecruitment(context.Context, *RegisterRecruitmentRequest, *RegisterRecruitmentResponse) error
 	ModifyRecruitment(context.Context, *ModifyRecruitmentRequest, *ModifyRecruitmentResponse) error
 	DeleteRecruitmentWithUUID(context.Context, *DeleteRecruitmentWithUUIDRequest, *DeleteRecruitmentWithUUIDResponse) error
@@ -168,7 +156,6 @@ func RegisterClubLeaderHandler(s server.Server, hdlr ClubLeaderHandler, opts ...
 		ChangeClubLeader(ctx context.Context, in *ChangeClubLeaderRequest, out *ChangeClubLeaderResponse) error
 		ModifyClubInform(ctx context.Context, in *ModifyClubInformRequest, out *ModifyClubInformResponse) error
 		DeleteClubWithUUID(ctx context.Context, in *DeleteClubWithUUIDRequest, out *DeleteClubWithUUIDResponse) error
-		GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, out *GetRecruitmentUUIDWithClubUUIDResponse) error
 		RegisterRecruitment(ctx context.Context, in *RegisterRecruitmentRequest, out *RegisterRecruitmentResponse) error
 		ModifyRecruitment(ctx context.Context, in *ModifyRecruitmentRequest, out *ModifyRecruitmentResponse) error
 		DeleteRecruitmentWithUUID(ctx context.Context, in *DeleteRecruitmentWithUUIDRequest, out *DeleteRecruitmentWithUUIDResponse) error
@@ -202,10 +189,6 @@ func (h *clubLeaderHandler) ModifyClubInform(ctx context.Context, in *ModifyClub
 
 func (h *clubLeaderHandler) DeleteClubWithUUID(ctx context.Context, in *DeleteClubWithUUIDRequest, out *DeleteClubWithUUIDResponse) error {
 	return h.ClubLeaderHandler.DeleteClubWithUUID(ctx, in, out)
-}
-
-func (h *clubLeaderHandler) GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, out *GetRecruitmentUUIDWithClubUUIDResponse) error {
-	return h.ClubLeaderHandler.GetRecruitmentUUIDWithClubUUID(ctx, in, out)
 }
 
 func (h *clubLeaderHandler) RegisterRecruitment(ctx context.Context, in *RegisterRecruitmentRequest, out *RegisterRecruitmentResponse) error {
