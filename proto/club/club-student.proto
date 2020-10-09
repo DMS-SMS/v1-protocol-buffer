@@ -11,6 +11,7 @@ service ClubStudent {
     rpc GetRecruitmentsSortByCreateTime(GetRecruitmentsSortByCreateTimeRequest) returns (GetRecruitmentsSortByCreateTimeResponse) {}
     rpc GetClubInformWithUUID(GetClubInformWithUUIDRequest) returns (GetClubInformWithUUIDResponse) {}
     rpc GetRecruitmentInformWithUUID(GetRecruitmentInformWithUUIDRequest) returns (GetRecruitmentInformWithUUIDResponse) {}
+    rpc GetRecruitmentUUIDWithClubUUID(GetRecruitmentUUIDWithClubUUIDRequest) returns (GetRecruitmentUUIDWithClubUUIDResponse) {}
     rpc GetAllClubFields(GetAllClubFieldsRequest) returns (GetAllClubFieldsResponse) {}
     rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
     rpc GetTotalCountOfRecruitments(GetTotalCountOfRecruitmentsRequest) returns (GetTotalCountOfRecruitmentsResponse) {}
@@ -114,6 +115,18 @@ message GetRecruitmentInformWithUUIDResponse {
     repeated club.leader.RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
     string StartPeriod = 7; // 모집 시작 기간
     string EndPeriod = 8; // 모집 종료 기간
+}
+
+message GetRecruitmentUUIDWithClubUUIDRequest {
+    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string ClubUUID = 2; // 모집 공고를 조회할 동아리의 UUID (17자)
+}
+
+message GetRecruitmentUUIDWithClubUUIDResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string RecruitmentUUID = 4; // 해당 동아리의 모집 공고의 uuid
 }
 
 message GetAllClubFieldsRequest {
