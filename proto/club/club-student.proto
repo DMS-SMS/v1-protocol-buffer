@@ -40,8 +40,8 @@ message ClubInform {
     string ClubConcept = 5; // 동아리 한줄 소개
     string LeaderName = 6; // 동아리장 이름
     string Field = 7; // 동아리 분야
-    string LogoURI = 8; // 동아리 로고 URI
-    string RecruitmentUUID = 9; // 해당 동아리가 올린 모집 UUID
+    string Link = 8; // 동아리 페이지 링크
+    string LogoURI = 9; // 동아리 로고 URI
 }
 
 message GetRecruitmentsSortByCreateTimeRequest {
