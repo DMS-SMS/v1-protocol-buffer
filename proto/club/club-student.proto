@@ -12,6 +12,7 @@ service ClubStudent {
     rpc GetClubInformWithUUID(GetClubInformWithUUIDRequest) returns (GetClubInformWithUUIDResponse) {}
     rpc GetRecruitmentInformWithUUID(GetRecruitmentInformWithUUIDRequest) returns (GetRecruitmentInformWithUUIDResponse) {}
     rpc GetRecruitmentUUIDWithClubUUID(GetRecruitmentUUIDWithClubUUIDRequest) returns (GetRecruitmentUUIDWithClubUUIDResponse) {}
+    rpc GetRecruitmentUUIDsWithClubUUIDs(GetRecruitmentUUIDsWithClubUUIDsRequest) returns (GetRecruitmentUUIDsWithClubUUIDsResponse) {}
     rpc GetAllClubFields(GetAllClubFieldsRequest) returns (GetAllClubFieldsResponse) {}
     rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
     rpc GetTotalCountOfRecruitments(GetTotalCountOfRecruitmentsRequest) returns (GetTotalCountOfRecruitmentsResponse) {}
@@ -118,7 +119,7 @@ message GetRecruitmentInformWithUUIDResponse {
 }
 
 message GetRecruitmentUUIDWithClubUUIDRequest {
-    string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
+    string UUID = 1; // API를 호출한 학생 UUID (20자)
     string ClubUUID = 2; // 모집 공고를 조회할 동아리의 UUID (17자)
 }
 
@@ -127,6 +128,18 @@ message GetRecruitmentUUIDWithClubUUIDResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string RecruitmentUUID = 4; // 해당 동아리의 모집 공고의 uuid
+}
+
+message GetRecruitmentUUIDsWithClubUUIDsRequest {
+    string UUID = 1; // API를 호출한 학생 UUID (20자)
+    repeated string ClubUUIDs = 2; // 모집 공고를 조회할 동아리의 UUID list (17자)
+}
+
+message GetRecruitmentUUIDsWithClubUUIDsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated string RecruitmentUUIDs = 4; // 해당 동아리의 모집 공고의 uuid list
 }
 
 message GetAllClubFieldsRequest {
