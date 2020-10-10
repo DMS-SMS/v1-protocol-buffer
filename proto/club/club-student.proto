@@ -10,6 +10,7 @@ service ClubStudent {
     rpc GetClubsSortByUpdateTime(GetClubsSortByUpdateTimeRequest) returns (GetClubsSortByUpdateTimeResponse) {}
     rpc GetRecruitmentsSortByCreateTime(GetRecruitmentsSortByCreateTimeRequest) returns (GetRecruitmentsSortByCreateTimeResponse) {}
     rpc GetClubInformWithUUID(GetClubInformWithUUIDRequest) returns (GetClubInformWithUUIDResponse) {}
+    rpc GetClubInformsWithUUIDs(GetClubInformsWithUUIDsRequest) returns (GetClubInformsWithUUIDsResponse) {}
     rpc GetRecruitmentInformWithUUID(GetRecruitmentInformWithUUIDRequest) returns (GetRecruitmentInformWithUUIDResponse) {}
     rpc GetRecruitmentUUIDWithClubUUID(GetRecruitmentUUIDWithClubUUIDRequest) returns (GetRecruitmentUUIDWithClubUUIDResponse) {}
     rpc GetRecruitmentUUIDsWithClubUUIDs(GetRecruitmentUUIDsWithClubUUIDsRequest) returns (GetRecruitmentUUIDsWithClubUUIDsResponse) {}
@@ -90,6 +91,18 @@ message GetClubInformWithUUIDResponse {
     string Field = 11; // 동아리 분야
     string LogoURI = 12; // 동아리 로고 URI
     string Link = 13; // 동아리 페이스북 그룹 링크
+}
+
+message GetClubInformsWithUUIDsRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string ClubUUIDs = 2; // 조회할 동아리의 UUID List (17자)
+}
+
+message GetClubInformsWithUUIDsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated ClubInform Informs = 4; // 동아리 정보 리스트
 }
 
 message GetRecruitmentInformWithUUIDRequest {
