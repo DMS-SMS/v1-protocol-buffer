@@ -37,6 +37,7 @@ type ClubStudentService interface {
 	GetClubsSortByUpdateTime(ctx context.Context, in *GetClubsSortByUpdateTimeRequest, opts ...client.CallOption) (*GetClubsSortByUpdateTimeResponse, error)
 	GetRecruitmentsSortByCreateTime(ctx context.Context, in *GetRecruitmentsSortByCreateTimeRequest, opts ...client.CallOption) (*GetRecruitmentsSortByCreateTimeResponse, error)
 	GetClubInformWithUUID(ctx context.Context, in *GetClubInformWithUUIDRequest, opts ...client.CallOption) (*GetClubInformWithUUIDResponse, error)
+	GetClubInformsWithUUIDs(ctx context.Context, in *GetClubInformsWithUUIDsRequest, opts ...client.CallOption) (*GetClubInformsWithUUIDsResponse, error)
 	GetRecruitmentInformWithUUID(ctx context.Context, in *GetRecruitmentInformWithUUIDRequest, opts ...client.CallOption) (*GetRecruitmentInformWithUUIDResponse, error)
 	GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, opts ...client.CallOption) (*GetRecruitmentUUIDWithClubUUIDResponse, error)
 	GetRecruitmentUUIDsWithClubUUIDs(ctx context.Context, in *GetRecruitmentUUIDsWithClubUUIDsRequest, opts ...client.CallOption) (*GetRecruitmentUUIDsWithClubUUIDsResponse, error)
@@ -81,6 +82,16 @@ func (c *clubStudentService) GetRecruitmentsSortByCreateTime(ctx context.Context
 func (c *clubStudentService) GetClubInformWithUUID(ctx context.Context, in *GetClubInformWithUUIDRequest, opts ...client.CallOption) (*GetClubInformWithUUIDResponse, error) {
 	req := c.c.NewRequest(c.name, "ClubStudent.GetClubInformWithUUID", in)
 	out := new(GetClubInformWithUUIDResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clubStudentService) GetClubInformsWithUUIDs(ctx context.Context, in *GetClubInformsWithUUIDsRequest, opts ...client.CallOption) (*GetClubInformsWithUUIDsResponse, error) {
+	req := c.c.NewRequest(c.name, "ClubStudent.GetClubInformsWithUUIDs", in)
+	out := new(GetClubInformsWithUUIDsResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -164,6 +175,7 @@ type ClubStudentHandler interface {
 	GetClubsSortByUpdateTime(context.Context, *GetClubsSortByUpdateTimeRequest, *GetClubsSortByUpdateTimeResponse) error
 	GetRecruitmentsSortByCreateTime(context.Context, *GetRecruitmentsSortByCreateTimeRequest, *GetRecruitmentsSortByCreateTimeResponse) error
 	GetClubInformWithUUID(context.Context, *GetClubInformWithUUIDRequest, *GetClubInformWithUUIDResponse) error
+	GetClubInformsWithUUIDs(context.Context, *GetClubInformsWithUUIDsRequest, *GetClubInformsWithUUIDsResponse) error
 	GetRecruitmentInformWithUUID(context.Context, *GetRecruitmentInformWithUUIDRequest, *GetRecruitmentInformWithUUIDResponse) error
 	GetRecruitmentUUIDWithClubUUID(context.Context, *GetRecruitmentUUIDWithClubUUIDRequest, *GetRecruitmentUUIDWithClubUUIDResponse) error
 	GetRecruitmentUUIDsWithClubUUIDs(context.Context, *GetRecruitmentUUIDsWithClubUUIDsRequest, *GetRecruitmentUUIDsWithClubUUIDsResponse) error
@@ -178,6 +190,7 @@ func RegisterClubStudentHandler(s server.Server, hdlr ClubStudentHandler, opts .
 		GetClubsSortByUpdateTime(ctx context.Context, in *GetClubsSortByUpdateTimeRequest, out *GetClubsSortByUpdateTimeResponse) error
 		GetRecruitmentsSortByCreateTime(ctx context.Context, in *GetRecruitmentsSortByCreateTimeRequest, out *GetRecruitmentsSortByCreateTimeResponse) error
 		GetClubInformWithUUID(ctx context.Context, in *GetClubInformWithUUIDRequest, out *GetClubInformWithUUIDResponse) error
+		GetClubInformsWithUUIDs(ctx context.Context, in *GetClubInformsWithUUIDsRequest, out *GetClubInformsWithUUIDsResponse) error
 		GetRecruitmentInformWithUUID(ctx context.Context, in *GetRecruitmentInformWithUUIDRequest, out *GetRecruitmentInformWithUUIDResponse) error
 		GetRecruitmentUUIDWithClubUUID(ctx context.Context, in *GetRecruitmentUUIDWithClubUUIDRequest, out *GetRecruitmentUUIDWithClubUUIDResponse) error
 		GetRecruitmentUUIDsWithClubUUIDs(ctx context.Context, in *GetRecruitmentUUIDsWithClubUUIDsRequest, out *GetRecruitmentUUIDsWithClubUUIDsResponse) error
@@ -207,6 +220,10 @@ func (h *clubStudentHandler) GetRecruitmentsSortByCreateTime(ctx context.Context
 
 func (h *clubStudentHandler) GetClubInformWithUUID(ctx context.Context, in *GetClubInformWithUUIDRequest, out *GetClubInformWithUUIDResponse) error {
 	return h.ClubStudentHandler.GetClubInformWithUUID(ctx, in, out)
+}
+
+func (h *clubStudentHandler) GetClubInformsWithUUIDs(ctx context.Context, in *GetClubInformsWithUUIDsRequest, out *GetClubInformsWithUUIDsResponse) error {
+	return h.ClubStudentHandler.GetClubInformsWithUUIDs(ctx, in, out)
 }
 
 func (h *clubStudentHandler) GetRecruitmentInformWithUUID(ctx context.Context, in *GetRecruitmentInformWithUUIDRequest, out *GetRecruitmentInformWithUUIDResponse) error {
