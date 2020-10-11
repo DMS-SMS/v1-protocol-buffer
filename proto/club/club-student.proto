@@ -38,14 +38,15 @@ message GetClubsSortByUpdateTimeResponse {
 message ClubInform {
     string ClubUUID = 1; // 동아리 UUID
     string LeaderUUID = 2; // 동아리장 UUID
-    string Name = 3; // 동아리 이름
-    string ClubConcept = 4; // 동아리 한줄 소개
-    string Introduction = 5; // 동아
-    string Floor = 6; // 동아리실 층
-    string Location = 7; // 동아리실 위치
-    string Field = 8; // 동아리 분야
-    string Link = 9; // 동아리 페이지 링크
-    string LogoURI = 10; // 동아리 로고 URI
+    repeated string MemberUUIDs = 3; // 동아리 부원 UUID 리스트
+    string Name = 4; // 동아리 이름
+    string ClubConcept = 5; // 동아리 한줄 소개
+    string Introduction = 6; // 동아
+    string Floor = 7; // 동아리실 층
+    string Location = 8; // 동아리실 위치
+    string Field = 9; // 동아리 분야
+    string Link = 10; // 동아리 페이지 링크
+    string LogoURI = 11; // 동아리 로고 URI
 }
 
 message GetRecruitmentsSortByCreateTimeRequest {
