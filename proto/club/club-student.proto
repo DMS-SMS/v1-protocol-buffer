@@ -97,7 +97,7 @@ message GetClubInformWithUUIDResponse {
 
 message GetClubInformsWithUUIDsRequest {
     string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
-    string ClubUUIDs = 2; // 조회할 동아리의 UUID List (17자)
+    repeated string ClubUUIDs = 2; // 조회할 동아리의 UUID List (17자)
 }
 
 message GetClubInformsWithUUIDsResponse {
