@@ -82,16 +82,17 @@ message GetClubInformWithUUIDResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
-    string Name = 4; // 동아리 이름
-    string ClubConcept = 5; // 동아리 한줄 소개
-    string Introduction = 6; // 동아리 설명
-    string LeaderUUID = 7; // 동아리장 UUID
-    repeated string MemberUUIDs = 8; // 동아리 부원의 UUID 리스트
-    string Location = 9; // 동아리 위치
+    string ClubUUID = 4; // 동아리 UUID
+    string LeaderUUID = 5; // 동아리장 UUID
+    repeated string MemberUUIDs = 6; // 동아리 부원의 UUID 리스트
+    string Name = 7; // 동아리 이름
+    string ClubConcept = 8; // 동아리 한줄 소개
+    string Introduction = 9; // 동아리 설명
     string Floor = 10; // 동아리실 층
-    string Field = 11; // 동아리 분야
-    string LogoURI = 12; // 동아리 로고 URI
+    string Location = 11; // 동아리 위치
+    string Field = 12; // 동아리 분야
     string Link = 13; // 동아리 페이스북 그룹 링크
+    string LogoURI = 14; // 동아리 로고 URI
 }
 
 message GetClubInformsWithUUIDsRequest {
