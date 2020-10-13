@@ -167,7 +167,7 @@ message GetTotalCountOfClubsResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
-    uint32 Count = 4; // 동아리 총 개수
+    int64 Count = 4; // 동아리 총 개수
 }
 
 message GetTotalCountOfRecruitmentsRequest {
@@ -178,7 +178,7 @@ message GetTotalCountOfRecruitmentsResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
-    uint32 Count = 4; // 모집 공고 총 개수
+    int64 Count = 4; // 모집 공고 총 개수
 }
 
 message CheckIfClubLeaderRequest {
