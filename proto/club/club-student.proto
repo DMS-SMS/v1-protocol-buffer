@@ -116,11 +116,12 @@ message GetRecruitmentInformWithUUIDResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
-    string ClubUUID = 4; // 해당 모집을 올린 동아리의 UUID
-    string RecruitConcept = 5; // 모집 컨셉
-    repeated club.leader.RecruitMember RecruitMembers = 6; // 모집 멤버 리스트
-    string StartPeriod = 7; // 모집 시작 기간
-    string EndPeriod = 8; // 모집 종료 기간
+    string RecruitmentUUID = 4; // 모집 공고 UUID
+    string ClubUUID = 5; // 해당 모집을 올린 동아리의 UUID
+    string RecruitConcept = 6; // 모집 컨셉
+    repeated club.leader.RecruitMember RecruitMembers = 7; // 모집 멤버 리스트
+    string StartPeriod = 8; // 모집 시작 기간
+    string EndPeriod = 9; // 모집 종료 기간
 }
 
 message GetRecruitmentUUIDWithClubUUIDRequest {
