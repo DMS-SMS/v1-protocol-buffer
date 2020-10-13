@@ -183,6 +183,7 @@ message GetTotalCountOfRecruitmentsResponse {
 
 message CheckIfIsClubLeaderRequest {
     string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string StudentUUID = 2; // 동아리 장인지 확인할 학생 계정의 UUID (20자)
 }
 
 message CheckIfIsClubLeaderResponse {
