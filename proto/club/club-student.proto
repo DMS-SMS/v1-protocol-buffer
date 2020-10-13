@@ -17,7 +17,7 @@ service ClubStudent {
     rpc GetAllClubFields(GetAllClubFieldsRequest) returns (GetAllClubFieldsResponse) {}
     rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
     rpc GetTotalCountOfRecruitments(GetTotalCountOfRecruitmentsRequest) returns (GetTotalCountOfRecruitmentsResponse) {}
-    rpc CheckIfClubLeader(CheckIfClubLeaderRequest) returns (CheckIfClubLeaderResponse) {}
+    rpc CheckIfIsClubLeader(CheckIfIsClubLeaderRequest) returns (CheckIfIsClubLeaderResponse) {}
 }
 
 message GetClubsSortByUpdateTimeRequest {
@@ -181,11 +181,11 @@ message GetTotalCountOfRecruitmentsResponse {
     int64 Count = 4; // 모집 공고 총 개수
 }
 
-message CheckIfClubLeaderRequest {
+message CheckIfIsClubLeaderRequest {
     string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
 }
 
-message CheckIfClubLeaderResponse {
+message CheckIfIsClubLeaderResponse {
     uint32 Status = 1; // 상태 코드
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
