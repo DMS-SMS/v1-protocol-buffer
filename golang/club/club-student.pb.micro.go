@@ -44,7 +44,7 @@ type ClubStudentService interface {
 	GetAllClubFields(ctx context.Context, in *GetAllClubFieldsRequest, opts ...client.CallOption) (*GetAllClubFieldsResponse, error)
 	GetTotalCountOfClubs(ctx context.Context, in *GetTotalCountOfClubsRequest, opts ...client.CallOption) (*GetTotalCountOfClubsResponse, error)
 	GetTotalCountOfCurrentRecruitments(ctx context.Context, in *GetTotalCountOfCurrentRecruitmentsRequest, opts ...client.CallOption) (*GetTotalCountOfCurrentRecruitmentsResponse, error)
-	CheckIfIsClubLeader(ctx context.Context, in *CheckIfIsClubLeaderRequest, opts ...client.CallOption) (*CheckIfIsClubLeaderResponse, error)
+	GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, opts ...client.CallOption) (*GetClubUUIDWithLeaderUUIDResponse, error)
 }
 
 type clubStudentService struct {
@@ -159,9 +159,9 @@ func (c *clubStudentService) GetTotalCountOfCurrentRecruitments(ctx context.Cont
 	return out, nil
 }
 
-func (c *clubStudentService) CheckIfIsClubLeader(ctx context.Context, in *CheckIfIsClubLeaderRequest, opts ...client.CallOption) (*CheckIfIsClubLeaderResponse, error) {
-	req := c.c.NewRequest(c.name, "ClubStudent.CheckIfIsClubLeader", in)
-	out := new(CheckIfIsClubLeaderResponse)
+func (c *clubStudentService) GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, opts ...client.CallOption) (*GetClubUUIDWithLeaderUUIDResponse, error) {
+	req := c.c.NewRequest(c.name, "ClubStudent.GetClubUUIDWithLeaderUUID", in)
+	out := new(GetClubUUIDWithLeaderUUIDResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -182,7 +182,7 @@ type ClubStudentHandler interface {
 	GetAllClubFields(context.Context, *GetAllClubFieldsRequest, *GetAllClubFieldsResponse) error
 	GetTotalCountOfClubs(context.Context, *GetTotalCountOfClubsRequest, *GetTotalCountOfClubsResponse) error
 	GetTotalCountOfCurrentRecruitments(context.Context, *GetTotalCountOfCurrentRecruitmentsRequest, *GetTotalCountOfCurrentRecruitmentsResponse) error
-	CheckIfIsClubLeader(context.Context, *CheckIfIsClubLeaderRequest, *CheckIfIsClubLeaderResponse) error
+	GetClubUUIDWithLeaderUUID(context.Context, *GetClubUUIDWithLeaderUUIDRequest, *GetClubUUIDWithLeaderUUIDResponse) error
 }
 
 func RegisterClubStudentHandler(s server.Server, hdlr ClubStudentHandler, opts ...server.HandlerOption) error {
@@ -197,7 +197,7 @@ func RegisterClubStudentHandler(s server.Server, hdlr ClubStudentHandler, opts .
 		GetAllClubFields(ctx context.Context, in *GetAllClubFieldsRequest, out *GetAllClubFieldsResponse) error
 		GetTotalCountOfClubs(ctx context.Context, in *GetTotalCountOfClubsRequest, out *GetTotalCountOfClubsResponse) error
 		GetTotalCountOfCurrentRecruitments(ctx context.Context, in *GetTotalCountOfCurrentRecruitmentsRequest, out *GetTotalCountOfCurrentRecruitmentsResponse) error
-		CheckIfIsClubLeader(ctx context.Context, in *CheckIfIsClubLeaderRequest, out *CheckIfIsClubLeaderResponse) error
+		GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, out *GetClubUUIDWithLeaderUUIDResponse) error
 	}
 	type ClubStudent struct {
 		clubStudent
@@ -250,6 +250,6 @@ func (h *clubStudentHandler) GetTotalCountOfCurrentRecruitments(ctx context.Cont
 	return h.ClubStudentHandler.GetTotalCountOfCurrentRecruitments(ctx, in, out)
 }
 
-func (h *clubStudentHandler) CheckIfIsClubLeader(ctx context.Context, in *CheckIfIsClubLeaderRequest, out *CheckIfIsClubLeaderResponse) error {
-	return h.ClubStudentHandler.CheckIfIsClubLeader(ctx, in, out)
+func (h *clubStudentHandler) GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, out *GetClubUUIDWithLeaderUUIDResponse) error {
+	return h.ClubStudentHandler.GetClubUUIDWithLeaderUUID(ctx, in, out)
 }
