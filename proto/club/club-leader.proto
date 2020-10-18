@@ -95,9 +95,8 @@ message RegisterRecruitmentResponse {
 message ModifyRecruitmentRequest {
     string UUID = 1; // API를 호출한 동아리장의 학생 UUID (20자)
     string RecruitmentUUID = 2; // 수정할 모집 공고의 UUID (24자)
-    string RecruitConcept = 3; // 변경할 모집 공고 한줄 소개 (1~40자)
-    string EndPeriod = 4; // 변경할 종료 기간 (XXXX-XX-XX)
-    repeated RecruitMember RecruitMembers = 5; // 모집 멤버 정보 리스트
+    string RecruitConcept = 3; // 모집 공고 한줄 소개 수정본 (1~40자)
+    repeated RecruitMember RecruitMembers = 4; // 변경할 모집 멤버 정보 리스트 수정본
 }
 
 message RecruitMember {
