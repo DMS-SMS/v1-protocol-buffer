@@ -31,17 +31,16 @@ message Outing {
     int32 number = 4;
     string place = 5;
     string reason = 6;
-    string date = 7;
-    string start_time = 8;
-    string end_time = 9;
-    string status = 10;
-    string situation = 11;
-    bool is_late = 12;
+    int64 start_time = 7;
+    int64 end_time = 8;
+    string status = 9;
+    string situation = 10;
+    bool is_late = 11;
 }
 
 message ConfirmOutingRequest {
     string uuid = 1;
-    string oid = 2;
+    string outing_id = 2;
 }
 
 message ConfirmOutingResponse {

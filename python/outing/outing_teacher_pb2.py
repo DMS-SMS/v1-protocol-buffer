@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-teacher.proto\"v\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\r\n\x05start\x18\x05 \x01(\x05\x12\r\n\x05\x63ount\x18\x06 \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xcb\x01\n\x06Outing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\r\n\x05group\x18\x03 \x01(\x05\x12\x0e\n\x06number\x18\x04 \x01(\x05\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x0c\n\x04\x64\x61te\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\t\x12\x10\n\x08\x65nd_time\x18\t \x01(\t\x12\x0e\n\x06status\x18\n \x01(\t\x12\x11\n\tsituation\x18\x0b \x01(\t\x12\x0f\n\x07is_late\x18\x0c \x01(\x08\"1\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0b\n\x03oid\x18\x02 \x01(\t\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x9b\x02\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14outing-teacher.proto\"v\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\r\n\x05start\x18\x05 \x01(\x05\x12\r\n\x05\x63ount\x18\x06 \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xbd\x01\n\x06Outing\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05grade\x18\x02 \x01(\x05\x12\r\n\x05group\x18\x03 \x01(\x05\x12\x0e\n\x06number\x18\x04 \x01(\x05\x12\r\n\x05place\x18\x05 \x01(\t\x12\x0e\n\x06reason\x18\x06 \x01(\t\x12\x12\n\nstart_time\x18\x07 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x08 \x01(\x03\x12\x0e\n\x06status\x18\t \x01(\t\x12\x11\n\tsituation\x18\n \x01(\t\x12\x0f\n\x07is_late\x18\x0b \x01(\x08\"7\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x9b\x02\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -196,43 +196,36 @@ _OUTING = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='date', full_name='Outing.date', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='start_time', full_name='Outing.start_time', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='Outing.start_time', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='end_time', full_name='Outing.end_time', index=7,
+      number=8, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='Outing.end_time', index=8,
+      name='status', full_name='Outing.status', index=8,
       number=9, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='Outing.status', index=9,
+      name='situation', full_name='Outing.situation', index=9,
       number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='situation', full_name='Outing.situation', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='is_late', full_name='Outing.is_late', index=11,
-      number=12, type=8, cpp_type=7, label=1,
+      name='is_late', full_name='Outing.is_late', index=10,
+      number=11, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -250,7 +243,7 @@ _OUTING = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=231,
-  serialized_end=434,
+  serialized_end=420,
 )
 
 
@@ -270,7 +263,7 @@ _CONFIRMOUTINGREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='oid', full_name='ConfirmOutingRequest.oid', index=1,
+      name='outing_id', full_name='ConfirmOutingRequest.outing_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -288,8 +281,8 @@ _CONFIRMOUTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=436,
-  serialized_end=485,
+  serialized_start=422,
+  serialized_end=477,
 )
 
 
@@ -334,8 +327,8 @@ _CONFIRMOUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=487,
-  serialized_end=553,
+  serialized_start=479,
+  serialized_end=545,
 )
 
 _OUTINGRESPONSE.fields_by_name['outing'].message_type = _OUTING
@@ -390,8 +383,8 @@ _OUTINGTEACHER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=556,
-  serialized_end=839,
+  serialized_start=548,
+  serialized_end=831,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOutingWithFilter',

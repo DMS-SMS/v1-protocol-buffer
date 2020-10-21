@@ -1,35 +1,34 @@
 syntax = "proto3";
 
 service OutingStudent {
-    rpc CreateOuting(CreateOutingRequest) returns (CreateOutingResponse) {}
-    rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse) {}
-    rpc GetOutingInform(GetOutingInformRequest) returns (GetOutingInformResponse) {}
-    rpc GetCardAboutOuting(GetCardAboutOutingRequest) returns (GetCardAboutOutingResponse) {}
-    rpc GoOut(GoOutRequest) returns (GoOutResponse) {}
-    rpc FinishGoOut(GoOutRequest) returns (GoOutResponse) {}
+    rpc CreateOuting(CreateOutingRequest) returns (CreateOutingResponse);
+    rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse);
+    rpc GetOutingInform(GetOutingInformRequest) returns (GetOutingInformResponse);
+    rpc GetCardAboutOuting(GetCardAboutOutingRequest) returns (GetCardAboutOutingResponse);
+    rpc StartGoOut(GoOutRequest) returns (GoOutResponse);
+    rpc FinishGoOut(GoOutRequest) returns (GoOutResponse);
 }
 
 message CreateOutingRequest {
     string uuid = 1;
-    string date = 2;
-    string start_time = 3;
-    string end_time = 4;
-    string place = 5;
-    string reason = 6;
-    string situation = 7;
+    int64 start_time = 2;
+    int64 end_time = 3;
+    string place = 4;
+    string reason = 5;
+    string situation = 6;
 }
 
 message CreateOutingResponse {
     int32 status = 1;
     int32 code = 2;
     string msg = 3;
-    string oid = 4;
+    string outing_id = 4;
 
 }
 
 message GetStudentOutingsRequest {
     string uuid = 1;
-    string sid = 2;
+    string student_id = 2;
     int32 start = 3;
     int32 count = 4;
 }
@@ -44,16 +43,15 @@ message GetStudentOutingsResponse {
 message StudentOuting {
     string place = 1;
     string reason = 2;
-    string date = 3;
-    string start_time = 4;
-    string end_time = 5;
-    string situation = 6;
-    string status = 7;
+    int64 start_time = 3;
+    int64 end_time = 4;
+    string situation = 5;
+    string status = 6;
 }
 
 message GetOutingInformRequest {
     string uuid = 1;
-    string oid = 2;
+    string outing_id = 2;
 }
 
 message GetOutingInformResponse {
@@ -63,16 +61,15 @@ message GetOutingInformResponse {
     
     string place = 4;
     string reason = 5;
-    string date = 6;
-    string start_time = 7;
-    string end_time = 8;
-    string o_situation = 9;
-    string o_status = 10;
+    int64 start_time = 6;
+    int64 end_time = 7;
+    string outing_situation = 8;
+    string outing_status = 9;
 }
 
 message GetCardAboutOutingRequest {
     string uuid = 1;
-    string oid = 2;
+    string outing_id = 2;
 }
 
 message GetCardAboutOutingResponse {
@@ -81,21 +78,20 @@ message GetCardAboutOutingResponse {
     string msg = 3;
     
     string place = 4;
-    string date = 5;
-    string start_time = 6;
-    string end_time = 7;
-    string o_status = 8;
+    int64 start_time = 5;
+    int64 end_time = 6;
+    string o_status = 7;
     
-    string name = 9;
-    int32 grade = 10;
-    int32 group = 11;
-    int32 number = 12;
-    string profile_image_uri = 13;
+    string name = 8;
+    int32 grade = 9;
+    int32 group = 10;
+    int32 number = 11;
+    string profile_image_uri = 12;
 }
 
 message GoOutRequest {
     string uuid = 1;
-    string oid = 2;
+    string outing_id = 2;
 }
 
 message GoOutResponse {
