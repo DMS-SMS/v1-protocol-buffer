@@ -2,12 +2,12 @@ syntax = "proto3";
 
 
 service OutingParents {
-    rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
-    rpc RejectOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse) {}
+    rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse);
+    rpc RejectOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse);
 }
 
 message ConfirmOutingByOCodeRequest {
-    string o_code = 1;
+    string outing_code = 1;
 }
 
 message ConfirmOutingByOCodeResponse {

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-parents.proto\"-\n\x1b\x43onfirmOutingByOCodeRequest\x12\x0e\n\x06o_code\x18\x01 \x01(\t\"I\n\x1c\x43onfirmOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbc\x01\n\rOutingParents\x12U\n\x14\x41pproveOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\"\x00\x12T\n\x13RejectOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14outing-parents.proto\"2\n\x1b\x43onfirmOutingByOCodeRequest\x12\x13\n\x0bouting_code\x18\x01 \x01(\t\"I\n\x1c\x43onfirmOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xb8\x01\n\rOutingParents\x12S\n\x14\x41pproveOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\x12R\n\x13RejectOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponseb\x06proto3'
 )
 
 
@@ -34,7 +34,7 @@ _CONFIRMOUTINGBYOCODEREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='o_code', full_name='ConfirmOutingByOCodeRequest.o_code', index=0,
+      name='outing_code', full_name='ConfirmOutingByOCodeRequest.outing_code', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -53,7 +53,7 @@ _CONFIRMOUTINGBYOCODEREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=24,
-  serialized_end=69,
+  serialized_end=74,
 )
 
 
@@ -98,8 +98,8 @@ _CONFIRMOUTINGBYOCODERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=71,
-  serialized_end=144,
+  serialized_start=76,
+  serialized_end=149,
 )
 
 DESCRIPTOR.message_types_by_name['ConfirmOutingByOCodeRequest'] = _CONFIRMOUTINGBYOCODEREQUEST
@@ -129,8 +129,8 @@ _OUTINGPARENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=147,
-  serialized_end=335,
+  serialized_start=152,
+  serialized_end=336,
   methods=[
   _descriptor.MethodDescriptor(
     name='ApproveOutingByOCode',
