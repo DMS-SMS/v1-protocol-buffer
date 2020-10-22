@@ -80,7 +80,7 @@ message GetCardAboutOutingResponse {
     string place = 4;
     int64 start_time = 5;
     int64 end_time = 6;
-    string o_status = 7;
+    string outing_status = 7;
     
     string name = 8;
     int32 grade = 9;
