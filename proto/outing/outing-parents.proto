@@ -7,7 +7,7 @@ service OutingParents {
 }
 
 message ConfirmOutingByOCodeRequest {
-    string outing_code = 1;
+    string confirm_code = 1;
 }
 
 message ConfirmOutingByOCodeResponse {
