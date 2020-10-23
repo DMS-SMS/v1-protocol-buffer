@@ -25,17 +25,18 @@ message OutingResponse {
 }
 
 message Outing {
-    string name = 1;
-    int32 grade = 2;
-    int32 group = 3;
-    int32 number = 4;
-    string place = 5;
-    string reason = 6;
-    int64 start_time = 7;
-    int64 end_time = 8;
-    string status = 9;
-    string situation = 10;
-    bool is_late = 11;
+    string outing_id = 1;
+    string name = 2;
+    int32 grade = 3;
+    int32 group = 4;
+    int32 number = 5;
+    string place = 6;
+    string reason = 7;
+    int64 start_time = 8;
+    int64 end_time = 9;
+    string status = 10;
+    string situation = 11;
+    bool is_late = 12;
 }
 
 message ConfirmOutingRequest {
