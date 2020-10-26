@@ -8,15 +8,16 @@ package schedule;
 
 
 service ScheduleService {
-    rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse);
-    rpc GetSchedule(GetScheduleRequest) returns (GetScheduleResponse);
-    rpc CreateSchedule(CreateScheduleRequest) returns (DefaultScheduleResponse);
-    rpc UpdateSchedule(UpdateScheduleRequest) returns (DefaultScheduleResponse);
-    rpc DeleteSchedule(DeleteScheduleRequest) returns (DefaultScheduleResponse);
+    rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}
+    rpc GetSchedule(GetScheduleRequest) returns (GetScheduleResponse) {}
+    rpc CreateSchedule(CreateScheduleRequest) returns (DefaultScheduleResponse) {}
+    rpc UpdateSchedule(UpdateScheduleRequest) returns (DefaultScheduleResponse) {}
+    rpc DeleteSchedule(DeleteScheduleRequest) returns (DefaultScheduleResponse) {}
 }
 
 message GetTimeTableRequest {
     string uuid = 1;
+    int32 weekNumber = 2;
 }
 
 message GetTimeTableResponse {
