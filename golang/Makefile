@@ -26,18 +26,22 @@ club-student:
 club-leader:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-leader.proto
 
-.PHONY: outing
-outing:
-	protoc --proto_path=../proto --go_out=./outing --micro_out=./outing outing.proto
+.PHONY: outing-student
+outing-student:
+	protoc --proto_path=../proto/outing --go_out=./outing --micro_out=./outing outing-student.proto
 
-.PHONY: club
-club:
-	protoc --proto_path=../proto --go_out=./club --micro_out=./club club.proto
+.PHONY: outing-teacher
+outing-teacher:
+	protoc --proto_path=../proto/outing --go_out=./outing --micro_out=./outing outing-teacher.proto
+
+.PHONY: outing-parents
+outing-parents:
+	protoc --proto_path=../proto/outing --go_out=./outing --micro_out=./outing outing-parents.proto
 
 .PHONY: announcement
 announcement:
-	protoc --proto_path=../proto --go_out=./announcement --micro_out=./announcement announcement.proto
+	protoc --proto_path=../proto/announcement --go_out=./announcement --micro_out=./announcement announcement.proto
 
 .PHONY: schedule
 schedule:
-	protoc --proto_path=../proto --go_out=./schedule --micro_out=./schedule schedule.proto
+	protoc --proto_path=../proto/schedule --go_out=./schedule --micro_out=./schedule schedule.proto
