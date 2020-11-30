@@ -3,9 +3,9 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "dsm.service.schedule.proto";
 option java_outer_classname = "ScheduleProto";
+option go_package = ".;scheduleproto";
 
 package schedule;
-
 
 service ScheduleService {
     rpc GetTimeTable(GetTimeTableRequest) returns (GetTimeTableResponse) {}

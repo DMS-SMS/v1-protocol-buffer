@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+option go_package = ".;outingproto";
 
 service OutingParents {
     rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse);

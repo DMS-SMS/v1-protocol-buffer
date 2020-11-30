@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = ".;outingproto";
+
 service OutingStudent {
     rpc CreateOuting(CreateOutingRequest) returns (CreateOutingResponse);
     rpc GetStudentOutings(GetStudentOutingsRequest) returns (GetStudentOutingsResponse);
