@@ -14,8 +14,9 @@ message GetOutingWithFilterRequest {
     string status = 2;
     int32 grade = 3;
     int32 group = 4;
-    int32 start = 5;
-    int32 count = 6;
+    int32 floor = 5;
+    int32 start = 6;
+    int32 count = 7;
 }
 
 message OutingResponse {
