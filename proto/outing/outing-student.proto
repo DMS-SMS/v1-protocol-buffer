@@ -43,12 +43,13 @@ message GetStudentOutingsResponse {
 }
 
 message StudentOuting {
-    string place = 1;
-    string reason = 2;
-    int64 start_time = 3;
-    int64 end_time = 4;
-    string situation = 5;
-    string status = 6;
+    string outing_id = 1;
+    string place = 2;
+    string reason = 3;
+    int64 start_time = 4;
+    int64 end_time = 5;
+    string situation = 6;
+    string status = 7;
 }
 
 message GetOutingInformRequest {
@@ -61,12 +62,13 @@ message GetOutingInformResponse {
     int32 code = 2;
     string msg = 3;
     
-    string place = 4;
-    string reason = 5;
-    int64 start_time = 6;
-    int64 end_time = 7;
-    string outing_situation = 8;
-    string outing_status = 9;
+    string outing_id = 5;
+    string place = 6;
+    string reason = 7;
+    int64 start_time = 8;
+    int64 end_time = 9;
+    string outing_situation = 10;
+    string outing_status = 11;
 }
 
 message GetCardAboutOutingRequest {
