@@ -39,6 +39,11 @@ class AuthStudentStub(object):
                 request_serializer=auth__student__pb2.GetStudentUUIDsWithInformRequest.SerializeToString,
                 response_deserializer=auth__student__pb2.GetStudentUUIDsWithInformResponse.FromString,
                 )
+        self.GetParentWithStudentUUID = channel.unary_unary(
+                '/AuthStudent/GetParentWithStudentUUID',
+                request_serializer=auth__student__pb2.GetParentWithStudentUUIDRequest.SerializeToString,
+                response_deserializer=auth__student__pb2.GetParentWithStudentUUIDResponse.FromString,
+                )
 
 
 class AuthStudentServicer(object):
@@ -74,6 +79,12 @@ class AuthStudentServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetParentWithStudentUUID(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AuthStudentServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +112,11 @@ def add_AuthStudentServicer_to_server(servicer, server):
                     servicer.GetStudentUUIDsWithInform,
                     request_deserializer=auth__student__pb2.GetStudentUUIDsWithInformRequest.FromString,
                     response_serializer=auth__student__pb2.GetStudentUUIDsWithInformResponse.SerializeToString,
+            ),
+            'GetParentWithStudentUUID': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetParentWithStudentUUID,
+                    request_deserializer=auth__student__pb2.GetParentWithStudentUUIDRequest.FromString,
+                    response_serializer=auth__student__pb2.GetParentWithStudentUUIDResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,5 +210,22 @@ class AuthStudent(object):
         return grpc.experimental.unary_unary(request, target, '/AuthStudent/GetStudentUUIDsWithInform',
             auth__student__pb2.GetStudentUUIDsWithInformRequest.SerializeToString,
             auth__student__pb2.GetStudentUUIDsWithInformResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetParentWithStudentUUID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/AuthStudent/GetParentWithStudentUUID',
+            auth__student__pb2.GetParentWithStudentUUIDRequest.SerializeToString,
+            auth__student__pb2.GetParentWithStudentUUIDResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
