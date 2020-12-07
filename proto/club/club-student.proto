@@ -18,6 +18,7 @@ service ClubStudent {
     rpc GetTotalCountOfClubs(GetTotalCountOfClubsRequest) returns (GetTotalCountOfClubsResponse) {}
     rpc GetTotalCountOfCurrentRecruitments(GetTotalCountOfCurrentRecruitmentsRequest) returns (GetTotalCountOfCurrentRecruitmentsResponse) {}
     rpc GetClubUUIDWithLeaderUUID(GetClubUUIDWithLeaderUUIDRequest) returns (GetClubUUIDWithLeaderUUIDResponse) {}
+    rpc GetClubUUIDsWithFloor(GetClubUUIDsWithFloorRequest) returns (GetClubUUIDsWithFloorResponse) {} 
 }
 
 message GetClubsSortByUpdateTimeRequest {
@@ -191,4 +192,16 @@ message GetClubUUIDWithLeaderUUIDResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string ClubUUID = 4; // 본인이 동아리 장인 동아리의 UUID
+}
+
+message GetClubUUIDsWithFloorRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 UUID (20자)
+    string floor = 2; // 층 정보 (1~5 사이 값)
+}
+
+message GetClubUUIDsWithFloorResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    repeated string ClubUUIDs = 4; // 검색 결과 동아리 UUID 리스트
 }
