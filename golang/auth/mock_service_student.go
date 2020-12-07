@@ -38,3 +38,8 @@ func (m mockAuthStudentService) GetStudentUUIDsWithInform(ctx context.Context, i
 	args := m.mock.Called(in)
 	return args.Get(0).(*GetStudentUUIDsWithInformResponse), args.Error(1)
 }
+
+func (m mockAuthStudentService) GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, opts ...client.CallOption) (*GetParentWithStudentUUIDResponse, error) {
+	args := m.mock.Called(in)
+	return args.Get(0).(*GetParentWithStudentUUIDResponse), args.Error(1)
+}
