@@ -45,6 +45,7 @@ type ClubStudentService interface {
 	GetTotalCountOfClubs(ctx context.Context, in *GetTotalCountOfClubsRequest, opts ...client.CallOption) (*GetTotalCountOfClubsResponse, error)
 	GetTotalCountOfCurrentRecruitments(ctx context.Context, in *GetTotalCountOfCurrentRecruitmentsRequest, opts ...client.CallOption) (*GetTotalCountOfCurrentRecruitmentsResponse, error)
 	GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, opts ...client.CallOption) (*GetClubUUIDWithLeaderUUIDResponse, error)
+	GetClubUUIDsWithFloor(ctx context.Context, in *GetClubUUIDsWithFloorRequest, opts ...client.CallOption) (*GetClubUUIDsWithFloorResponse, error)
 }
 
 type clubStudentService struct {
@@ -169,6 +170,16 @@ func (c *clubStudentService) GetClubUUIDWithLeaderUUID(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *clubStudentService) GetClubUUIDsWithFloor(ctx context.Context, in *GetClubUUIDsWithFloorRequest, opts ...client.CallOption) (*GetClubUUIDsWithFloorResponse, error) {
+	req := c.c.NewRequest(c.name, "ClubStudent.GetClubUUIDsWithFloor", in)
+	out := new(GetClubUUIDsWithFloorResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for ClubStudent service
 
 type ClubStudentHandler interface {
@@ -183,6 +194,7 @@ type ClubStudentHandler interface {
 	GetTotalCountOfClubs(context.Context, *GetTotalCountOfClubsRequest, *GetTotalCountOfClubsResponse) error
 	GetTotalCountOfCurrentRecruitments(context.Context, *GetTotalCountOfCurrentRecruitmentsRequest, *GetTotalCountOfCurrentRecruitmentsResponse) error
 	GetClubUUIDWithLeaderUUID(context.Context, *GetClubUUIDWithLeaderUUIDRequest, *GetClubUUIDWithLeaderUUIDResponse) error
+	GetClubUUIDsWithFloor(context.Context, *GetClubUUIDsWithFloorRequest, *GetClubUUIDsWithFloorResponse) error
 }
 
 func RegisterClubStudentHandler(s server.Server, hdlr ClubStudentHandler, opts ...server.HandlerOption) error {
@@ -198,6 +210,7 @@ func RegisterClubStudentHandler(s server.Server, hdlr ClubStudentHandler, opts .
 		GetTotalCountOfClubs(ctx context.Context, in *GetTotalCountOfClubsRequest, out *GetTotalCountOfClubsResponse) error
 		GetTotalCountOfCurrentRecruitments(ctx context.Context, in *GetTotalCountOfCurrentRecruitmentsRequest, out *GetTotalCountOfCurrentRecruitmentsResponse) error
 		GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, out *GetClubUUIDWithLeaderUUIDResponse) error
+		GetClubUUIDsWithFloor(ctx context.Context, in *GetClubUUIDsWithFloorRequest, out *GetClubUUIDsWithFloorResponse) error
 	}
 	type ClubStudent struct {
 		clubStudent
@@ -252,4 +265,8 @@ func (h *clubStudentHandler) GetTotalCountOfCurrentRecruitments(ctx context.Cont
 
 func (h *clubStudentHandler) GetClubUUIDWithLeaderUUID(ctx context.Context, in *GetClubUUIDWithLeaderUUIDRequest, out *GetClubUUIDWithLeaderUUIDResponse) error {
 	return h.ClubStudentHandler.GetClubUUIDWithLeaderUUID(ctx, in, out)
+}
+
+func (h *clubStudentHandler) GetClubUUIDsWithFloor(ctx context.Context, in *GetClubUUIDsWithFloorRequest, out *GetClubUUIDsWithFloorResponse) error {
+	return h.ClubStudentHandler.GetClubUUIDsWithFloor(ctx, in, out)
 }

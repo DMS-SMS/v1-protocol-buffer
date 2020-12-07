@@ -1769,6 +1769,132 @@ func (x *GetClubUUIDWithLeaderUUIDResponse) GetClubUUID() string {
 	return ""
 }
 
+type GetClubUUIDsWithFloorRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UUID  string `protobuf:"bytes,1,opt,name=UUID,proto3" json:"UUID,omitempty"`   // API를 호출한 학생 계정의 UUID (20자)
+	Floor string `protobuf:"bytes,2,opt,name=floor,proto3" json:"floor,omitempty"` // 층 정보 (1~5 사이 값)
+}
+
+func (x *GetClubUUIDsWithFloorRequest) Reset() {
+	*x = GetClubUUIDsWithFloorRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_club_student_proto_msgTypes[24]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetClubUUIDsWithFloorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClubUUIDsWithFloorRequest) ProtoMessage() {}
+
+func (x *GetClubUUIDsWithFloorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_club_student_proto_msgTypes[24]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClubUUIDsWithFloorRequest.ProtoReflect.Descriptor instead.
+func (*GetClubUUIDsWithFloorRequest) Descriptor() ([]byte, []int) {
+	return file_club_student_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *GetClubUUIDsWithFloorRequest) GetUUID() string {
+	if x != nil {
+		return x.UUID
+	}
+	return ""
+}
+
+func (x *GetClubUUIDsWithFloorRequest) GetFloor() string {
+	if x != nil {
+		return x.Floor
+	}
+	return ""
+}
+
+type GetClubUUIDsWithFloorResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status    uint32   `protobuf:"varint,1,opt,name=Status,proto3" json:"Status,omitempty"`      // 상태 코드
+	Code      int32    `protobuf:"zigzag32,2,opt,name=Code,proto3" json:"Code,omitempty"`        // 세부 코드
+	Message   string   `protobuf:"bytes,3,opt,name=Message,proto3" json:"Message,omitempty"`     // 세부 설명
+	ClubUUIDs []string `protobuf:"bytes,4,rep,name=ClubUUIDs,proto3" json:"ClubUUIDs,omitempty"` // 검색 결과 동아리 UUID 리스트
+}
+
+func (x *GetClubUUIDsWithFloorResponse) Reset() {
+	*x = GetClubUUIDsWithFloorResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_club_student_proto_msgTypes[25]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetClubUUIDsWithFloorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetClubUUIDsWithFloorResponse) ProtoMessage() {}
+
+func (x *GetClubUUIDsWithFloorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_club_student_proto_msgTypes[25]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetClubUUIDsWithFloorResponse.ProtoReflect.Descriptor instead.
+func (*GetClubUUIDsWithFloorResponse) Descriptor() ([]byte, []int) {
+	return file_club_student_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *GetClubUUIDsWithFloorResponse) GetStatus() uint32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *GetClubUUIDsWithFloorResponse) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *GetClubUUIDsWithFloorResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *GetClubUUIDsWithFloorResponse) GetClubUUIDs() []string {
+	if x != nil {
+		return x.ClubUUIDs
+	}
+	return nil
+}
+
 var File_club_student_proto protoreflect.FileDescriptor
 
 var file_club_student_proto_rawDesc = []byte{
@@ -2003,7 +2129,20 @@ var file_club_student_proto_rawDesc = []byte{
 	0x11, 0x52, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61,
 	0x67, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67,
 	0x65, 0x12, 0x1a, 0x0a, 0x08, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x18, 0x04, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x08, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x32, 0x81, 0x0b,
+	0x01, 0x28, 0x09, 0x52, 0x08, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x22, 0x48, 0x0a,
+	0x1c, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x73, 0x57, 0x69, 0x74,
+	0x68, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x55, 0x55, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x55, 0x55, 0x49,
+	0x44, 0x12, 0x14, 0x0a, 0x05, 0x66, 0x6c, 0x6f, 0x6f, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x05, 0x66, 0x6c, 0x6f, 0x6f, 0x72, 0x22, 0x83, 0x01, 0x0a, 0x1d, 0x47, 0x65, 0x74, 0x43,
+	0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x73, 0x57, 0x69, 0x74, 0x68, 0x46, 0x6c, 0x6f, 0x6f,
+	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x12, 0x12, 0x0a, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x11, 0x52,
+	0x04, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12,
+	0x1c, 0x0a, 0x09, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x73, 0x18, 0x04, 0x20, 0x03,
+	0x28, 0x09, 0x52, 0x09, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x73, 0x32, 0xf1, 0x0b,
 	0x0a, 0x0b, 0x43, 0x6c, 0x75, 0x62, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x12, 0x77, 0x0a,
 	0x18, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x62, 0x73, 0x53, 0x6f, 0x72, 0x74, 0x42, 0x79, 0x55,
 	0x70, 0x64, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x2b, 0x2e, 0x63, 0x6c, 0x75, 0x62,
@@ -2092,6 +2231,13 @@ var file_club_student_proto_rawDesc = []byte{
 	0x1a, 0x2d, 0x2e, 0x63, 0x6c, 0x75, 0x62, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x47, 0x65,
 	0x74, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x57, 0x69, 0x74, 0x68, 0x4c, 0x65, 0x61,
 	0x64, 0x65, 0x72, 0x55, 0x55, 0x49, 0x44, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x12, 0x6e, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44,
+	0x73, 0x57, 0x69, 0x74, 0x68, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x12, 0x28, 0x2e, 0x63, 0x6c, 0x75,
+	0x62, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x62, 0x55,
+	0x55, 0x49, 0x44, 0x73, 0x57, 0x69, 0x74, 0x68, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x63, 0x6c, 0x75, 0x62, 0x2e, 0x61, 0x64, 0x6d, 0x69,
+	0x6e, 0x2e, 0x47, 0x65, 0x74, 0x43, 0x6c, 0x75, 0x62, 0x55, 0x55, 0x49, 0x44, 0x73, 0x57, 0x69,
+	0x74, 0x68, 0x46, 0x6c, 0x6f, 0x6f, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
 	0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x2e, 0x3b, 0x63, 0x6c, 0x75, 0x62, 0x70, 0x72, 0x6f, 0x74, 0x6f,
 	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
@@ -2108,7 +2254,7 @@ func file_club_student_proto_rawDescGZIP() []byte {
 	return file_club_student_proto_rawDescData
 }
 
-var file_club_student_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
+var file_club_student_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_club_student_proto_goTypes = []interface{}{
 	(*GetClubsSortByUpdateTimeRequest)(nil),            // 0: club.admin.GetClubsSortByUpdateTimeRequest
 	(*GetClubsSortByUpdateTimeResponse)(nil),           // 1: club.admin.GetClubsSortByUpdateTimeResponse
@@ -2134,14 +2280,16 @@ var file_club_student_proto_goTypes = []interface{}{
 	(*GetTotalCountOfCurrentRecruitmentsResponse)(nil), // 21: club.admin.GetTotalCountOfCurrentRecruitmentsResponse
 	(*GetClubUUIDWithLeaderUUIDRequest)(nil),           // 22: club.admin.GetClubUUIDWithLeaderUUIDRequest
 	(*GetClubUUIDWithLeaderUUIDResponse)(nil),          // 23: club.admin.GetClubUUIDWithLeaderUUIDResponse
-	(*RecruitMember)(nil),                              // 24: club.leader.RecruitMember
+	(*GetClubUUIDsWithFloorRequest)(nil),               // 24: club.admin.GetClubUUIDsWithFloorRequest
+	(*GetClubUUIDsWithFloorResponse)(nil),              // 25: club.admin.GetClubUUIDsWithFloorResponse
+	(*RecruitMember)(nil),                              // 26: club.leader.RecruitMember
 }
 var file_club_student_proto_depIdxs = []int32{
 	2,  // 0: club.admin.GetClubsSortByUpdateTimeResponse.Informs:type_name -> club.admin.ClubInform
 	5,  // 1: club.admin.GetRecruitmentsSortByCreateTimeResponse.Recruitments:type_name -> club.admin.RecruitmentInform
-	24, // 2: club.admin.RecruitmentInform.RecruitMembers:type_name -> club.leader.RecruitMember
+	26, // 2: club.admin.RecruitmentInform.RecruitMembers:type_name -> club.leader.RecruitMember
 	2,  // 3: club.admin.GetClubInformsWithUUIDsResponse.Informs:type_name -> club.admin.ClubInform
-	24, // 4: club.admin.GetRecruitmentInformWithUUIDResponse.RecruitMembers:type_name -> club.leader.RecruitMember
+	26, // 4: club.admin.GetRecruitmentInformWithUUIDResponse.RecruitMembers:type_name -> club.leader.RecruitMember
 	0,  // 5: club.admin.ClubStudent.GetClubsSortByUpdateTime:input_type -> club.admin.GetClubsSortByUpdateTimeRequest
 	3,  // 6: club.admin.ClubStudent.GetRecruitmentsSortByCreateTime:input_type -> club.admin.GetRecruitmentsSortByCreateTimeRequest
 	6,  // 7: club.admin.ClubStudent.GetClubInformWithUUID:input_type -> club.admin.GetClubInformWithUUIDRequest
@@ -2153,19 +2301,21 @@ var file_club_student_proto_depIdxs = []int32{
 	18, // 13: club.admin.ClubStudent.GetTotalCountOfClubs:input_type -> club.admin.GetTotalCountOfClubsRequest
 	20, // 14: club.admin.ClubStudent.GetTotalCountOfCurrentRecruitments:input_type -> club.admin.GetTotalCountOfCurrentRecruitmentsRequest
 	22, // 15: club.admin.ClubStudent.GetClubUUIDWithLeaderUUID:input_type -> club.admin.GetClubUUIDWithLeaderUUIDRequest
-	1,  // 16: club.admin.ClubStudent.GetClubsSortByUpdateTime:output_type -> club.admin.GetClubsSortByUpdateTimeResponse
-	4,  // 17: club.admin.ClubStudent.GetRecruitmentsSortByCreateTime:output_type -> club.admin.GetRecruitmentsSortByCreateTimeResponse
-	7,  // 18: club.admin.ClubStudent.GetClubInformWithUUID:output_type -> club.admin.GetClubInformWithUUIDResponse
-	9,  // 19: club.admin.ClubStudent.GetClubInformsWithUUIDs:output_type -> club.admin.GetClubInformsWithUUIDsResponse
-	11, // 20: club.admin.ClubStudent.GetRecruitmentInformWithUUID:output_type -> club.admin.GetRecruitmentInformWithUUIDResponse
-	13, // 21: club.admin.ClubStudent.GetRecruitmentUUIDWithClubUUID:output_type -> club.admin.GetRecruitmentUUIDWithClubUUIDResponse
-	15, // 22: club.admin.ClubStudent.GetRecruitmentUUIDsWithClubUUIDs:output_type -> club.admin.GetRecruitmentUUIDsWithClubUUIDsResponse
-	17, // 23: club.admin.ClubStudent.GetAllClubFields:output_type -> club.admin.GetAllClubFieldsResponse
-	19, // 24: club.admin.ClubStudent.GetTotalCountOfClubs:output_type -> club.admin.GetTotalCountOfClubsResponse
-	21, // 25: club.admin.ClubStudent.GetTotalCountOfCurrentRecruitments:output_type -> club.admin.GetTotalCountOfCurrentRecruitmentsResponse
-	23, // 26: club.admin.ClubStudent.GetClubUUIDWithLeaderUUID:output_type -> club.admin.GetClubUUIDWithLeaderUUIDResponse
-	16, // [16:27] is the sub-list for method output_type
-	5,  // [5:16] is the sub-list for method input_type
+	24, // 16: club.admin.ClubStudent.GetClubUUIDsWithFloor:input_type -> club.admin.GetClubUUIDsWithFloorRequest
+	1,  // 17: club.admin.ClubStudent.GetClubsSortByUpdateTime:output_type -> club.admin.GetClubsSortByUpdateTimeResponse
+	4,  // 18: club.admin.ClubStudent.GetRecruitmentsSortByCreateTime:output_type -> club.admin.GetRecruitmentsSortByCreateTimeResponse
+	7,  // 19: club.admin.ClubStudent.GetClubInformWithUUID:output_type -> club.admin.GetClubInformWithUUIDResponse
+	9,  // 20: club.admin.ClubStudent.GetClubInformsWithUUIDs:output_type -> club.admin.GetClubInformsWithUUIDsResponse
+	11, // 21: club.admin.ClubStudent.GetRecruitmentInformWithUUID:output_type -> club.admin.GetRecruitmentInformWithUUIDResponse
+	13, // 22: club.admin.ClubStudent.GetRecruitmentUUIDWithClubUUID:output_type -> club.admin.GetRecruitmentUUIDWithClubUUIDResponse
+	15, // 23: club.admin.ClubStudent.GetRecruitmentUUIDsWithClubUUIDs:output_type -> club.admin.GetRecruitmentUUIDsWithClubUUIDsResponse
+	17, // 24: club.admin.ClubStudent.GetAllClubFields:output_type -> club.admin.GetAllClubFieldsResponse
+	19, // 25: club.admin.ClubStudent.GetTotalCountOfClubs:output_type -> club.admin.GetTotalCountOfClubsResponse
+	21, // 26: club.admin.ClubStudent.GetTotalCountOfCurrentRecruitments:output_type -> club.admin.GetTotalCountOfCurrentRecruitmentsResponse
+	23, // 27: club.admin.ClubStudent.GetClubUUIDWithLeaderUUID:output_type -> club.admin.GetClubUUIDWithLeaderUUIDResponse
+	25, // 28: club.admin.ClubStudent.GetClubUUIDsWithFloor:output_type -> club.admin.GetClubUUIDsWithFloorResponse
+	17, // [17:29] is the sub-list for method output_type
+	5,  // [5:17] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
 	5,  // [5:5] is the sub-list for extension extendee
 	0,  // [0:5] is the sub-list for field type_name
@@ -2466,6 +2616,30 @@ func file_club_student_proto_init() {
 				return nil
 			}
 		}
+		file_club_student_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetClubUUIDsWithFloorRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_club_student_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetClubUUIDsWithFloorResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -2473,7 +2647,7 @@ func file_club_student_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_club_student_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   24,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
