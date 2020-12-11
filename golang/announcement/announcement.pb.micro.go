@@ -39,6 +39,7 @@ type AnnouncementService interface {
 	CreateAnnouncement(ctx context.Context, in *CreateAnnouncementRequest, opts ...client.CallOption) (*DefaultAnnouncementResponse, error)
 	UpdateAnnouncement(ctx context.Context, in *UpdateAnnouncementRequest, opts ...client.CallOption) (*DefaultAnnouncementResponse, error)
 	DeleteAnnouncement(ctx context.Context, in *DeleteAnnouncementRequest, opts ...client.CallOption) (*DefaultAnnouncementResponse, error)
+	CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, opts ...client.CallOption) (*CheckAnnouncementResponse, error)
 }
 
 type announcementService struct {
@@ -103,6 +104,16 @@ func (c *announcementService) DeleteAnnouncement(ctx context.Context, in *Delete
 	return out, nil
 }
 
+func (c *announcementService) CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, opts ...client.CallOption) (*CheckAnnouncementResponse, error) {
+	req := c.c.NewRequest(c.name, "AnnouncementService.CheckAnnouncement", in)
+	out := new(CheckAnnouncementResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AnnouncementService service
 
 type AnnouncementServiceHandler interface {
@@ -111,6 +122,7 @@ type AnnouncementServiceHandler interface {
 	CreateAnnouncement(context.Context, *CreateAnnouncementRequest, *DefaultAnnouncementResponse) error
 	UpdateAnnouncement(context.Context, *UpdateAnnouncementRequest, *DefaultAnnouncementResponse) error
 	DeleteAnnouncement(context.Context, *DeleteAnnouncementRequest, *DefaultAnnouncementResponse) error
+	CheckAnnouncement(context.Context, *CheckAnnouncementRequest, *CheckAnnouncementResponse) error
 }
 
 func RegisterAnnouncementServiceHandler(s server.Server, hdlr AnnouncementServiceHandler, opts ...server.HandlerOption) error {
@@ -120,6 +132,7 @@ func RegisterAnnouncementServiceHandler(s server.Server, hdlr AnnouncementServic
 		CreateAnnouncement(ctx context.Context, in *CreateAnnouncementRequest, out *DefaultAnnouncementResponse) error
 		UpdateAnnouncement(ctx context.Context, in *UpdateAnnouncementRequest, out *DefaultAnnouncementResponse) error
 		DeleteAnnouncement(ctx context.Context, in *DeleteAnnouncementRequest, out *DefaultAnnouncementResponse) error
+		CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, out *CheckAnnouncementResponse) error
 	}
 	type AnnouncementService struct {
 		announcementService
@@ -150,4 +163,8 @@ func (h *announcementServiceHandler) UpdateAnnouncement(ctx context.Context, in 
 
 func (h *announcementServiceHandler) DeleteAnnouncement(ctx context.Context, in *DeleteAnnouncementRequest, out *DefaultAnnouncementResponse) error {
 	return h.AnnouncementServiceHandler.DeleteAnnouncement(ctx, in, out)
+}
+
+func (h *announcementServiceHandler) CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, out *CheckAnnouncementResponse) error {
+	return h.AnnouncementServiceHandler.CheckAnnouncement(ctx, in, out)
 }
