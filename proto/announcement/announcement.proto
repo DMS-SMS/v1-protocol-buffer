@@ -34,7 +34,7 @@ message GetAnnouncementsResponse {
 message AnnouncementPreview {
     int64 number = 1;
     string announcement_id = 2;
-    string writer_id = 3;
+    string writer_name = 3;
     string title = 4;
     int64 date = 5;
     int64 views = 6;
@@ -54,7 +54,7 @@ message GetAnnouncementDetailResponse {
     string title = 4;
     int64 date = 5;
     string content = 6;
-    string writer_id = 7;
+    string writer_name = 7;
     string next_title = 8;
     string next_announcement_id = 9;
     string previous_title = 10;
