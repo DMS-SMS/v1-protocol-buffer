@@ -38,8 +38,7 @@ message AnnouncementPreview {
     string title = 4;
     int64 date = 5;
     int64 views = 6;
-    string club = 7;
-    int64 is_checked = 8;
+    int64 is_checked = 7;
 }
 
 message GetAnnouncementDetailRequest {
