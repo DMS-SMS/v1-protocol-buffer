@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\r.;outingproto',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-parents.proto\"/\n\x17GetOutingByOCodeRequest\x12\x14\n\x0c\x63onfirm_code\x18\x01 \x01(\t\"\xb0\x01\n\x18GetOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x11\n\touting_id\x18\x04 \x01(\t\x12\x12\n\nstart_time\x18\x05 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x06 \x01(\x03\x12\r\n\x05place\x18\x07 \x01(\t\x12\x0e\n\x06reason\x18\x08 \x01(\t\x12\x11\n\tsituation\x18\t \x01(\t\"3\n\x1b\x43onfirmOutingByOCodeRequest\x12\x14\n\x0c\x63onfirm_code\x18\x01 \x01(\t\"I\n\x1c\x43onfirmOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x81\x02\n\rOutingParents\x12S\n\x14\x41pproveOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\x12R\n\x13RejectOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\x12G\n\x10GetOutingByOCode\x12\x18.GetOutingByOCodeRequest\x1a\x19.GetOutingByOCodeResponseB\x0fZ\r.;outingprotob\x06proto3'
+  serialized_pb=b'\n\x14outing-parents.proto\"/\n\x17GetOutingByOCodeRequest\x12\x14\n\x0c\x63onfirm_code\x18\x01 \x01(\t\"\xbe\x01\n\x18GetOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x01(\t\x12\x11\n\touting_id\x18\x05 \x01(\t\x12\x12\n\nstart_time\x18\x06 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x07 \x01(\x03\x12\r\n\x05place\x18\x08 \x01(\t\x12\x0e\n\x06reason\x18\t \x01(\t\x12\x11\n\tsituation\x18\n \x01(\t\"3\n\x1b\x43onfirmOutingByOCodeRequest\x12\x14\n\x0c\x63onfirm_code\x18\x01 \x01(\t\"I\n\x1c\x43onfirmOutingByOCodeResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x81\x02\n\rOutingParents\x12S\n\x14\x41pproveOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\x12R\n\x13RejectOutingByOCode\x12\x1c.ConfirmOutingByOCodeRequest\x1a\x1d.ConfirmOutingByOCodeResponse\x12G\n\x10GetOutingByOCode\x12\x18.GetOutingByOCodeRequest\x1a\x19.GetOutingByOCodeResponseB\x0fZ\r.;outingprotob\x06proto3'
 )
 
 
@@ -87,43 +87,50 @@ _GETOUTINGBYOCODERESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='outing_id', full_name='GetOutingByOCodeResponse.outing_id', index=3,
+      name='name', full_name='GetOutingByOCodeResponse.name', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start_time', full_name='GetOutingByOCodeResponse.start_time', index=4,
-      number=5, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
+      name='outing_id', full_name='GetOutingByOCodeResponse.outing_id', index=4,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end_time', full_name='GetOutingByOCodeResponse.end_time', index=5,
+      name='start_time', full_name='GetOutingByOCodeResponse.start_time', index=5,
       number=6, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='place', full_name='GetOutingByOCodeResponse.place', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      name='end_time', full_name='GetOutingByOCodeResponse.end_time', index=6,
+      number=7, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='reason', full_name='GetOutingByOCodeResponse.reason', index=7,
+      name='place', full_name='GetOutingByOCodeResponse.place', index=7,
       number=8, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='situation', full_name='GetOutingByOCodeResponse.situation', index=8,
+      name='reason', full_name='GetOutingByOCodeResponse.reason', index=8,
       number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='situation', full_name='GetOutingByOCodeResponse.situation', index=9,
+      number=10, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -141,7 +148,7 @@ _GETOUTINGBYOCODERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=74,
-  serialized_end=250,
+  serialized_end=264,
 )
 
 
@@ -172,8 +179,8 @@ _CONFIRMOUTINGBYOCODEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=252,
-  serialized_end=303,
+  serialized_start=266,
+  serialized_end=317,
 )
 
 
@@ -218,8 +225,8 @@ _CONFIRMOUTINGBYOCODERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=305,
-  serialized_end=378,
+  serialized_start=319,
+  serialized_end=392,
 )
 
 DESCRIPTOR.message_types_by_name['GetOutingByOCodeRequest'] = _GETOUTINGBYOCODEREQUEST
@@ -266,8 +273,8 @@ _OUTINGPARENTS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=381,
-  serialized_end=638,
+  serialized_start=395,
+  serialized_end=652,
   methods=[
   _descriptor.MethodDescriptor(
     name='ApproveOutingByOCode',

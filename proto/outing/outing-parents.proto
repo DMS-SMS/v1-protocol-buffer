@@ -17,12 +17,13 @@ message GetOutingByOCodeResponse {
     int32 code = 2;
     string msg = 3;
 
-    string outing_id = 4;
-    int64 start_time = 5;
-    int64 end_time = 6;
-    string place = 7;
-    string reason = 8;
-    string situation = 9;
+    string name = 4;
+    string outing_id = 5;
+    int64 start_time = 6;
+    int64 end_time = 7;
+    string place = 8;
+    string reason = 9;
+    string situation = 10;
 }
 
 message ConfirmOutingByOCodeRequest {
