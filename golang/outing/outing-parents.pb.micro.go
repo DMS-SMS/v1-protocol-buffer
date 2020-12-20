@@ -36,6 +36,7 @@ var _ server.Option
 type OutingParentsService interface {
 	ApproveOutingByOCode(ctx context.Context, in *ConfirmOutingByOCodeRequest, opts ...client.CallOption) (*ConfirmOutingByOCodeResponse, error)
 	RejectOutingByOCode(ctx context.Context, in *ConfirmOutingByOCodeRequest, opts ...client.CallOption) (*ConfirmOutingByOCodeResponse, error)
+	GetOutingByOCode(ctx context.Context, in *GetOutingByOCodeRequest, opts ...client.CallOption) (*GetOutingByOCodeResponse, error)
 }
 
 type outingParentsService struct {
@@ -70,17 +71,29 @@ func (c *outingParentsService) RejectOutingByOCode(ctx context.Context, in *Conf
 	return out, nil
 }
 
+func (c *outingParentsService) GetOutingByOCode(ctx context.Context, in *GetOutingByOCodeRequest, opts ...client.CallOption) (*GetOutingByOCodeResponse, error) {
+	req := c.c.NewRequest(c.name, "OutingParents.GetOutingByOCode", in)
+	out := new(GetOutingByOCodeResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for OutingParents service
 
 type OutingParentsHandler interface {
 	ApproveOutingByOCode(context.Context, *ConfirmOutingByOCodeRequest, *ConfirmOutingByOCodeResponse) error
 	RejectOutingByOCode(context.Context, *ConfirmOutingByOCodeRequest, *ConfirmOutingByOCodeResponse) error
+	GetOutingByOCode(context.Context, *GetOutingByOCodeRequest, *GetOutingByOCodeResponse) error
 }
 
 func RegisterOutingParentsHandler(s server.Server, hdlr OutingParentsHandler, opts ...server.HandlerOption) error {
 	type outingParents interface {
 		ApproveOutingByOCode(ctx context.Context, in *ConfirmOutingByOCodeRequest, out *ConfirmOutingByOCodeResponse) error
 		RejectOutingByOCode(ctx context.Context, in *ConfirmOutingByOCodeRequest, out *ConfirmOutingByOCodeResponse) error
+		GetOutingByOCode(ctx context.Context, in *GetOutingByOCodeRequest, out *GetOutingByOCodeResponse) error
 	}
 	type OutingParents struct {
 		outingParents
@@ -99,4 +112,8 @@ func (h *outingParentsHandler) ApproveOutingByOCode(ctx context.Context, in *Con
 
 func (h *outingParentsHandler) RejectOutingByOCode(ctx context.Context, in *ConfirmOutingByOCodeRequest, out *ConfirmOutingByOCodeResponse) error {
 	return h.OutingParentsHandler.RejectOutingByOCode(ctx, in, out)
+}
+
+func (h *outingParentsHandler) GetOutingByOCode(ctx context.Context, in *GetOutingByOCodeRequest, out *GetOutingByOCodeResponse) error {
+	return h.OutingParentsHandler.GetOutingByOCode(ctx, in, out)
 }
