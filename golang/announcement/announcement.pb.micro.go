@@ -40,6 +40,8 @@ type AnnouncementService interface {
 	UpdateAnnouncement(ctx context.Context, in *UpdateAnnouncementRequest, opts ...client.CallOption) (*DefaultAnnouncementResponse, error)
 	DeleteAnnouncement(ctx context.Context, in *DeleteAnnouncementRequest, opts ...client.CallOption) (*DefaultAnnouncementResponse, error)
 	CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, opts ...client.CallOption) (*CheckAnnouncementResponse, error)
+	SearchAnnouncements(ctx context.Context, in *SearchAnnouncementsRequest, opts ...client.CallOption) (*GetAnnouncementsResponse, error)
+	GetMyAnnouncements(ctx context.Context, in *GetMyAnnouncementsRequest, opts ...client.CallOption) (*GetAnnouncementsResponse, error)
 }
 
 type announcementService struct {
@@ -114,6 +116,26 @@ func (c *announcementService) CheckAnnouncement(ctx context.Context, in *CheckAn
 	return out, nil
 }
 
+func (c *announcementService) SearchAnnouncements(ctx context.Context, in *SearchAnnouncementsRequest, opts ...client.CallOption) (*GetAnnouncementsResponse, error) {
+	req := c.c.NewRequest(c.name, "AnnouncementService.SearchAnnouncements", in)
+	out := new(GetAnnouncementsResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *announcementService) GetMyAnnouncements(ctx context.Context, in *GetMyAnnouncementsRequest, opts ...client.CallOption) (*GetAnnouncementsResponse, error) {
+	req := c.c.NewRequest(c.name, "AnnouncementService.GetMyAnnouncements", in)
+	out := new(GetAnnouncementsResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AnnouncementService service
 
 type AnnouncementServiceHandler interface {
@@ -123,6 +145,8 @@ type AnnouncementServiceHandler interface {
 	UpdateAnnouncement(context.Context, *UpdateAnnouncementRequest, *DefaultAnnouncementResponse) error
 	DeleteAnnouncement(context.Context, *DeleteAnnouncementRequest, *DefaultAnnouncementResponse) error
 	CheckAnnouncement(context.Context, *CheckAnnouncementRequest, *CheckAnnouncementResponse) error
+	SearchAnnouncements(context.Context, *SearchAnnouncementsRequest, *GetAnnouncementsResponse) error
+	GetMyAnnouncements(context.Context, *GetMyAnnouncementsRequest, *GetAnnouncementsResponse) error
 }
 
 func RegisterAnnouncementServiceHandler(s server.Server, hdlr AnnouncementServiceHandler, opts ...server.HandlerOption) error {
@@ -133,6 +157,8 @@ func RegisterAnnouncementServiceHandler(s server.Server, hdlr AnnouncementServic
 		UpdateAnnouncement(ctx context.Context, in *UpdateAnnouncementRequest, out *DefaultAnnouncementResponse) error
 		DeleteAnnouncement(ctx context.Context, in *DeleteAnnouncementRequest, out *DefaultAnnouncementResponse) error
 		CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, out *CheckAnnouncementResponse) error
+		SearchAnnouncements(ctx context.Context, in *SearchAnnouncementsRequest, out *GetAnnouncementsResponse) error
+		GetMyAnnouncements(ctx context.Context, in *GetMyAnnouncementsRequest, out *GetAnnouncementsResponse) error
 	}
 	type AnnouncementService struct {
 		announcementService
@@ -167,4 +193,12 @@ func (h *announcementServiceHandler) DeleteAnnouncement(ctx context.Context, in 
 
 func (h *announcementServiceHandler) CheckAnnouncement(ctx context.Context, in *CheckAnnouncementRequest, out *CheckAnnouncementResponse) error {
 	return h.AnnouncementServiceHandler.CheckAnnouncement(ctx, in, out)
+}
+
+func (h *announcementServiceHandler) SearchAnnouncements(ctx context.Context, in *SearchAnnouncementsRequest, out *GetAnnouncementsResponse) error {
+	return h.AnnouncementServiceHandler.SearchAnnouncements(ctx, in, out)
+}
+
+func (h *announcementServiceHandler) GetMyAnnouncements(ctx context.Context, in *GetMyAnnouncementsRequest, out *GetAnnouncementsResponse) error {
+	return h.AnnouncementServiceHandler.GetMyAnnouncements(ctx, in, out)
 }
