@@ -24,6 +24,11 @@ class OutingParentsStub(object):
                 request_serializer=outing__parents__pb2.ConfirmOutingByOCodeRequest.SerializeToString,
                 response_deserializer=outing__parents__pb2.ConfirmOutingByOCodeResponse.FromString,
                 )
+        self.GetOutingByOCode = channel.unary_unary(
+                '/OutingParents/GetOutingByOCode',
+                request_serializer=outing__parents__pb2.GetOutingByOCodeRequest.SerializeToString,
+                response_deserializer=outing__parents__pb2.GetOutingByOCodeResponse.FromString,
+                )
 
 
 class OutingParentsServicer(object):
@@ -41,6 +46,12 @@ class OutingParentsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetOutingByOCode(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OutingParentsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +64,11 @@ def add_OutingParentsServicer_to_server(servicer, server):
                     servicer.RejectOutingByOCode,
                     request_deserializer=outing__parents__pb2.ConfirmOutingByOCodeRequest.FromString,
                     response_serializer=outing__parents__pb2.ConfirmOutingByOCodeResponse.SerializeToString,
+            ),
+            'GetOutingByOCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOutingByOCode,
+                    request_deserializer=outing__parents__pb2.GetOutingByOCodeRequest.FromString,
+                    response_serializer=outing__parents__pb2.GetOutingByOCodeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -95,5 +111,22 @@ class OutingParents(object):
         return grpc.experimental.unary_unary(request, target, '/OutingParents/RejectOutingByOCode',
             outing__parents__pb2.ConfirmOutingByOCodeRequest.SerializeToString,
             outing__parents__pb2.ConfirmOutingByOCodeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOutingByOCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OutingParents/GetOutingByOCode',
+            outing__parents__pb2.GetOutingByOCodeRequest.SerializeToString,
+            outing__parents__pb2.GetOutingByOCodeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

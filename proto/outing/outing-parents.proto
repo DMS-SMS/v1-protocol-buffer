@@ -5,6 +5,25 @@ option go_package = ".;outingproto";
 service OutingParents {
     rpc ApproveOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse);
     rpc RejectOutingByOCode(ConfirmOutingByOCodeRequest) returns (ConfirmOutingByOCodeResponse);
+    rpc GetOutingByOCode (GetOutingByOCodeRequest) returns (GetOutingByOCodeResponse);
+}
+
+message GetOutingByOCodeRequest {
+    string confirm_code = 1;
+}
+
+message GetOutingByOCodeResponse {
+    int32 status = 1;
+    int32 code = 2;
+    string msg = 3;
+
+    string name = 4;
+    string outing_id = 5;
+    int64 start_time = 6;
+    int64 end_time = 7;
+    string place = 8;
+    string reason = 9;
+    string situation = 10;
 }
 
 message ConfirmOutingByOCodeRequest {
