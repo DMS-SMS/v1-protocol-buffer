@@ -4,11 +4,14 @@ package auth.parent;
 
 option go_package = ".;authproto";
 
+import "auth-student.proto";
+
 service AuthParent {
     rpc LoginParentAuth(LoginParentAuthRequest) returns (LoginParentAuthResponse) {}
     rpc ChangeParentPW(ChangeParentPWRequest) returns (ChangeParentPWResponse) {}
     rpc GetParentInformWithUUID(GetParentInformWithUUIDRequest) returns (GetParentInformWithUUIDResponse) {}
     rpc GetParentUUIDsWithInform(GetParentUUIDsWithInformRequest) returns (GetParentUUIDsWithInformResponse) {}
+    rpc GetChildrenInformsWithUUID(GetChildrenInformsWithUUIDRequest) returns (GetChildrenInformsWithUUIDResponse) {}
 }
 
 message LoginParentAuthRequest {
@@ -61,4 +64,16 @@ message GetParentUUIDsWithInformResponse {
     sint32 Code = 2;
     string Message = 3;
     repeated string ParentUUIDs = 4;
+}
+
+message GetChildrenInformsWithUUIDRequest {
+    string UUID = 1; // API를 호출한 학부모 계정의 uuid (19자)
+    string ParentUUID = 2; // 자녀 정보를 조회할 학부모 계정의 uuid (19자)
+}
+
+message GetChildrenInformsWithUUIDResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    repeated auth.student.StudentInform ChildrenInform = 4; // 자녀 정보 지르
 }
