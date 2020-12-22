@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package auth.admin;
+
 option go_package = ".;authproto";
 
 service AuthAdmin {
