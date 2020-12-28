@@ -85,12 +85,13 @@ message GetCardAboutOutingResponse {
     int64 start_time = 5;
     int64 end_time = 6;
     string outing_status = 7;
+    string reason = 8;
     
-    string name = 8;
-    int32 grade = 9;
-    int32 group = 10;
-    int32 number = 11;
-    string profile_image_uri = 12;
+    string name = 9;
+    int32 grade = 10;
+    int32 group = 11;
+    int32 number = 12;
+    string profile_image_uri = 13;
 }
 
 message GoOutRequest {
