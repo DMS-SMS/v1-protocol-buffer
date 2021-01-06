@@ -51,7 +51,7 @@ message GetTimeTablesRequest {
     int32 year = 2;
     int32 month = 3;
     int32 day = 4;
-    int32 count = 5
+    int32 count = 5;
 }
 
 message GetTimeTablesResponse {
