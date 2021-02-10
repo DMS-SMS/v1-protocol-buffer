@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\r.;outingproto',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-student.proto\"{\n\x13\x43reateOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x11\n\tsituation\x18\x06 \x01(\t\"T\n\x14\x43reateOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x11\n\touting_id\x18\x04 \x01(\t\"Z\n\x18GetStudentOutingsRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstudent_id\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\r\n\x05\x63ount\x18\x04 \x01(\x05\"f\n\x19GetStudentOutingsResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x1e\n\x06outing\x18\x04 \x03(\x0b\x32\x0e.StudentOuting\"\x8a\x01\n\rStudentOuting\x12\x11\n\touting_id\x18\x01 \x01(\t\x12\r\n\x05place\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x11\n\tsituation\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\"9\n\x16GetOutingInformRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"\xcd\x01\n\x17GetOutingInformResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x11\n\touting_id\x18\x05 \x01(\t\x12\r\n\x05place\x18\x06 \x01(\t\x12\x0e\n\x06reason\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x18\n\x10outing_situation\x18\n \x01(\t\x12\x15\n\routing_status\x18\x0b \x01(\t\"<\n\x19GetCardAboutOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"\xfa\x01\n\x1aGetCardAboutOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x12\n\nstart_time\x18\x05 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x06 \x01(\x03\x12\x15\n\routing_status\x18\x07 \x01(\t\x12\x0e\n\x06reason\x18\x08 \x01(\t\x12\x0c\n\x04name\x18\t \x01(\t\x12\r\n\x05grade\x18\n \x01(\x05\x12\r\n\x05group\x18\x0b \x01(\x05\x12\x0e\n\x06number\x18\x0c \x01(\x05\x12\x19\n\x11profile_image_uri\x18\r \x01(\t\"/\n\x0cGoOutRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\":\n\rGoOutResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x88\x03\n\rOutingStudent\x12;\n\x0c\x43reateOuting\x12\x14.CreateOutingRequest\x1a\x15.CreateOutingResponse\x12J\n\x11GetStudentOutings\x12\x19.GetStudentOutingsRequest\x1a\x1a.GetStudentOutingsResponse\x12\x44\n\x0fGetOutingInform\x12\x17.GetOutingInformRequest\x1a\x18.GetOutingInformResponse\x12M\n\x12GetCardAboutOuting\x12\x1a.GetCardAboutOutingRequest\x1a\x1b.GetCardAboutOutingResponse\x12+\n\nStartGoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponse\x12,\n\x0b\x46inishGoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponseB\x0fZ\r.;outingprotob\x06proto3'
+  serialized_pb=b'\n\x14outing-student.proto\"{\n\x13\x43reateOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\x12\r\n\x05place\x18\x04 \x01(\t\x12\x0e\n\x06reason\x18\x05 \x01(\t\x12\x11\n\tsituation\x18\x06 \x01(\t\"T\n\x14\x43reateOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x11\n\touting_id\x18\x04 \x01(\t\"Z\n\x18GetStudentOutingsRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x12\n\nstudent_id\x18\x02 \x01(\t\x12\r\n\x05start\x18\x03 \x01(\x05\x12\r\n\x05\x63ount\x18\x04 \x01(\x05\"f\n\x19GetStudentOutingsResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x1e\n\x06outing\x18\x04 \x03(\x0b\x32\x0e.StudentOuting\"\x8a\x01\n\rStudentOuting\x12\x11\n\touting_id\x18\x01 \x01(\t\x12\r\n\x05place\x18\x02 \x01(\t\x12\x0e\n\x06reason\x18\x03 \x01(\t\x12\x12\n\nstart_time\x18\x04 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x05 \x01(\x03\x12\x11\n\tsituation\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\"9\n\x16GetOutingInformRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"\xe3\x01\n\x17GetOutingInformResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x11\n\touting_id\x18\x05 \x01(\t\x12\r\n\x05place\x18\x06 \x01(\t\x12\x0e\n\x06reason\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x18\n\x10outing_situation\x18\n \x01(\t\x12\x15\n\routing_status\x18\x0b \x01(\t\x12\x14\n\x0cstudent_uuid\x18\x0c \x01(\t\"<\n\x19GetCardAboutOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"\xfa\x01\n\x1aGetCardAboutOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\r\n\x05place\x18\x04 \x01(\t\x12\x12\n\nstart_time\x18\x05 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\x06 \x01(\x03\x12\x15\n\routing_status\x18\x07 \x01(\t\x12\x0e\n\x06reason\x18\x08 \x01(\t\x12\x0c\n\x04name\x18\t \x01(\t\x12\r\n\x05grade\x18\n \x01(\x05\x12\r\n\x05group\x18\x0b \x01(\x05\x12\x0e\n\x06number\x18\x0c \x01(\x05\x12\x19\n\x11profile_image_uri\x18\r \x01(\t\"/\n\x0cGoOutRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\":\n\rGoOutResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\x88\x03\n\rOutingStudent\x12;\n\x0c\x43reateOuting\x12\x14.CreateOutingRequest\x1a\x15.CreateOutingResponse\x12J\n\x11GetStudentOutings\x12\x19.GetStudentOutingsRequest\x1a\x1a.GetStudentOutingsResponse\x12\x44\n\x0fGetOutingInform\x12\x17.GetOutingInformRequest\x1a\x18.GetOutingInformResponse\x12M\n\x12GetCardAboutOuting\x12\x1a.GetCardAboutOutingRequest\x1a\x1b.GetCardAboutOutingResponse\x12+\n\nStartGoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponse\x12,\n\x0b\x46inishGoOut\x12\r.GoOutRequest\x1a\x0e.GoOutResponseB\x0fZ\r.;outingprotob\x06proto3'
 )
 
 
@@ -442,6 +442,13 @@ _GETOUTINGINFORMRESPONSE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='student_uuid', full_name='GetOutingInformResponse.student_uuid', index=10,
+      number=12, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -455,7 +462,7 @@ _GETOUTINGINFORMRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=632,
-  serialized_end=837,
+  serialized_end=859,
 )
 
 
@@ -493,8 +500,8 @@ _GETCARDABOUTOUTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=839,
-  serialized_end=899,
+  serialized_start=861,
+  serialized_end=921,
 )
 
 
@@ -609,8 +616,8 @@ _GETCARDABOUTOUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=902,
-  serialized_end=1152,
+  serialized_start=924,
+  serialized_end=1174,
 )
 
 
@@ -648,8 +655,8 @@ _GOOUTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1154,
-  serialized_end=1201,
+  serialized_start=1176,
+  serialized_end=1223,
 )
 
 
@@ -694,8 +701,8 @@ _GOOUTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1203,
-  serialized_end=1261,
+  serialized_start=1225,
+  serialized_end=1283,
 )
 
 _GETSTUDENTOUTINGSRESPONSE.fields_by_name['outing'].message_type = _STUDENTOUTING
@@ -799,8 +806,8 @@ _OUTINGSTUDENT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1264,
-  serialized_end=1656,
+  serialized_start=1286,
+  serialized_end=1678,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateOuting',

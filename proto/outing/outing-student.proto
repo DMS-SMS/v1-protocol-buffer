@@ -69,6 +69,7 @@ message GetOutingInformResponse {
     int64 end_time = 9;
     string outing_situation = 10;
     string outing_status = 11;
+    string student_uuid = 12;
 }
 
 message GetCardAboutOutingRequest {
