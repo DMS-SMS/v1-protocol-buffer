@@ -9,6 +9,7 @@ type AuthServiceClient struct {
 	AuthStudentService
 	AuthTeacherService
 	AuthParentService
+	AuthEventService
 }
 
 func NewAuthService(name string, c client.Client) AuthServiceClient {
@@ -17,5 +18,6 @@ func NewAuthService(name string, c client.Client) AuthServiceClient {
 		AuthStudentService: NewAuthStudentService(name, c),
 		AuthTeacherService: NewAuthTeacherService(name, c),
 		AuthParentService:  NewAuthParentService(name, c),
+		AuthEventService:   NewAuthEventService(name, c),
 	}
 }
