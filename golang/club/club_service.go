@@ -8,6 +8,7 @@ type ClubServiceClient struct {
 	ClubAdminService
 	ClubStudentService
 	ClubLeaderService
+	ClubEventService
 }
 
 func NewClubService(name string, c client.Client) ClubServiceClient {
@@ -15,5 +16,6 @@ func NewClubService(name string, c client.Client) ClubServiceClient {
 		ClubAdminService:   NewClubAdminService(name, c),
 		ClubStudentService: NewClubStudentService(name, c),
 		ClubLeaderService:  NewClubLeaderService(name, c),
+		ClubEventService:   NewClubEventService(name, c),
 	}
 }
