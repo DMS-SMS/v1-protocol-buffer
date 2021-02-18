@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+service OutingEvent {
+    rpc ChangeAllServiceNodes(Empty) returns (Empty) {}
+}
+
+message Empty {}
