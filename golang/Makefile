@@ -14,6 +14,10 @@ auth-teacher:
 auth-parent:
 	protoc --proto_path=../proto/auth --go_out=./auth --micro_out=./auth auth-parent.proto
 
+.PHONY: auth-event
+auth-event:
+	protoc --proto_path=../proto/auth --go_out=./auth --micro_out=./auth auth-event.proto
+
 .PHONY: club-admin
 club-admin:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-admin.proto
@@ -25,6 +29,10 @@ club-student:
 .PHONY: club-leader
 club-leader:
 	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-leader.proto
+
+.PHONY: club-event
+club-event:
+	protoc --proto_path=../proto/club --go_out=./club --micro_out=./club club-event.proto
 
 .PHONY: outing-student
 outing-student:
