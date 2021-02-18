@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package auth.event;
+
+option go_package = ".;authproto";
+
+service AuthEvent {
+    rpc ChangeAllServiceNodes(Empty) returns (Empty) {}
+}
+
+message Empty {}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package club.event;
+
+option go_package = ".;clubproto";
+
+service ClubEvent {
+    rpc ChangeAllServiceNodes(Empty) returns (Empty) {}
+}
+
+message Empty {}
