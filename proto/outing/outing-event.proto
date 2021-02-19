@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = ".;outingproto";
+
 service OutingEvent {
     rpc ChangeAllServiceNodes(Empty) returns (Empty) {}
 }
