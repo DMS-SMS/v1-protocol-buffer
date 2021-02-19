@@ -8,6 +8,7 @@ type OutingServiceClient struct {
 	OutingStudentService
 	OutingTeacherService
 	OutingParentsService
+	OutingEventService
 }
 
 func NewOutingService(name string, c client.Client) OutingServiceClient {
@@ -15,5 +16,6 @@ func NewOutingService(name string, c client.Client) OutingServiceClient {
 		OutingStudentService: NewOutingStudentService(name, c),
 		OutingTeacherService: NewOutingTeacherService(name, c),
 		OutingParentsService: NewOutingParentsService(name, c),
+		OutingEventService:   NewOutingEventService(name, c),
 	}
 }
