@@ -53,3 +53,15 @@ announcement:
 .PHONY: schedule
 schedule:
 	protoc --proto_path=../proto/schedule --go_out=./schedule --micro_out=./schedule schedule.proto
+
+.PHONY: outing-event
+outing-event:
+	protoc --proto_path=../proto/outing --go_out=./outing --micro_out=./outing outing-event.proto
+
+.PHONY: schedule-event
+schedule-event:
+	protoc --proto_path=../proto/schedule --go_out=./schedule --micro_out=./schedule schedule-event.proto
+
+.PHONY: announcement-event
+announcement-event:
+	protoc --proto_path=../proto/announcement --go_out=./announcement --micro_out=./announcement announcement-event.proto
