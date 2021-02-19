@@ -9,6 +9,7 @@ service AuthAdmin {
     rpc CreateNewTeacher(CreateNewTeacherRequest) returns (CreateNewTeacherResponse) {}
     rpc CreateNewParent(CreateNewParentRequest) returns (CreateNewParentResponse) {}
     rpc LoginAdminAuth(LoginAdminAuthRequest) returns (LoginAdminAuthResponse) {}
+    rpc AddUnsignedStudents(AddUnsignedStudentsRequest) returns (AddUnsignedStudentsResponse) {}
 }
 
 message CreateNewStudentRequest {
@@ -74,4 +75,22 @@ message LoginAdminAuthResponse {
     string Message = 3; // 세부 설명
     string AccessToken = 4; // 학생 계정 인증을 위한 JWT
     string LoggedInAdminUUID = 5; // 로그인한 관리자 계정의 uuid
+}
+
+message AddUnsignedStudentsRequest {
+    repeated BasicStudentInform Students = 1;
+}
+
+message BasicStudentInform {
+    string Name = 1; // 이름 정보 (2~4자 사이, 한글)
+    string PhoneNumber = 2; // 전화번호 정보 (11자)
+    uint32 Grade = 3; // 학년 정보 (1~3 사이)
+    uint32 Group = 4; // 반 정보 (1~4 사이)
+    uint32 StudentNumber = 5; // 번호 정보 (1~21 사이)
+}
+
+message AddUnsignedStudentsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
 }
