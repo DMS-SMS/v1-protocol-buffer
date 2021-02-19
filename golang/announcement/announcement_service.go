@@ -9,7 +9,7 @@ type AnnouncementServiceClient struct {
 	AnnouncementEventService
 }
 
-func NewOutingService(name string, c client.Client) AnnouncementServiceClient {
+func NewAnnouncementSrv(name string, c client.Client) AnnouncementServiceClient {
 	return AnnouncementServiceClient{
 		AnnouncementService:      NewAnnouncementService(name, c),
 		AnnouncementEventService: NewAnnouncementEventService(name, c),

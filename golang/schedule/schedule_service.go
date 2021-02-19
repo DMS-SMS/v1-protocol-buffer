@@ -9,7 +9,7 @@ type ScheduleServiceClient struct {
 	ScheduleEventService
 }
 
-func NewOutingService(name string, c client.Client) ScheduleServiceClient {
+func NewScheduleSrv(name string, c client.Client) ScheduleServiceClient {
 	return ScheduleServiceClient{
 		ScheduleService:      NewScheduleService(name, c),
 		ScheduleEventService: NewScheduleEventService(name, c),
