@@ -33,3 +33,8 @@ func (m mockAuthAdminService) LoginAdminAuth(ctx context.Context, in *LoginAdmin
 	args := m.mock.Called(in)
 	return args.Get(0).(*LoginAdminAuthResponse), args.Error(1)
 }
+
+func (m mockAuthAdminService) AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, opts ...client.CallOption) (*AddUnsignedStudentsResponse, error) {
+	args := m.mock.Called(in)
+	return args.Get(0).(*AddUnsignedStudentsResponse), args.Error(1)
+}
