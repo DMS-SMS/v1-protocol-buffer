@@ -95,4 +95,5 @@ message AddUnsignedStudentsResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     uint32 AddCount = 4; // 추가된 학생 수
+    uint32 NoAddCount = 5; // 추가되지 않은 학생 수
 }
