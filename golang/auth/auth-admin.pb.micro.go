@@ -39,6 +39,7 @@ type AuthAdminService interface {
 	CreateNewParent(ctx context.Context, in *CreateNewParentRequest, opts ...client.CallOption) (*CreateNewParentResponse, error)
 	LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, opts ...client.CallOption) (*LoginAdminAuthResponse, error)
 	AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, opts ...client.CallOption) (*AddUnsignedStudentsResponse, error)
+	SendJoinSMSToUnsignedStudents(ctx context.Context, in *SendJoinSMSToUnsignedStudentsRequest, opts ...client.CallOption) (*SendJoinSMSToUnsignedStudentsResponse, error)
 }
 
 type authAdminService struct {
@@ -103,6 +104,16 @@ func (c *authAdminService) AddUnsignedStudents(ctx context.Context, in *AddUnsig
 	return out, nil
 }
 
+func (c *authAdminService) SendJoinSMSToUnsignedStudents(ctx context.Context, in *SendJoinSMSToUnsignedStudentsRequest, opts ...client.CallOption) (*SendJoinSMSToUnsignedStudentsResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthAdmin.SendJoinSMSToUnsignedStudents", in)
+	out := new(SendJoinSMSToUnsignedStudentsResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AuthAdmin service
 
 type AuthAdminHandler interface {
@@ -111,6 +122,7 @@ type AuthAdminHandler interface {
 	CreateNewParent(context.Context, *CreateNewParentRequest, *CreateNewParentResponse) error
 	LoginAdminAuth(context.Context, *LoginAdminAuthRequest, *LoginAdminAuthResponse) error
 	AddUnsignedStudents(context.Context, *AddUnsignedStudentsRequest, *AddUnsignedStudentsResponse) error
+	SendJoinSMSToUnsignedStudents(context.Context, *SendJoinSMSToUnsignedStudentsRequest, *SendJoinSMSToUnsignedStudentsResponse) error
 }
 
 func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...server.HandlerOption) error {
@@ -120,6 +132,7 @@ func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...se
 		CreateNewParent(ctx context.Context, in *CreateNewParentRequest, out *CreateNewParentResponse) error
 		LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, out *LoginAdminAuthResponse) error
 		AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, out *AddUnsignedStudentsResponse) error
+		SendJoinSMSToUnsignedStudents(ctx context.Context, in *SendJoinSMSToUnsignedStudentsRequest, out *SendJoinSMSToUnsignedStudentsResponse) error
 	}
 	type AuthAdmin struct {
 		authAdmin
@@ -150,4 +163,8 @@ func (h *authAdminHandler) LoginAdminAuth(ctx context.Context, in *LoginAdminAut
 
 func (h *authAdminHandler) AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, out *AddUnsignedStudentsResponse) error {
 	return h.AuthAdminHandler.AddUnsignedStudents(ctx, in, out)
+}
+
+func (h *authAdminHandler) SendJoinSMSToUnsignedStudents(ctx context.Context, in *SendJoinSMSToUnsignedStudentsRequest, out *SendJoinSMSToUnsignedStudentsResponse) error {
+	return h.AuthAdminHandler.SendJoinSMSToUnsignedStudents(ctx, in, out)
 }
