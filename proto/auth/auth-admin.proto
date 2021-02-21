@@ -10,6 +10,7 @@ service AuthAdmin {
     rpc CreateNewParent(CreateNewParentRequest) returns (CreateNewParentResponse) {}
     rpc LoginAdminAuth(LoginAdminAuthRequest) returns (LoginAdminAuthResponse) {}
     rpc AddUnsignedStudents(AddUnsignedStudentsRequest) returns (AddUnsignedStudentsResponse) {}
+    rpc SendJoinSMSToUnsignedStudents(SendJoinSMSToUnsignedStudentsRequest) returns (SendJoinSMSToUnsignedStudentsResponse) {}
 }
 
 message CreateNewStudentRequest {
@@ -96,4 +97,17 @@ message AddUnsignedStudentsResponse {
     string Message = 3; // 세부 설명
     uint32 AddCount = 4; // 추가된 학생 수
     uint32 NoAddCount = 5; // 추가되지 않은 학생 수
+}
+
+message SendJoinSMSToUnsignedStudentsRequest {
+    uint32 TargetGrade = 3; // 전송 대상 학년 (1~3 사이)
+    uint32 TargetGroup = 4; // 전송 대상 반 (1~4 사이)
+}
+
+message SendJoinSMSToUnsignedStudentsResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    uint32 SendCount = 4; // 전송된 문자의 수
+    uint32 NoSendCount = 5; // 전송되지 않은 문자 수
 }
