@@ -11,7 +11,7 @@ service AuthStudent {
     rpc GetStudentInformsWithUUIDs(GetStudentInformsWithUUIDsRequest) returns (GetStudentInformsWithUUIDsResponse) {}
     rpc GetStudentUUIDsWithInform(GetStudentUUIDsWithInformRequest) returns (GetStudentUUIDsWithInformResponse) {}
     rpc GetParentWithStudentUUID(GetParentWithStudentUUIDRequest) returns (GetParentWithStudentUUIDResponse) {}
-    rpc GetStudentInformWithAuthCode(GetStudentInformWithAuthCodeRequest) returns (GetStudentInformWithAuthCodeResponse) {}
+    rpc GetUnsignedStudentWithAuthCode(GetUnsignedStudentWithAuthCodeRequest) returns (GetUnsignedStudentWithAuthCodeResponse) {}
 }
 
 message LoginStudentAuthRequest {
@@ -110,11 +110,11 @@ message GetParentWithStudentUUIDResponse {
     string PhoneNumber = 6; // 전화번호 정보
 }
 
-message GetStudentInformWithAuthCodeRequest {
+message GetUnsignedStudentWithAuthCodeRequest {
     uint32 AuthCode = 1; // 정보를 조회할 AuthCode
 }
 
-message GetStudentInformWithAuthCodeResponse {
+message GetUnsignedStudentWithAuthCodeResponse {
     uint32 Status = 1;
     sint32 Code = 2;
     string Message = 3;
