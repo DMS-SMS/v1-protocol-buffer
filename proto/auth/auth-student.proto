@@ -12,6 +12,7 @@ service AuthStudent {
     rpc GetStudentUUIDsWithInform(GetStudentUUIDsWithInformRequest) returns (GetStudentUUIDsWithInformResponse) {}
     rpc GetParentWithStudentUUID(GetParentWithStudentUUIDRequest) returns (GetParentWithStudentUUIDResponse) {}
     rpc GetUnsignedStudentWithAuthCode(GetUnsignedStudentWithAuthCodeRequest) returns (GetUnsignedStudentWithAuthCodeResponse) {}
+    rpc CreateNewStudentWithAuthCode(CreateNewStudentWithAuthCodeRequest) returns (CreateNewStudentWithAuthCodeResponse) {}
 }
 
 message LoginStudentAuthRequest {
@@ -124,4 +125,17 @@ message GetUnsignedStudentWithAuthCodeResponse {
     uint32 Group = 7; // 반 정보
     uint32 StudentNumber = 8; // 번호 정보
     string PhoneNumber = 9; // 전화번호 정보
+}
+
+message CreateNewStudentWithAuthCodeRequest {
+    uint32 AuthCode = 1; // 가입 대상 인증을 위한 Auth Code
+    string StudentID = 2; // 사용할 계정 아이디
+    string StudentPW = 3; // 사용할 계정 비밀번호
+}
+
+message CreateNewStudentWithAuthCodeResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    string StudentUUID = 4; // 생성된 학생 계정의 UUID
 }
