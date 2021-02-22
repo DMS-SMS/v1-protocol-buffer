@@ -40,7 +40,7 @@ type AuthStudentService interface {
 	GetStudentInformsWithUUIDs(ctx context.Context, in *GetStudentInformsWithUUIDsRequest, opts ...client.CallOption) (*GetStudentInformsWithUUIDsResponse, error)
 	GetStudentUUIDsWithInform(ctx context.Context, in *GetStudentUUIDsWithInformRequest, opts ...client.CallOption) (*GetStudentUUIDsWithInformResponse, error)
 	GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, opts ...client.CallOption) (*GetParentWithStudentUUIDResponse, error)
-	GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, opts ...client.CallOption) (*GetStudentInformWithAuthCodeResponse, error)
+	GetUnsignedStudentWithAuthCode(ctx context.Context, in *GetUnsignedStudentWithAuthCodeRequest, opts ...client.CallOption) (*GetUnsignedStudentWithAuthCodeResponse, error)
 }
 
 type authStudentService struct {
@@ -115,9 +115,9 @@ func (c *authStudentService) GetParentWithStudentUUID(ctx context.Context, in *G
 	return out, nil
 }
 
-func (c *authStudentService) GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, opts ...client.CallOption) (*GetStudentInformWithAuthCodeResponse, error) {
-	req := c.c.NewRequest(c.name, "AuthStudent.GetStudentInformWithAuthCode", in)
-	out := new(GetStudentInformWithAuthCodeResponse)
+func (c *authStudentService) GetUnsignedStudentWithAuthCode(ctx context.Context, in *GetUnsignedStudentWithAuthCodeRequest, opts ...client.CallOption) (*GetUnsignedStudentWithAuthCodeResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthStudent.GetUnsignedStudentWithAuthCode", in)
+	out := new(GetUnsignedStudentWithAuthCodeResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -134,7 +134,7 @@ type AuthStudentHandler interface {
 	GetStudentInformsWithUUIDs(context.Context, *GetStudentInformsWithUUIDsRequest, *GetStudentInformsWithUUIDsResponse) error
 	GetStudentUUIDsWithInform(context.Context, *GetStudentUUIDsWithInformRequest, *GetStudentUUIDsWithInformResponse) error
 	GetParentWithStudentUUID(context.Context, *GetParentWithStudentUUIDRequest, *GetParentWithStudentUUIDResponse) error
-	GetStudentInformWithAuthCode(context.Context, *GetStudentInformWithAuthCodeRequest, *GetStudentInformWithAuthCodeResponse) error
+	GetUnsignedStudentWithAuthCode(context.Context, *GetUnsignedStudentWithAuthCodeRequest, *GetUnsignedStudentWithAuthCodeResponse) error
 }
 
 func RegisterAuthStudentHandler(s server.Server, hdlr AuthStudentHandler, opts ...server.HandlerOption) error {
@@ -145,7 +145,7 @@ func RegisterAuthStudentHandler(s server.Server, hdlr AuthStudentHandler, opts .
 		GetStudentInformsWithUUIDs(ctx context.Context, in *GetStudentInformsWithUUIDsRequest, out *GetStudentInformsWithUUIDsResponse) error
 		GetStudentUUIDsWithInform(ctx context.Context, in *GetStudentUUIDsWithInformRequest, out *GetStudentUUIDsWithInformResponse) error
 		GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, out *GetParentWithStudentUUIDResponse) error
-		GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, out *GetStudentInformWithAuthCodeResponse) error
+		GetUnsignedStudentWithAuthCode(ctx context.Context, in *GetUnsignedStudentWithAuthCodeRequest, out *GetUnsignedStudentWithAuthCodeResponse) error
 	}
 	type AuthStudent struct {
 		authStudent
@@ -182,6 +182,6 @@ func (h *authStudentHandler) GetParentWithStudentUUID(ctx context.Context, in *G
 	return h.AuthStudentHandler.GetParentWithStudentUUID(ctx, in, out)
 }
 
-func (h *authStudentHandler) GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, out *GetStudentInformWithAuthCodeResponse) error {
-	return h.AuthStudentHandler.GetStudentInformWithAuthCode(ctx, in, out)
+func (h *authStudentHandler) GetUnsignedStudentWithAuthCode(ctx context.Context, in *GetUnsignedStudentWithAuthCodeRequest, out *GetUnsignedStudentWithAuthCodeResponse) error {
+	return h.AuthStudentHandler.GetUnsignedStudentWithAuthCode(ctx, in, out)
 }
