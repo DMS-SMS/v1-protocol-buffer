@@ -1146,6 +1146,140 @@ func (x *GetUnsignedStudentWithAuthCodeResponse) GetPhoneNumber() string {
 	return ""
 }
 
+type CreateNewStudentWithAuthCodeRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AuthCode  uint32 `protobuf:"varint,1,opt,name=AuthCode,proto3" json:"AuthCode,omitempty"`  // 가입 대상 인증을 위한 Auth Code
+	StudentID string `protobuf:"bytes,2,opt,name=StudentID,proto3" json:"StudentID,omitempty"` // 사용할 계정 아이디
+	StudentPW string `protobuf:"bytes,3,opt,name=StudentPW,proto3" json:"StudentPW,omitempty"` // 사용할 계정 비밀번호
+}
+
+func (x *CreateNewStudentWithAuthCodeRequest) Reset() {
+	*x = CreateNewStudentWithAuthCodeRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_student_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateNewStudentWithAuthCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNewStudentWithAuthCodeRequest) ProtoMessage() {}
+
+func (x *CreateNewStudentWithAuthCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_student_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNewStudentWithAuthCodeRequest.ProtoReflect.Descriptor instead.
+func (*CreateNewStudentWithAuthCodeRequest) Descriptor() ([]byte, []int) {
+	return file_auth_student_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *CreateNewStudentWithAuthCodeRequest) GetAuthCode() uint32 {
+	if x != nil {
+		return x.AuthCode
+	}
+	return 0
+}
+
+func (x *CreateNewStudentWithAuthCodeRequest) GetStudentID() string {
+	if x != nil {
+		return x.StudentID
+	}
+	return ""
+}
+
+func (x *CreateNewStudentWithAuthCodeRequest) GetStudentPW() string {
+	if x != nil {
+		return x.StudentPW
+	}
+	return ""
+}
+
+type CreateNewStudentWithAuthCodeResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status      uint32 `protobuf:"varint,1,opt,name=Status,proto3" json:"Status,omitempty"`
+	Code        int32  `protobuf:"zigzag32,2,opt,name=Code,proto3" json:"Code,omitempty"`
+	Message     string `protobuf:"bytes,3,opt,name=Message,proto3" json:"Message,omitempty"`
+	StudentUUID string `protobuf:"bytes,4,opt,name=StudentUUID,proto3" json:"StudentUUID,omitempty"` // 생성된 학생 계정의 UUID
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) Reset() {
+	*x = CreateNewStudentWithAuthCodeResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_auth_student_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateNewStudentWithAuthCodeResponse) ProtoMessage() {}
+
+func (x *CreateNewStudentWithAuthCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_auth_student_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateNewStudentWithAuthCodeResponse.ProtoReflect.Descriptor instead.
+func (*CreateNewStudentWithAuthCodeResponse) Descriptor() ([]byte, []int) {
+	return file_auth_student_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) GetStatus() uint32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *CreateNewStudentWithAuthCodeResponse) GetStudentUUID() string {
+	if x != nil {
+		return x.StudentUUID
+	}
+	return ""
+}
+
 var File_auth_student_proto protoreflect.FileDescriptor
 
 var file_auth_student_proto_rawDesc = []byte{
@@ -1298,7 +1432,24 @@ var file_auth_student_proto_rawDesc = []byte{
 	0x0d, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x20,
 	0x0a, 0x0b, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x09, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x0b, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
-	0x32, 0xe2, 0x06, 0x0a, 0x0b, 0x41, 0x75, 0x74, 0x68, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74,
+	0x22, 0x7d, 0x0a, 0x23, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x65, 0x77, 0x53, 0x74, 0x75,
+	0x64, 0x65, 0x6e, 0x74, 0x57, 0x69, 0x74, 0x68, 0x41, 0x75, 0x74, 0x68, 0x43, 0x6f, 0x64, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x41, 0x75, 0x74, 0x68, 0x43,
+	0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x08, 0x41, 0x75, 0x74, 0x68, 0x43,
+	0x6f, 0x64, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x49, 0x44,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x49,
+	0x44, 0x12, 0x1c, 0x0a, 0x09, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x50, 0x57, 0x18, 0x03,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x50, 0x57, 0x22,
+	0x8e, 0x01, 0x0a, 0x24, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x65, 0x77, 0x53, 0x74, 0x75,
+	0x64, 0x65, 0x6e, 0x74, 0x57, 0x69, 0x74, 0x68, 0x41, 0x75, 0x74, 0x68, 0x43, 0x6f, 0x64, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74,
+	0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x12, 0x12, 0x0a, 0x04, 0x43, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x11, 0x52, 0x04,
+	0x43, 0x6f, 0x64, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x20,
+	0x0a, 0x0b, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x55, 0x55, 0x49, 0x44, 0x18, 0x04, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x0b, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x55, 0x55, 0x49, 0x44,
+	0x32, 0xec, 0x07, 0x0a, 0x0b, 0x41, 0x75, 0x74, 0x68, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74,
 	0x12, 0x63, 0x0a, 0x10, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74,
 	0x41, 0x75, 0x74, 0x68, 0x12, 0x25, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x73, 0x74, 0x75, 0x64,
 	0x65, 0x6e, 0x74, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74,
@@ -1352,8 +1503,17 @@ var file_auth_student_proto_rawDesc = []byte{
 	0x61, 0x75, 0x74, 0x68, 0x2e, 0x73, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x2e, 0x47, 0x65, 0x74,
 	0x55, 0x6e, 0x73, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x57,
 	0x69, 0x74, 0x68, 0x41, 0x75, 0x74, 0x68, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x0d, 0x5a, 0x0b, 0x2e, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x87, 0x01, 0x0a, 0x1c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x4e, 0x65, 0x77, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x57, 0x69, 0x74, 0x68, 0x41, 0x75,
+	0x74, 0x68, 0x43, 0x6f, 0x64, 0x65, 0x12, 0x31, 0x2e, 0x61, 0x75, 0x74, 0x68, 0x2e, 0x73, 0x74,
+	0x75, 0x64, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x65, 0x77, 0x53,
+	0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x57, 0x69, 0x74, 0x68, 0x41, 0x75, 0x74, 0x68, 0x43, 0x6f,
+	0x64, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e, 0x61, 0x75, 0x74, 0x68,
+	0x2e, 0x73, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e,
+	0x65, 0x77, 0x53, 0x74, 0x75, 0x64, 0x65, 0x6e, 0x74, 0x57, 0x69, 0x74, 0x68, 0x41, 0x75, 0x74,
+	0x68, 0x43, 0x6f, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42,
+	0x0d, 0x5a, 0x0b, 0x2e, 0x3b, 0x61, 0x75, 0x74, 0x68, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1368,7 +1528,7 @@ func file_auth_student_proto_rawDescGZIP() []byte {
 	return file_auth_student_proto_rawDescData
 }
 
-var file_auth_student_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_auth_student_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_auth_student_proto_goTypes = []interface{}{
 	(*LoginStudentAuthRequest)(nil),                // 0: auth.student.LoginStudentAuthRequest
 	(*LoginStudentAuthResponse)(nil),               // 1: auth.student.LoginStudentAuthResponse
@@ -1385,6 +1545,8 @@ var file_auth_student_proto_goTypes = []interface{}{
 	(*GetParentWithStudentUUIDResponse)(nil),       // 12: auth.student.GetParentWithStudentUUIDResponse
 	(*GetUnsignedStudentWithAuthCodeRequest)(nil),  // 13: auth.student.GetUnsignedStudentWithAuthCodeRequest
 	(*GetUnsignedStudentWithAuthCodeResponse)(nil), // 14: auth.student.GetUnsignedStudentWithAuthCodeResponse
+	(*CreateNewStudentWithAuthCodeRequest)(nil),    // 15: auth.student.CreateNewStudentWithAuthCodeRequest
+	(*CreateNewStudentWithAuthCodeResponse)(nil),   // 16: auth.student.CreateNewStudentWithAuthCodeResponse
 }
 var file_auth_student_proto_depIdxs = []int32{
 	8,  // 0: auth.student.GetStudentInformsWithUUIDsResponse.StudentInforms:type_name -> auth.student.StudentInform
@@ -1395,15 +1557,17 @@ var file_auth_student_proto_depIdxs = []int32{
 	9,  // 5: auth.student.AuthStudent.GetStudentUUIDsWithInform:input_type -> auth.student.GetStudentUUIDsWithInformRequest
 	11, // 6: auth.student.AuthStudent.GetParentWithStudentUUID:input_type -> auth.student.GetParentWithStudentUUIDRequest
 	13, // 7: auth.student.AuthStudent.GetUnsignedStudentWithAuthCode:input_type -> auth.student.GetUnsignedStudentWithAuthCodeRequest
-	1,  // 8: auth.student.AuthStudent.LoginStudentAuth:output_type -> auth.student.LoginStudentAuthResponse
-	3,  // 9: auth.student.AuthStudent.ChangeStudentPW:output_type -> auth.student.ChangeStudentPWResponse
-	5,  // 10: auth.student.AuthStudent.GetStudentInformWithUUID:output_type -> auth.student.GetStudentInformWithUUIDResponse
-	7,  // 11: auth.student.AuthStudent.GetStudentInformsWithUUIDs:output_type -> auth.student.GetStudentInformsWithUUIDsResponse
-	10, // 12: auth.student.AuthStudent.GetStudentUUIDsWithInform:output_type -> auth.student.GetStudentUUIDsWithInformResponse
-	12, // 13: auth.student.AuthStudent.GetParentWithStudentUUID:output_type -> auth.student.GetParentWithStudentUUIDResponse
-	14, // 14: auth.student.AuthStudent.GetUnsignedStudentWithAuthCode:output_type -> auth.student.GetUnsignedStudentWithAuthCodeResponse
-	8,  // [8:15] is the sub-list for method output_type
-	1,  // [1:8] is the sub-list for method input_type
+	15, // 8: auth.student.AuthStudent.CreateNewStudentWithAuthCode:input_type -> auth.student.CreateNewStudentWithAuthCodeRequest
+	1,  // 9: auth.student.AuthStudent.LoginStudentAuth:output_type -> auth.student.LoginStudentAuthResponse
+	3,  // 10: auth.student.AuthStudent.ChangeStudentPW:output_type -> auth.student.ChangeStudentPWResponse
+	5,  // 11: auth.student.AuthStudent.GetStudentInformWithUUID:output_type -> auth.student.GetStudentInformWithUUIDResponse
+	7,  // 12: auth.student.AuthStudent.GetStudentInformsWithUUIDs:output_type -> auth.student.GetStudentInformsWithUUIDsResponse
+	10, // 13: auth.student.AuthStudent.GetStudentUUIDsWithInform:output_type -> auth.student.GetStudentUUIDsWithInformResponse
+	12, // 14: auth.student.AuthStudent.GetParentWithStudentUUID:output_type -> auth.student.GetParentWithStudentUUIDResponse
+	14, // 15: auth.student.AuthStudent.GetUnsignedStudentWithAuthCode:output_type -> auth.student.GetUnsignedStudentWithAuthCodeResponse
+	16, // 16: auth.student.AuthStudent.CreateNewStudentWithAuthCode:output_type -> auth.student.CreateNewStudentWithAuthCodeResponse
+	9,  // [9:17] is the sub-list for method output_type
+	1,  // [1:9] is the sub-list for method input_type
 	1,  // [1:1] is the sub-list for extension type_name
 	1,  // [1:1] is the sub-list for extension extendee
 	0,  // [0:1] is the sub-list for field type_name
@@ -1595,6 +1759,30 @@ func file_auth_student_proto_init() {
 				return nil
 			}
 		}
+		file_auth_student_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateNewStudentWithAuthCodeRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_auth_student_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateNewStudentWithAuthCodeResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1602,7 +1790,7 @@ func file_auth_student_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_auth_student_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
