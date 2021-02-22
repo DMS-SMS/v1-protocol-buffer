@@ -111,7 +111,7 @@ message GetParentWithStudentUUIDResponse {
 }
 
 message GetStudentInformWithAuthCodeRequest {
-    string AuthCode = 1; // 정보를 조회할 AuthCode
+    uint32 AuthCode = 1; // 정보를 조회할 AuthCode
 }
 
 message GetStudentInformWithAuthCodeResponse {
