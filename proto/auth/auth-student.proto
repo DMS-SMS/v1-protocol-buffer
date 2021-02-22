@@ -111,8 +111,7 @@ message GetParentWithStudentUUIDResponse {
 }
 
 message GetStudentInformWithAuthCodeRequest {
-    string UUID = 1; // API를 호출한 학생 계정의 uuid (20자)
-    uint32 AuthCode = 2; // 정보를 조회할 AuthCode
+    string AuthCode = 1; // 정보를 조회할 AuthCode
 }
 
 message GetStudentInformWithAuthCodeResponse {
