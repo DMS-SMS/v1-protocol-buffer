@@ -11,6 +11,7 @@ service AuthStudent {
     rpc GetStudentInformsWithUUIDs(GetStudentInformsWithUUIDsRequest) returns (GetStudentInformsWithUUIDsResponse) {}
     rpc GetStudentUUIDsWithInform(GetStudentUUIDsWithInformRequest) returns (GetStudentUUIDsWithInformResponse) {}
     rpc GetParentWithStudentUUID(GetParentWithStudentUUIDRequest) returns (GetParentWithStudentUUIDResponse) {}
+    rpc GetStudentInformWithAuthCode(GetStudentInformWithAuthCodeRequest) returns (GetStudentInformWithAuthCodeResponse) {}
 }
 
 message LoginStudentAuthRequest {
@@ -107,4 +108,21 @@ message GetParentWithStudentUUIDResponse {
     string ParentUUID = 4; // 학부모 계정 UUID
     string Name = 5; // 학부모 이름
     string PhoneNumber = 6; // 전화번호 정보
+}
+
+message GetStudentInformWithAuthCodeRequest {
+    string UUID = 1; // API를 호출한 학생 계정의 uuid (20자)
+    int64 AuthCode = 2; // 정보를 조회할 AuthCode
+}
+
+message GetStudentInformWithAuthCodeResponse {
+    uint32 Status = 1;
+    sint32 Code = 2;
+    string Message = 3;
+    string AuthCode = 4; // 인증 코드 정보
+    string Name = 5; // 학부모 이름
+    uint32 Grade = 6; // 학년 정보
+    uint32 Group = 7; // 반 정보
+    uint32 StudentNumber = 8; // 번호 정보
+    string PhoneNumber = 9; // 전화번호 정보
 }
