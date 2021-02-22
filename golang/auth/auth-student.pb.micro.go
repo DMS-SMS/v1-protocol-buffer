@@ -40,6 +40,7 @@ type AuthStudentService interface {
 	GetStudentInformsWithUUIDs(ctx context.Context, in *GetStudentInformsWithUUIDsRequest, opts ...client.CallOption) (*GetStudentInformsWithUUIDsResponse, error)
 	GetStudentUUIDsWithInform(ctx context.Context, in *GetStudentUUIDsWithInformRequest, opts ...client.CallOption) (*GetStudentUUIDsWithInformResponse, error)
 	GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, opts ...client.CallOption) (*GetParentWithStudentUUIDResponse, error)
+	GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, opts ...client.CallOption) (*GetStudentInformWithAuthCodeResponse, error)
 }
 
 type authStudentService struct {
@@ -114,6 +115,16 @@ func (c *authStudentService) GetParentWithStudentUUID(ctx context.Context, in *G
 	return out, nil
 }
 
+func (c *authStudentService) GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, opts ...client.CallOption) (*GetStudentInformWithAuthCodeResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthStudent.GetStudentInformWithAuthCode", in)
+	out := new(GetStudentInformWithAuthCodeResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AuthStudent service
 
 type AuthStudentHandler interface {
@@ -123,6 +134,7 @@ type AuthStudentHandler interface {
 	GetStudentInformsWithUUIDs(context.Context, *GetStudentInformsWithUUIDsRequest, *GetStudentInformsWithUUIDsResponse) error
 	GetStudentUUIDsWithInform(context.Context, *GetStudentUUIDsWithInformRequest, *GetStudentUUIDsWithInformResponse) error
 	GetParentWithStudentUUID(context.Context, *GetParentWithStudentUUIDRequest, *GetParentWithStudentUUIDResponse) error
+	GetStudentInformWithAuthCode(context.Context, *GetStudentInformWithAuthCodeRequest, *GetStudentInformWithAuthCodeResponse) error
 }
 
 func RegisterAuthStudentHandler(s server.Server, hdlr AuthStudentHandler, opts ...server.HandlerOption) error {
@@ -133,6 +145,7 @@ func RegisterAuthStudentHandler(s server.Server, hdlr AuthStudentHandler, opts .
 		GetStudentInformsWithUUIDs(ctx context.Context, in *GetStudentInformsWithUUIDsRequest, out *GetStudentInformsWithUUIDsResponse) error
 		GetStudentUUIDsWithInform(ctx context.Context, in *GetStudentUUIDsWithInformRequest, out *GetStudentUUIDsWithInformResponse) error
 		GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, out *GetParentWithStudentUUIDResponse) error
+		GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, out *GetStudentInformWithAuthCodeResponse) error
 	}
 	type AuthStudent struct {
 		authStudent
@@ -167,4 +180,8 @@ func (h *authStudentHandler) GetStudentUUIDsWithInform(ctx context.Context, in *
 
 func (h *authStudentHandler) GetParentWithStudentUUID(ctx context.Context, in *GetParentWithStudentUUIDRequest, out *GetParentWithStudentUUIDResponse) error {
 	return h.AuthStudentHandler.GetParentWithStudentUUID(ctx, in, out)
+}
+
+func (h *authStudentHandler) GetStudentInformWithAuthCode(ctx context.Context, in *GetStudentInformWithAuthCodeRequest, out *GetStudentInformWithAuthCodeResponse) error {
+	return h.AuthStudentHandler.GetStudentInformWithAuthCode(ctx, in, out)
 }
