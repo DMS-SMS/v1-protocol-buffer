@@ -34,6 +34,7 @@ var _ server.Option
 // Client API for AuthTeacher service
 
 type AuthTeacherService interface {
+	CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error)
 	LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, opts ...client.CallOption) (*LoginTeacherAuthResponse, error)
 	ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, opts ...client.CallOption) (*ChangeTeacherPWResponse, error)
 	GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, opts ...client.CallOption) (*GetTeacherInformWithUUIDResponse, error)
@@ -50,6 +51,16 @@ func NewAuthTeacherService(name string, c client.Client) AuthTeacherService {
 		c:    c,
 		name: name,
 	}
+}
+
+func (c *authTeacherService) CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthTeacher.CreateNewTeacher", in)
+	out := new(CreateNewTeacherResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *authTeacherService) LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, opts ...client.CallOption) (*LoginTeacherAuthResponse, error) {
@@ -95,6 +106,7 @@ func (c *authTeacherService) GetTeacherUUIDsWithInform(ctx context.Context, in *
 // Server API for AuthTeacher service
 
 type AuthTeacherHandler interface {
+	CreateNewTeacher(context.Context, *CreateNewTeacherRequest, *CreateNewTeacherResponse) error
 	LoginTeacherAuth(context.Context, *LoginTeacherAuthRequest, *LoginTeacherAuthResponse) error
 	ChangeTeacherPW(context.Context, *ChangeTeacherPWRequest, *ChangeTeacherPWResponse) error
 	GetTeacherInformWithUUID(context.Context, *GetTeacherInformWithUUIDRequest, *GetTeacherInformWithUUIDResponse) error
@@ -103,6 +115,7 @@ type AuthTeacherHandler interface {
 
 func RegisterAuthTeacherHandler(s server.Server, hdlr AuthTeacherHandler, opts ...server.HandlerOption) error {
 	type authTeacher interface {
+		CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error
 		LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, out *LoginTeacherAuthResponse) error
 		ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, out *ChangeTeacherPWResponse) error
 		GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, out *GetTeacherInformWithUUIDResponse) error
@@ -117,6 +130,10 @@ func RegisterAuthTeacherHandler(s server.Server, hdlr AuthTeacherHandler, opts .
 
 type authTeacherHandler struct {
 	AuthTeacherHandler
+}
+
+func (h *authTeacherHandler) CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error {
+	return h.AuthTeacherHandler.CreateNewTeacher(ctx, in, out)
 }
 
 func (h *authTeacherHandler) LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, out *LoginTeacherAuthResponse) error {

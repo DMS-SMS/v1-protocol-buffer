@@ -35,7 +35,6 @@ var _ server.Option
 
 type AuthAdminService interface {
 	CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, opts ...client.CallOption) (*CreateNewStudentResponse, error)
-	CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error)
 	CreateNewParent(ctx context.Context, in *CreateNewParentRequest, opts ...client.CallOption) (*CreateNewParentResponse, error)
 	LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, opts ...client.CallOption) (*LoginAdminAuthResponse, error)
 	AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, opts ...client.CallOption) (*AddUnsignedStudentsResponse, error)
@@ -57,16 +56,6 @@ func NewAuthAdminService(name string, c client.Client) AuthAdminService {
 func (c *authAdminService) CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, opts ...client.CallOption) (*CreateNewStudentResponse, error) {
 	req := c.c.NewRequest(c.name, "AuthAdmin.CreateNewStudent", in)
 	out := new(CreateNewStudentResponse)
-	err := c.c.Call(ctx, req, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authAdminService) CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error) {
-	req := c.c.NewRequest(c.name, "AuthAdmin.CreateNewTeacher", in)
-	out := new(CreateNewTeacherResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -118,7 +107,6 @@ func (c *authAdminService) SendJoinSMSToUnsignedStudents(ctx context.Context, in
 
 type AuthAdminHandler interface {
 	CreateNewStudent(context.Context, *CreateNewStudentRequest, *CreateNewStudentResponse) error
-	CreateNewTeacher(context.Context, *CreateNewTeacherRequest, *CreateNewTeacherResponse) error
 	CreateNewParent(context.Context, *CreateNewParentRequest, *CreateNewParentResponse) error
 	LoginAdminAuth(context.Context, *LoginAdminAuthRequest, *LoginAdminAuthResponse) error
 	AddUnsignedStudents(context.Context, *AddUnsignedStudentsRequest, *AddUnsignedStudentsResponse) error
@@ -128,7 +116,6 @@ type AuthAdminHandler interface {
 func RegisterAuthAdminHandler(s server.Server, hdlr AuthAdminHandler, opts ...server.HandlerOption) error {
 	type authAdmin interface {
 		CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, out *CreateNewStudentResponse) error
-		CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error
 		CreateNewParent(ctx context.Context, in *CreateNewParentRequest, out *CreateNewParentResponse) error
 		LoginAdminAuth(ctx context.Context, in *LoginAdminAuthRequest, out *LoginAdminAuthResponse) error
 		AddUnsignedStudents(ctx context.Context, in *AddUnsignedStudentsRequest, out *AddUnsignedStudentsResponse) error
@@ -147,10 +134,6 @@ type authAdminHandler struct {
 
 func (h *authAdminHandler) CreateNewStudent(ctx context.Context, in *CreateNewStudentRequest, out *CreateNewStudentResponse) error {
 	return h.AuthAdminHandler.CreateNewStudent(ctx, in, out)
-}
-
-func (h *authAdminHandler) CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error {
-	return h.AuthAdminHandler.CreateNewTeacher(ctx, in, out)
 }
 
 func (h *authAdminHandler) CreateNewParent(ctx context.Context, in *CreateNewParentRequest, out *CreateNewParentResponse) error {
