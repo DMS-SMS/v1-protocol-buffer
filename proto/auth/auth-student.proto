@@ -56,6 +56,7 @@ message GetStudentInformWithUUIDResponse {
     string Name = 7; // 이름 정보
     string PhoneNumber = 8; // 전화번호 정보
     string ImageURI = 9; // 학생 프로필 이미지 첨부 링크
+    string ParentStatus = 10; // 학부모 계정 연결 상태 ("CONNECTED" | "UN_CONNECTED" | "")
 }
 
 message GetStudentInformsWithUUIDsRequest {
