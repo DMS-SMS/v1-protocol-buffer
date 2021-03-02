@@ -35,6 +35,7 @@ var _ server.Option
 
 type ScheduleService interface {
 	GetTimeTable(ctx context.Context, in *GetTimeTableRequest, opts ...client.CallOption) (*GetTimeTableResponse, error)
+	GetTimeTables(ctx context.Context, in *GetTimeTablesRequest, opts ...client.CallOption) (*GetTimeTablesResponse, error)
 	GetSchedule(ctx context.Context, in *GetScheduleRequest, opts ...client.CallOption) (*GetScheduleResponse, error)
 	CreateSchedule(ctx context.Context, in *CreateScheduleRequest, opts ...client.CallOption) (*DefaultScheduleResponse, error)
 	UpdateSchedule(ctx context.Context, in *UpdateScheduleRequest, opts ...client.CallOption) (*DefaultScheduleResponse, error)
@@ -56,6 +57,16 @@ func NewScheduleService(name string, c client.Client) ScheduleService {
 func (c *scheduleService) GetTimeTable(ctx context.Context, in *GetTimeTableRequest, opts ...client.CallOption) (*GetTimeTableResponse, error) {
 	req := c.c.NewRequest(c.name, "ScheduleService.GetTimeTable", in)
 	out := new(GetTimeTableResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *scheduleService) GetTimeTables(ctx context.Context, in *GetTimeTablesRequest, opts ...client.CallOption) (*GetTimeTablesResponse, error) {
+	req := c.c.NewRequest(c.name, "ScheduleService.GetTimeTables", in)
+	out := new(GetTimeTablesResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -107,6 +118,7 @@ func (c *scheduleService) DeleteSchedule(ctx context.Context, in *DeleteSchedule
 
 type ScheduleServiceHandler interface {
 	GetTimeTable(context.Context, *GetTimeTableRequest, *GetTimeTableResponse) error
+	GetTimeTables(context.Context, *GetTimeTablesRequest, *GetTimeTablesResponse) error
 	GetSchedule(context.Context, *GetScheduleRequest, *GetScheduleResponse) error
 	CreateSchedule(context.Context, *CreateScheduleRequest, *DefaultScheduleResponse) error
 	UpdateSchedule(context.Context, *UpdateScheduleRequest, *DefaultScheduleResponse) error
@@ -116,6 +128,7 @@ type ScheduleServiceHandler interface {
 func RegisterScheduleServiceHandler(s server.Server, hdlr ScheduleServiceHandler, opts ...server.HandlerOption) error {
 	type scheduleService interface {
 		GetTimeTable(ctx context.Context, in *GetTimeTableRequest, out *GetTimeTableResponse) error
+		GetTimeTables(ctx context.Context, in *GetTimeTablesRequest, out *GetTimeTablesResponse) error
 		GetSchedule(ctx context.Context, in *GetScheduleRequest, out *GetScheduleResponse) error
 		CreateSchedule(ctx context.Context, in *CreateScheduleRequest, out *DefaultScheduleResponse) error
 		UpdateSchedule(ctx context.Context, in *UpdateScheduleRequest, out *DefaultScheduleResponse) error
@@ -134,6 +147,10 @@ type scheduleServiceHandler struct {
 
 func (h *scheduleServiceHandler) GetTimeTable(ctx context.Context, in *GetTimeTableRequest, out *GetTimeTableResponse) error {
 	return h.ScheduleServiceHandler.GetTimeTable(ctx, in, out)
+}
+
+func (h *scheduleServiceHandler) GetTimeTables(ctx context.Context, in *GetTimeTablesRequest, out *GetTimeTablesResponse) error {
+	return h.ScheduleServiceHandler.GetTimeTables(ctx, in, out)
 }
 
 func (h *scheduleServiceHandler) GetSchedule(ctx context.Context, in *GetScheduleRequest, out *GetScheduleResponse) error {
