@@ -93,6 +93,7 @@ message SendJoinSMSToUnsignedStudentsRequest {
     string UUID = 1; // API를 호출한 관리자 uuid (18자)
     uint32 TargetGrade = 3; // 전송 대상 학년 (1~3 사이)
     uint32 TargetGroup = 4; // 전송 대상 반 (1~4 사이)
+    uint32 TargetNumber = 5; // 전송 대상 반 (1~4 사이)
 }
 
 message SendJoinSMSToUnsignedStudentsResponse {
