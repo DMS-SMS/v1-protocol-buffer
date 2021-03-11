@@ -50,6 +50,7 @@ message StudentOuting {
     int64 end_time = 5;
     string situation = 6;
     string status = 7;
+    int64 arrival_time = 8;
 }
 
 message GetOutingInformRequest {

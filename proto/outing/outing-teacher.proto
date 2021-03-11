@@ -39,6 +39,7 @@ message Outing {
     string status = 10;
     string situation = 11;
     bool is_late = 12;
+    int64 arrival_time = 13; 
 }
 
 message ConfirmOutingRequest {
