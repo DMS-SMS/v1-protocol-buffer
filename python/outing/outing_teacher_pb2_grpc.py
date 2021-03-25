@@ -34,6 +34,11 @@ class OutingTeacherStub(object):
                 request_serializer=outing__teacher__pb2.ConfirmOutingRequest.SerializeToString,
                 response_deserializer=outing__teacher__pb2.ConfirmOutingResponse.FromString,
                 )
+        self.ModifyOuting = channel.unary_unary(
+                '/OutingTeacher/ModifyOuting',
+                request_serializer=outing__teacher__pb2.ModifyOutingRequest.SerializeToString,
+                response_deserializer=outing__teacher__pb2.ConfirmOutingResponse.FromString,
+                )
 
 
 class OutingTeacherServicer(object):
@@ -63,6 +68,12 @@ class OutingTeacherServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ModifyOuting(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OutingTeacherServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_OutingTeacherServicer_to_server(servicer, server):
             'CertifyOuting': grpc.unary_unary_rpc_method_handler(
                     servicer.CertifyOuting,
                     request_deserializer=outing__teacher__pb2.ConfirmOutingRequest.FromString,
+                    response_serializer=outing__teacher__pb2.ConfirmOutingResponse.SerializeToString,
+            ),
+            'ModifyOuting': grpc.unary_unary_rpc_method_handler(
+                    servicer.ModifyOuting,
+                    request_deserializer=outing__teacher__pb2.ModifyOutingRequest.FromString,
                     response_serializer=outing__teacher__pb2.ConfirmOutingResponse.SerializeToString,
             ),
     }
@@ -160,6 +176,23 @@ class OutingTeacher(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/OutingTeacher/CertifyOuting',
             outing__teacher__pb2.ConfirmOutingRequest.SerializeToString,
+            outing__teacher__pb2.ConfirmOutingResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ModifyOuting(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/OutingTeacher/ModifyOuting',
+            outing__teacher__pb2.ModifyOutingRequest.SerializeToString,
             outing__teacher__pb2.ConfirmOutingResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
