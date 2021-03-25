@@ -7,6 +7,7 @@ service OutingTeacher {
     rpc ApproveOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
     rpc RejectOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
     rpc CertifyOuting(ConfirmOutingRequest) returns (ConfirmOutingResponse) {}
+    rpc ModifyOuting(ModifyOutingRequest) returns (ConfirmOutingResponse) {}
 }
 
 message GetOutingWithFilterRequest {
@@ -45,6 +46,12 @@ message Outing {
 message ConfirmOutingRequest {
     string uuid = 1;
     string outing_id = 2;
+}
+
+message ModifyOutingRequest {
+    string uuid = 1;
+    string outing_id = 2;
+    string end_time = 3;
 }
 
 message ConfirmOutingResponse {
