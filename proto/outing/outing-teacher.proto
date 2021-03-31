@@ -51,7 +51,7 @@ message ConfirmOutingRequest {
 message ModifyOutingRequest {
     string uuid = 1;
     string outing_id = 2;
-    string end_time = 3;
+    int64 end_time = 3;
 }
 
 message ConfirmOutingResponse {
