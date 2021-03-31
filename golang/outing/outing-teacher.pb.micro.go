@@ -38,6 +38,7 @@ type OutingTeacherService interface {
 	ApproveOuting(ctx context.Context, in *ConfirmOutingRequest, opts ...client.CallOption) (*ConfirmOutingResponse, error)
 	RejectOuting(ctx context.Context, in *ConfirmOutingRequest, opts ...client.CallOption) (*ConfirmOutingResponse, error)
 	CertifyOuting(ctx context.Context, in *ConfirmOutingRequest, opts ...client.CallOption) (*ConfirmOutingResponse, error)
+	ModifyOuting(ctx context.Context, in *ModifyOutingRequest, opts ...client.CallOption) (*ConfirmOutingResponse, error)
 }
 
 type outingTeacherService struct {
@@ -92,6 +93,16 @@ func (c *outingTeacherService) CertifyOuting(ctx context.Context, in *ConfirmOut
 	return out, nil
 }
 
+func (c *outingTeacherService) ModifyOuting(ctx context.Context, in *ModifyOutingRequest, opts ...client.CallOption) (*ConfirmOutingResponse, error) {
+	req := c.c.NewRequest(c.name, "OutingTeacher.ModifyOuting", in)
+	out := new(ConfirmOutingResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for OutingTeacher service
 
 type OutingTeacherHandler interface {
@@ -99,6 +110,7 @@ type OutingTeacherHandler interface {
 	ApproveOuting(context.Context, *ConfirmOutingRequest, *ConfirmOutingResponse) error
 	RejectOuting(context.Context, *ConfirmOutingRequest, *ConfirmOutingResponse) error
 	CertifyOuting(context.Context, *ConfirmOutingRequest, *ConfirmOutingResponse) error
+	ModifyOuting(context.Context, *ModifyOutingRequest, *ConfirmOutingResponse) error
 }
 
 func RegisterOutingTeacherHandler(s server.Server, hdlr OutingTeacherHandler, opts ...server.HandlerOption) error {
@@ -107,6 +119,7 @@ func RegisterOutingTeacherHandler(s server.Server, hdlr OutingTeacherHandler, op
 		ApproveOuting(ctx context.Context, in *ConfirmOutingRequest, out *ConfirmOutingResponse) error
 		RejectOuting(ctx context.Context, in *ConfirmOutingRequest, out *ConfirmOutingResponse) error
 		CertifyOuting(ctx context.Context, in *ConfirmOutingRequest, out *ConfirmOutingResponse) error
+		ModifyOuting(ctx context.Context, in *ModifyOutingRequest, out *ConfirmOutingResponse) error
 	}
 	type OutingTeacher struct {
 		outingTeacher
@@ -133,4 +146,8 @@ func (h *outingTeacherHandler) RejectOuting(ctx context.Context, in *ConfirmOuti
 
 func (h *outingTeacherHandler) CertifyOuting(ctx context.Context, in *ConfirmOutingRequest, out *ConfirmOutingResponse) error {
 	return h.OutingTeacherHandler.CertifyOuting(ctx, in, out)
+}
+
+func (h *outingTeacherHandler) ModifyOuting(ctx context.Context, in *ModifyOutingRequest, out *ConfirmOutingResponse) error {
+	return h.OutingTeacherHandler.ModifyOuting(ctx, in, out)
 }
