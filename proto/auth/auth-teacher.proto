@@ -7,6 +7,7 @@ option go_package = ".;authproto";
 service AuthTeacher {
     rpc CreateNewTeacher(CreateNewTeacherRequest) returns (CreateNewTeacherResponse) {}
     rpc LoginTeacherAuth(LoginTeacherAuthRequest) returns (LoginTeacherAuthResponse) {}
+    rpc LoginTeacherAuthWithPICK(LoginTeacherAuthWithPICKRequest) returns (LoginTeacherAuthWithPICKResponse) {}
     rpc ChangeTeacherPW(ChangeTeacherPWRequest) returns (ChangeTeacherPWResponse) {}
     rpc GetTeacherInformWithUUID(GetTeacherInformWithUUIDRequest) returns (GetTeacherInformWithUUIDResponse) {}
     rpc GetTeacherUUIDsWithInform(GetTeacherUUIDsWithInformRequest) returns (GetTeacherUUIDsWithInformResponse) {}
@@ -82,4 +83,17 @@ message GetTeacherUUIDsWithInformResponse {
     sint32 Code = 2;
     string Message = 3;
     repeated string TeacherUUIDs = 4;
+}
+
+
+message LoginTeacherAuthWithPICKRequest {
+    string TeacherID = 1; // 선생님용 계정 아이디 (4~16자 사이)
+    string TeacherPW = 2; // 선생님용 계정 비밀번호 (4~16자 사이)
+}
+
+message LoginTeacherAuthWithPICKResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
+    string LoggedInTeacherUUID = 4; // 로그인한 선생님 계정의 uuid
 }
