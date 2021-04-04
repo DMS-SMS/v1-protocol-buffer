@@ -40,6 +40,7 @@ type AuthTeacherService interface {
 	ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, opts ...client.CallOption) (*ChangeTeacherPWResponse, error)
 	GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, opts ...client.CallOption) (*GetTeacherInformWithUUIDResponse, error)
 	GetTeacherUUIDsWithInform(ctx context.Context, in *GetTeacherUUIDsWithInformRequest, opts ...client.CallOption) (*GetTeacherUUIDsWithInformResponse, error)
+	ChangeTeacherInform(ctx context.Context, in *ChangeTeacherInformRequest, opts ...client.CallOption) (*ChangeTeacherInformResponse, error)
 }
 
 type authTeacherService struct {
@@ -114,6 +115,16 @@ func (c *authTeacherService) GetTeacherUUIDsWithInform(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *authTeacherService) ChangeTeacherInform(ctx context.Context, in *ChangeTeacherInformRequest, opts ...client.CallOption) (*ChangeTeacherInformResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthTeacher.ChangeTeacherInform", in)
+	out := new(ChangeTeacherInformResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for AuthTeacher service
 
 type AuthTeacherHandler interface {
@@ -123,6 +134,7 @@ type AuthTeacherHandler interface {
 	ChangeTeacherPW(context.Context, *ChangeTeacherPWRequest, *ChangeTeacherPWResponse) error
 	GetTeacherInformWithUUID(context.Context, *GetTeacherInformWithUUIDRequest, *GetTeacherInformWithUUIDResponse) error
 	GetTeacherUUIDsWithInform(context.Context, *GetTeacherUUIDsWithInformRequest, *GetTeacherUUIDsWithInformResponse) error
+	ChangeTeacherInform(context.Context, *ChangeTeacherInformRequest, *ChangeTeacherInformResponse) error
 }
 
 func RegisterAuthTeacherHandler(s server.Server, hdlr AuthTeacherHandler, opts ...server.HandlerOption) error {
@@ -133,6 +145,7 @@ func RegisterAuthTeacherHandler(s server.Server, hdlr AuthTeacherHandler, opts .
 		ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, out *ChangeTeacherPWResponse) error
 		GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, out *GetTeacherInformWithUUIDResponse) error
 		GetTeacherUUIDsWithInform(ctx context.Context, in *GetTeacherUUIDsWithInformRequest, out *GetTeacherUUIDsWithInformResponse) error
+		ChangeTeacherInform(ctx context.Context, in *ChangeTeacherInformRequest, out *ChangeTeacherInformResponse) error
 	}
 	type AuthTeacher struct {
 		authTeacher
@@ -167,4 +180,8 @@ func (h *authTeacherHandler) GetTeacherInformWithUUID(ctx context.Context, in *G
 
 func (h *authTeacherHandler) GetTeacherUUIDsWithInform(ctx context.Context, in *GetTeacherUUIDsWithInformRequest, out *GetTeacherUUIDsWithInformResponse) error {
 	return h.AuthTeacherHandler.GetTeacherUUIDsWithInform(ctx, in, out)
+}
+
+func (h *authTeacherHandler) ChangeTeacherInform(ctx context.Context, in *ChangeTeacherInformRequest, out *ChangeTeacherInformResponse) error {
+	return h.AuthTeacherHandler.ChangeTeacherInform(ctx, in, out)
 }
