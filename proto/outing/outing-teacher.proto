@@ -18,6 +18,8 @@ message GetOutingWithFilterRequest {
     int32 floor = 5;
     int32 start = 6;
     int32 count = 7;
+    int32 start_time = 8;
+    int32 end_time = 9;
 }
 
 message OutingResponse {

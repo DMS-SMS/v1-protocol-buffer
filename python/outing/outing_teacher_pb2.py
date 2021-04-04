@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\r.;outingproto',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14outing-teacher.proto\"\x85\x01\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\r\n\x05\x66loor\x18\x05 \x01(\x05\x12\r\n\x05start\x18\x06 \x01(\x05\x12\r\n\x05\x63ount\x18\x07 \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xe6\x01\n\x06Outing\x12\x11\n\touting_id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\x0e\n\x06number\x18\x05 \x01(\x05\x12\r\n\x05place\x18\x06 \x01(\t\x12\x0e\n\x06reason\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x0e\n\x06status\x18\n \x01(\t\x12\x11\n\tsituation\x18\x0b \x01(\t\x12\x0f\n\x07is_late\x18\x0c \x01(\x08\x12\x14\n\x0c\x61rrival_time\x18\r \x01(\x03\"7\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"H\n\x13ModifyOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xdb\x02\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12>\n\x0cModifyOuting\x12\x14.ModifyOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x42\x0fZ\r.;outingprotob\x06proto3'
+  serialized_pb=b'\n\x14outing-teacher.proto\"\xab\x01\n\x1aGetOutingWithFilterRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\r\n\x05\x66loor\x18\x05 \x01(\x05\x12\r\n\x05start\x18\x06 \x01(\x05\x12\r\n\x05\x63ount\x18\x07 \x01(\x05\x12\x12\n\nstart_time\x18\x08 \x01(\x05\x12\x10\n\x08\x65nd_time\x18\t \x01(\x05\"T\n\x0eOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\x12\x17\n\x06outing\x18\x04 \x03(\x0b\x32\x07.Outing\"\xe6\x01\n\x06Outing\x12\x11\n\touting_id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05grade\x18\x03 \x01(\x05\x12\r\n\x05group\x18\x04 \x01(\x05\x12\x0e\n\x06number\x18\x05 \x01(\x05\x12\r\n\x05place\x18\x06 \x01(\t\x12\x0e\n\x06reason\x18\x07 \x01(\t\x12\x12\n\nstart_time\x18\x08 \x01(\x03\x12\x10\n\x08\x65nd_time\x18\t \x01(\x03\x12\x0e\n\x06status\x18\n \x01(\t\x12\x11\n\tsituation\x18\x0b \x01(\t\x12\x0f\n\x07is_late\x18\x0c \x01(\x08\x12\x14\n\x0c\x61rrival_time\x18\r \x01(\x03\"7\n\x14\x43onfirmOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\"H\n\x13ModifyOutingRequest\x12\x0c\n\x04uuid\x18\x01 \x01(\t\x12\x11\n\touting_id\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\x03\"B\n\x15\x43onfirmOutingResponse\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xdb\x02\n\rOutingTeacher\x12\x45\n\x13GetOutingWithFilter\x12\x1b.GetOutingWithFilterRequest\x1a\x0f.OutingResponse\"\x00\x12@\n\rApproveOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12?\n\x0cRejectOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12@\n\rCertifyOuting\x12\x15.ConfirmOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x12>\n\x0cModifyOuting\x12\x14.ModifyOutingRequest\x1a\x16.ConfirmOutingResponse\"\x00\x42\x0fZ\r.;outingprotob\x06proto3'
 )
 
 
@@ -82,6 +82,20 @@ _GETOUTINGWITHFILTERREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='GetOutingWithFilterRequest.start_time', index=7,
+      number=8, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='GetOutingWithFilterRequest.end_time', index=8,
+      number=9, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -95,7 +109,7 @@ _GETOUTINGWITHFILTERREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=25,
-  serialized_end=158,
+  serialized_end=196,
 )
 
 
@@ -147,8 +161,8 @@ _OUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=160,
-  serialized_end=244,
+  serialized_start=198,
+  serialized_end=282,
 )
 
 
@@ -263,8 +277,8 @@ _OUTING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=247,
-  serialized_end=477,
+  serialized_start=285,
+  serialized_end=515,
 )
 
 
@@ -302,8 +316,8 @@ _CONFIRMOUTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=479,
-  serialized_end=534,
+  serialized_start=517,
+  serialized_end=572,
 )
 
 
@@ -348,8 +362,8 @@ _MODIFYOUTINGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=536,
-  serialized_end=608,
+  serialized_start=574,
+  serialized_end=646,
 )
 
 
@@ -394,8 +408,8 @@ _CONFIRMOUTINGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=610,
-  serialized_end=676,
+  serialized_start=648,
+  serialized_end=714,
 )
 
 _OUTINGRESPONSE.fields_by_name['outing'].message_type = _OUTING
@@ -459,8 +473,8 @@ _OUTINGTEACHER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=679,
-  serialized_end=1026,
+  serialized_start=717,
+  serialized_end=1064,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetOutingWithFilter',
