@@ -36,6 +36,7 @@ var _ server.Option
 type AuthTeacherService interface {
 	CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, opts ...client.CallOption) (*CreateNewTeacherResponse, error)
 	LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, opts ...client.CallOption) (*LoginTeacherAuthResponse, error)
+	LoginTeacherAuthWithPICK(ctx context.Context, in *LoginTeacherAuthWithPICKRequest, opts ...client.CallOption) (*LoginTeacherAuthWithPICKResponse, error)
 	ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, opts ...client.CallOption) (*ChangeTeacherPWResponse, error)
 	GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, opts ...client.CallOption) (*GetTeacherInformWithUUIDResponse, error)
 	GetTeacherUUIDsWithInform(ctx context.Context, in *GetTeacherUUIDsWithInformRequest, opts ...client.CallOption) (*GetTeacherUUIDsWithInformResponse, error)
@@ -66,6 +67,16 @@ func (c *authTeacherService) CreateNewTeacher(ctx context.Context, in *CreateNew
 func (c *authTeacherService) LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, opts ...client.CallOption) (*LoginTeacherAuthResponse, error) {
 	req := c.c.NewRequest(c.name, "AuthTeacher.LoginTeacherAuth", in)
 	out := new(LoginTeacherAuthResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authTeacherService) LoginTeacherAuthWithPICK(ctx context.Context, in *LoginTeacherAuthWithPICKRequest, opts ...client.CallOption) (*LoginTeacherAuthWithPICKResponse, error) {
+	req := c.c.NewRequest(c.name, "AuthTeacher.LoginTeacherAuthWithPICK", in)
+	out := new(LoginTeacherAuthWithPICKResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
@@ -108,6 +119,7 @@ func (c *authTeacherService) GetTeacherUUIDsWithInform(ctx context.Context, in *
 type AuthTeacherHandler interface {
 	CreateNewTeacher(context.Context, *CreateNewTeacherRequest, *CreateNewTeacherResponse) error
 	LoginTeacherAuth(context.Context, *LoginTeacherAuthRequest, *LoginTeacherAuthResponse) error
+	LoginTeacherAuthWithPICK(context.Context, *LoginTeacherAuthWithPICKRequest, *LoginTeacherAuthWithPICKResponse) error
 	ChangeTeacherPW(context.Context, *ChangeTeacherPWRequest, *ChangeTeacherPWResponse) error
 	GetTeacherInformWithUUID(context.Context, *GetTeacherInformWithUUIDRequest, *GetTeacherInformWithUUIDResponse) error
 	GetTeacherUUIDsWithInform(context.Context, *GetTeacherUUIDsWithInformRequest, *GetTeacherUUIDsWithInformResponse) error
@@ -117,6 +129,7 @@ func RegisterAuthTeacherHandler(s server.Server, hdlr AuthTeacherHandler, opts .
 	type authTeacher interface {
 		CreateNewTeacher(ctx context.Context, in *CreateNewTeacherRequest, out *CreateNewTeacherResponse) error
 		LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, out *LoginTeacherAuthResponse) error
+		LoginTeacherAuthWithPICK(ctx context.Context, in *LoginTeacherAuthWithPICKRequest, out *LoginTeacherAuthWithPICKResponse) error
 		ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, out *ChangeTeacherPWResponse) error
 		GetTeacherInformWithUUID(ctx context.Context, in *GetTeacherInformWithUUIDRequest, out *GetTeacherInformWithUUIDResponse) error
 		GetTeacherUUIDsWithInform(ctx context.Context, in *GetTeacherUUIDsWithInformRequest, out *GetTeacherUUIDsWithInformResponse) error
@@ -138,6 +151,10 @@ func (h *authTeacherHandler) CreateNewTeacher(ctx context.Context, in *CreateNew
 
 func (h *authTeacherHandler) LoginTeacherAuth(ctx context.Context, in *LoginTeacherAuthRequest, out *LoginTeacherAuthResponse) error {
 	return h.AuthTeacherHandler.LoginTeacherAuth(ctx, in, out)
+}
+
+func (h *authTeacherHandler) LoginTeacherAuthWithPICK(ctx context.Context, in *LoginTeacherAuthWithPICKRequest, out *LoginTeacherAuthWithPICKResponse) error {
+	return h.AuthTeacherHandler.LoginTeacherAuthWithPICK(ctx, in, out)
 }
 
 func (h *authTeacherHandler) ChangeTeacherPW(ctx context.Context, in *ChangeTeacherPWRequest, out *ChangeTeacherPWResponse) error {
