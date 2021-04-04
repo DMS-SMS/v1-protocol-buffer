@@ -11,6 +11,7 @@ service AuthTeacher {
     rpc ChangeTeacherPW(ChangeTeacherPWRequest) returns (ChangeTeacherPWResponse) {}
     rpc GetTeacherInformWithUUID(GetTeacherInformWithUUIDRequest) returns (GetTeacherInformWithUUIDResponse) {}
     rpc GetTeacherUUIDsWithInform(GetTeacherUUIDsWithInformRequest) returns (GetTeacherUUIDsWithInformResponse) {}
+    rpc ChangeTeacherInform(ChangeTeacherInformRequest) returns (ChangeTeacherInformResponse) {}
 }
 
 message CreateNewTeacherRequest {
@@ -85,7 +86,6 @@ message GetTeacherUUIDsWithInformResponse {
     repeated string TeacherUUIDs = 4;
 }
 
-
 message LoginTeacherAuthWithPICKRequest {
     string TeacherID = 1; // 선생님용 계정 아이디 (4~16자 사이)
     string TeacherPW = 2; // 선생님용 계정 비밀번호 (4~16자 사이)
@@ -96,4 +96,16 @@ message LoginTeacherAuthWithPICKResponse {
     sint32 Code = 2; // 세부 코드
     string Message = 3; // 세부 설명
     string LoggedInTeacherUUID = 4; // 로그인한 선생님 계정의 uuid
+}
+
+message ChangeTeacherInformRequest {
+    string UUID = 1; // API를 호출한 선생님 계정의 uuid (20자)
+    string TeacherUUID = 2; // 변경할 선생님 계정의 uuid (20자)
+    string PhoneNumber = 3; // 전화번호 정보 (11자)
+}
+
+message ChangeTeacherInformResponse {
+    uint32 Status = 1; // 상태 코드
+    sint32 Code = 2; // 세부 코드
+    string Message = 3; // 세부 설명
 }
